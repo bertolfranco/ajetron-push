@@ -1,0 +1,9 @@
+<?php
+$MODE="prod";
+$HOST="db-ajebot-prod.cc5mcvrozp85.us-east-2.rds.amazonaws.com";
+$DB_BIIOT="admin_biiot";
+$DB_AJETRON="ajetron";
+$DB_USER="admajebotdev";
+$DB_PASSWORD="itKDPDEsEfsqLccV0Gm";
+$TOKEN_BOT="6514974985:AAG06s2qRdtNxE0k0yhwHkZ-cbGb8Jfd-Yg";
+?>

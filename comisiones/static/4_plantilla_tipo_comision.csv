@@ -1,0 +1,60 @@
+pais,sistema,familia,tipodecomision,valor
+PE,1,Gaseosas,Porcentual,0.2
+PE,1,Agua,Porcentual,0.2
+PE,1,Sporade,Porcentual,0.15
+PE,1,Volt,Porcentual,0.15
+PE,1,Pulp,Porcentual,0.1
+PE,1,Cifrut+Tea+Bio,Porcentual,0.1
+PE,1,Bebidas Alcoholicas,Porcentual,0.1
+PE,1,Nuevos Negocios,Monetaria,250
+PE,1,Marca Foco,Monetaria,100
+PE,2,Gaseosas,Porcentual,0.2
+PE,2,Agua,Porcentual,0.2
+PE,2,Sporade,Porcentual,0.25
+PE,2,Volt,Porcentual,0.1
+PE,2,Pulp,Porcentual,0.1
+PE,2,Cifrut+Tea+Bio,Porcentual,0.1
+PE,2,Bebidas Alcoholicas,Porcentual,0.05
+PE,2,Nuevos Negocios,Monetaria,250
+PE,2,Marca Foco,Monetaria,100
+PE,3,Gaseosas,Porcentual,0.38
+PE,3,Agua,Porcentual,0.1
+PE,3,Sporade,Porcentual,0.12
+PE,3,Volt,Porcentual,0.1
+PE,3,Pulp,Porcentual,0.1
+PE,3,Cifrut+Tea+Bio,Porcentual,0.1
+PE,3,Bebidas Alcoholicas,Porcentual,0.1
+PE,3,Nuevos Negocios,Monetaria,250
+PE,3,Marca Foco,Monetaria,100
+PE,4,Gaseosas,Porcentual,0.3
+PE,4,Agua,Porcentual,0.2
+PE,4,Sporade,Porcentual,0.1
+PE,4,Volt,Porcentual,0.1
+PE,4,Pulp,Porcentual,0.1
+PE,4,Cifrut+Tea+Bio,Porcentual,0.15
+PE,4,Bebidas Alcoholicas,Porcentual,0.05
+PE,4,Nuevos Negocios,Monetaria,250
+PE,4,Marca Foco,Monetaria,100
+PE,5,Gaseosas,Porcentual,0.28
+PE,5,Agua,Porcentual,0.15
+PE,5,Sporade,Porcentual,0.17
+PE,5,Volt,Porcentual,0.1
+PE,5,Pulp,Porcentual,0.1
+PE,5,Cifrut+Tea+Bio,Porcentual,0.1
+PE,5,Bebidas Alcoholicas,Porcentual,0.1
+PE,5,Nuevos Negocios,Monetaria,250
+PE,5,Marca Foco,Monetaria,100
+PE,6,Gaseosas,Porcentual,0.28
+PE,6,Agua,Porcentual,0.1
+PE,6,Sporade,Porcentual,0.22
+PE,6,Volt,Porcentual,0.1
+PE,6,Pulp,Porcentual,0.1
+PE,6,Cifrut+Tea+Bio,Porcentual,0.1
+PE,6,Bebidas Alcoholicas,Porcentual,0.1
+PE,6,Nuevos Negocios,Monetaria,250
+PE,6,Marca Foco,Monetaria,100
+PE,7,Gaseosas + Agua,Porcentual,0.29
+PE,7,Sporade + Volt,Porcentual,0.3
+PE,7,Pulp+Cifrut+Free Tea+Bio,Porcentual,0.18
+PE,7,Nuevos Negocios,Porcentual,0.13
+PE,7,Bebidas Alcoholicas,Porcentual,0.1
