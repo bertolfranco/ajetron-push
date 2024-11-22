@@ -14,7 +14,7 @@ $paisSession = $_SESSION["pais"];
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM comisiones_tipo WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM comisiones_hitrate WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -40,13 +40,51 @@ if (isset($_POST['enviar'])) {
                 $firstRowSkipped = true;
                 continue; // Saltar la primera fila
             }
-
-            $q = "INSERT INTO comisiones_tipo (pais,sistema,familia,tipodecomision,valor) VALUES (
-            '$data[0]',
-            '$data[1]',
-            '$data[2]',
-            '$data[3]',
-            '$data[4]'       
+			
+            $q = "INSERT INTO comisiones_hitrate (pais,a1,s1,a2,s2,a3,s3,a4,s4,a5,s5,a6,s6,a7,s7,a8,s8,a9,s9,a10,s10,a11,s11,a12,s12,a13,s13,a14,s14,a15,s15,a16,s16,a17,s17,a18,s18,a19,s19,a20,s20,a21,s21) VALUES (
+				'$data[0]',
+				'$data[1]',
+				'$data[2]',
+				'$data[3]',
+				'$data[4]',
+				'$data[5]',
+				'$data[6]',
+				'$data[7]',
+				'$data[8]',
+				'$data[9]',
+				'$data[10]',
+				'$data[11]',
+				'$data[12]',
+				'$data[13]',
+				'$data[14]',
+				'$data[15]',
+				'$data[16]',
+				'$data[17]',
+				'$data[18]',
+				'$data[19]',
+				'$data[20]',
+				'$data[21]',
+				'$data[22]',
+                '$data[23]',
+				'$data[24]',
+                '$data[25]',
+				'$data[26]',
+                '$data[27]',
+				'$data[28]',
+                '$data[29]',
+				'$data[30]',
+                '$data[31]',
+				'$data[32]',
+                '$data[33]',
+				'$data[34]',
+                '$data[35]',
+				'$data[36]',
+                '$data[37]',
+				'$data[38]',
+                '$data[39]',
+				'$data[40]',
+                '$data[41]',
+				'$data[42]'
             )";
 
             $mysqli->query($q);
@@ -96,7 +134,7 @@ if (isset($_POST['enviar'])) {
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="comisiones_banda.php">
+                        <a class="nav-link active" href="comisiones_banda.php">
                             Comisiones Banda
                         </a>
                     </li>
@@ -111,7 +149,7 @@ if (isset($_POST['enviar'])) {
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link active" href="comisiones_tipo_comision.php">
+                        <a class="nav-link" href="comisiones_tipo_comision.php">
                             Comisiones Tipo Comision
                         </a>
                     </li>
@@ -139,7 +177,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Tipo Comision</h3>
+            <h3 class="mt-3">Carga Plantilla Hit Rate</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -207,7 +245,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_tipo where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM comisiones_hitrate where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -217,11 +255,48 @@ if (isset($_POST['enviar'])) {
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>pais</th>
-                        <th>sistema</th>
-                        <th>familia</th>
-                        <th>tipodecomision</th>
-                        <th>valor</th>
+                        <th>Pais</th>
+                        <th>a1</th>
+                        <th>s1</th>
+                        <th>a2</th>
+                        <th>s2</th>
+                        <th>a3</th>
+                        <th>s3</th>
+                        <th>a4</th>
+                        <th>s4</th>
+                        <th>a5</th>
+                        <th>s5</th>
+                        <th>a6</th>
+                        <th>s6</th>
+                        <th>a7</th>
+                        <th>s7</th>
+                        <th>a8</th>
+                        <th>s8</th>
+                        <th>a9</th>
+                        <th>s9</th>
+                        <th>a10</th>
+                        <th>s10</th>
+						<th>a11</th>
+                        <th>s11</th>
+                        <th>a12</th>
+                        <th>s12</th>
+                        <th>a13</th>
+                        <th>s13</th>
+                        <th>a14</th>
+                        <th>s14</th>
+                        <th>a16</th>
+                        <th>s16</th>
+                        <th>a17</th>
+                        <th>s17</th>
+                        <th>a18</th>
+                        <th>s18</th>
+                        <th>a19</th>
+                        <th>s19</th>
+                        <th>a20</th>
+                        <th>s20</th>
+                        <th>a21</th>
+                        <th>s21</th>
+                    </tr>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
@@ -230,10 +305,48 @@ if (isset($_POST['enviar'])) {
                     <tr>
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['sistema']; ?></td>
-                        <td><?php echo $row['familia']; ?></td>
-                        <td><?php echo $row['tipodecomision']; ?></td>
-                        <td><?php echo $row['valor']; ?></td>
+                        <td><?php echo $row['a1']; ?></td>
+                        <td><?php echo $row['s1']; ?></td>
+                        <td><?php echo $row['a2']; ?></td>
+                        <td><?php echo $row['s2']; ?></td>
+                        <td><?php echo $row['a3']; ?></td>
+                        <td><?php echo $row['s3']; ?></td>
+                        <td><?php echo $row['a4']; ?></td>
+                        <td><?php echo $row['s4']; ?></td>
+                        <td><?php echo $row['a5']; ?></td>
+                        <td><?php echo $row['s5']; ?></td>
+                        <td><?php echo $row['a6']; ?></td>
+                        <td><?php echo $row['s6']; ?></td>
+                        <td><?php echo $row['a7']; ?></td>
+                        <td><?php echo $row['s7']; ?></td>
+                        <td><?php echo $row['a8']; ?></td>
+                        <td><?php echo $row['s8']; ?></td>
+                        <td><?php echo $row['a9']; ?></td>
+                        <td><?php echo $row['s9']; ?></td>
+                        <td><?php echo $row['a10']; ?></td>
+                        <td><?php echo $row['s10']; ?></td>
+						<td><?php echo $row['a11']; ?></td>
+                        <td><?php echo $row['s11']; ?></td>
+                        <td><?php echo $row['a12']; ?></td>
+                        <td><?php echo $row['s12']; ?></td>
+                        <td><?php echo $row['a13']; ?></td>
+                        <td><?php echo $row['s13']; ?></td>
+                        <td><?php echo $row['a14']; ?></td>
+                        <td><?php echo $row['s14']; ?></td>
+                        <td><?php echo $row['a15']; ?></td>
+                        <td><?php echo $row['s15']; ?></td>
+                        <td><?php echo $row['a16']; ?></td>
+                        <td><?php echo $row['s16']; ?></td>
+                        <td><?php echo $row['a17']; ?></td>
+                        <td><?php echo $row['s17']; ?></td>
+                        <td><?php echo $row['a18']; ?></td>
+                        <td><?php echo $row['s18']; ?></td>
+                        <td><?php echo $row['a19']; ?></td>
+                        <td><?php echo $row['s19']; ?></td>
+                        <td><?php echo $row['a20']; ?></td>
+                        <td><?php echo $row['s20']; ?></td>
+                        <td><?php echo $row['a21']; ?></td>
+                        <td><?php echo $row['s21']; ?></td>
                     </tr>
                     <?php
                     }

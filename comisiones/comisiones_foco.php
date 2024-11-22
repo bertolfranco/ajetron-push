@@ -124,6 +124,11 @@ if (isset($_POST['enviar'])) {
                         </a>
                     </li>
                     <li class="nav-item active">
+                        <a class="nav-link active" href="comisiones_hitrate.php">
+                            Comisiones Hit Rate
+                        </a>
+                    </li>
+                    <li class="nav-item active">
                         <a class="nav-link" href="comisiones_familias.php">
                             Comisiones Familias
                         </a>
@@ -202,6 +207,7 @@ if (isset($_POST['enviar'])) {
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="static/1_plantilla_celula.csv">Celula</a></li>
                                     <li><a class="dropdown-item" href="static/2_plantilla_banda.csv">Banda</a></li>
+                                    <li><a class="dropdown-item" href="static/8_plantilla_hitrate.csv">Hit Rate</a></li>
                                     <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
