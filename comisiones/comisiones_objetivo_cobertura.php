@@ -14,7 +14,7 @@ $paisSession = $_SESSION["pais"];
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM fechas_habiles WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM comisiones_cobnncc WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -41,11 +41,14 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO fechas_habiles (pais,anio,mes,dias) VALUES (
+            $q = "INSERT INTO comisiones_cobnncc (pais,ruta,item,cobobj,fecha,programados,objefect) VALUES (
             '$data[0]',
             '$data[1]',
             '$data[2]',
-            '$data[3]'
+            '$data[3]',
+            '$data[4]',
+            '$data[5]',
+            '$data[6]'
             )";
 
             $mysqli->query($q);
@@ -138,7 +141,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Dias Habiles</h3>
+            <h3 class="mt-3">Carga Plantilla Cobertura de NNCC</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -206,7 +209,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM fechas_habiles where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM comisiones_cobnncc where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -216,9 +219,12 @@ if (isset($_POST['enviar'])) {
                     <thead>
                     <tr>
                         <th>Pais</th>
-                        <th>Año</th>
-                        <th>Mes</th>
-                        <th>Dias</th>
+                        <th>Ruta</th>
+                        <th>Item</th>
+                        <th>Cob Obj</th>
+                        <th>Fecha</th>
+                        <th>Programados</th>
+                        <th>Obj Efect</th>
                     </tr>
                     </thead>
                     <?php
@@ -227,9 +233,12 @@ if (isset($_POST['enviar'])) {
                     <tbody>
                     <tr>
                         <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['anio']; ?></td>
-                        <td><?php echo $row['mes']; ?></td>
-                        <td><?php echo $row['dias']; ?></td>
+                        <td><?php echo $row['ruta']; ?></td>
+                        <td><?php echo $row['item']; ?></td>
+                        <td><?php echo $row['cobobj']; ?></td>
+                        <td><?php echo $row['fecha']; ?></td>
+                        <td><?php echo $row['programados']; ?></td>
+                        <td><?php echo $row['objefect']; ?></td>
                     </tr>
                     <?php
                     }
