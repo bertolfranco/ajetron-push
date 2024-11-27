@@ -15,7 +15,7 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="comisiones_celula.php">
+                        <a <?php if($active == "celula" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_celula.php">
                             Comisiones Celula
                         </a>
                     </li>

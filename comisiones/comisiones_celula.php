@@ -11,6 +11,7 @@ if (!isset($_SESSION["username"])) {
 clearstatcache();
 
 $paisSession = $_SESSION["pais"];
+$active = "celula";
 // conexión
 
 if (isset($_POST["delete"])) {
