@@ -216,9 +216,9 @@ if (isset($_POST['enviar'])) {
                     <thead>
                     <tr>
                         <th>Pais</th>
-                        <th>Año</th>
-                        <th>Mes</th>
-                        <th>Dias</th>
+                        <th>Ruta</th>
+                        <th>Descripcion</th>
+                        <th>Modelo</th>
                     </tr>
                     </thead>
                     <?php
