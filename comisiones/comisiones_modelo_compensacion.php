@@ -14,7 +14,7 @@ $paisSession = $_SESSION["pais"];
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM fechas_habiles WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM modelos_compensacion WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -41,7 +41,7 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO fechas_habiles (pais,anio,mes,dias) VALUES (
+            $q = "INSERT INTO modelos_compensacion (pais,ruta,descripcion,modelo) VALUES (
             '$data[0]',
             '$data[1]',
             '$data[2]',
@@ -138,7 +138,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Dias Habiles</h3>
+            <h3 class="mt-3">Carga Plantilla Modelos Compensacion</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -206,7 +206,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM fechas_habiles where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM modelos_compensacion where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -227,9 +227,9 @@ if (isset($_POST['enviar'])) {
                     <tbody>
                     <tr>
                         <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['anio']; ?></td>
-                        <td><?php echo $row['mes']; ?></td>
-                        <td><?php echo $row['dias']; ?></td>
+                        <td><?php echo $row['ruta']; ?></td>
+                        <td><?php echo $row['descripcion']; ?></td>
+                        <td><?php echo $row['modelo']; ?></td>
                     </tr>
                     <?php
                     }
