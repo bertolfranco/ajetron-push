@@ -14,7 +14,7 @@ $paisSession = $_SESSION["pais"];
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM ipp_actual WHERE pais = '".$paisSession."'";
+    $query = "TRUNCATE TABLE ipp_actual";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -206,7 +206,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM ipp_actual where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM ipp_actual";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
