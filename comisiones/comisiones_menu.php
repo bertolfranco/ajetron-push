@@ -25,7 +25,7 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a <?php if($active == "familias" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_banda.php">
+                        <a <?php if($active == "familias" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_familias.php">
                             Comisiones Familias
                         </a>
                     </li>
@@ -35,17 +35,17 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a <?php if($active == "foco" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_banda.php">
+                        <a <?php if($active == "foco" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_foco.php">
                             Comisiones Foco
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a <?php if($active == "gtcobertura" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_banda.php">
+                        <a <?php if($active == "gtcobertura" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_gt_cobertura.php">
                             GT Cobertura
                         </a>
                     </li>
 					<li class="nav-item active">
-                        <a <?php if($active == "dias" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_banda.php">
+                        <a <?php if($active == "dias" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_diashabiles.php">
                             Comisiones Dias Habiles
                         </a>
                     </li>
