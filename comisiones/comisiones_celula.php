@@ -75,7 +75,13 @@ if (isset($_POST['enviar'])) {
 <body>
 <header>
     <!-- Fixed navbar -->
-    <?php include "./comisiones_menu.php"; ?>
+    <?php
+        if ($paisSession == "CO"){
+            include "./comisiones_menu_co.php";
+        }
+        else{
+            include "./comisiones_menu.php";
+        } ?>
 </header>
 
 <!-- Begin page content -->
