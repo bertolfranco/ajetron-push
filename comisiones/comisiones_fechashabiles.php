@@ -130,15 +130,9 @@ if (isset($_POST['enviar'])) {
                                         aria-expanded="false">
                                     Descargar Plantillas
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="static/1_plantilla_celula.csv">Celula</a></li>
-                                    <li><a class="dropdown-item" href="static/2_plantilla_banda.csv">Banda</a></li>
-                                    <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
-                                    <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
-                                    <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <li><a class="dropdown-item" href="static/gt_cobertura_cliente_objetivo.csv">GT - Cobertura</a></li>
-									<li><a class="dropdown-item" href="static/7_plantilla_dias_habiles.csv">Dias Habiles</a></li>
-                                </ul>
+                                <?php
+                                include "./comisiones_static_files.php";
+                                ?>
                             </div>
                         </div>
 
