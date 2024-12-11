@@ -11,11 +11,11 @@ if (!isset($_SESSION["username"])) {
 clearstatcache();
 
 $paisSession = $_SESSION["pais"];
-$active = "tipo";
+$active = "cobertura";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM comisiones_tipo WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM comisiones_cobnncc WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -42,12 +42,14 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO comisiones_tipo (pais,sistema,familia,tipodecomision,valor) VALUES (
+            $q = "INSERT INTO comisiones_cobnncc (pais,ruta,item,cobobj,fecha,programados,objefect) VALUES (
             '$data[0]',
             '$data[1]',
             '$data[2]',
             '$data[3]',
-            '$data[4]'       
+            '$data[4]',
+            '$data[5]',
+            '$data[6]'
             )";
 
             $mysqli->query($q);
@@ -90,7 +92,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Tipo Comision</h3>
+            <h3 class="mt-3">Carga Plantilla Cobertura de NNCC</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -139,6 +141,7 @@ if (isset($_POST['enviar'])) {
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
                                     <li><a class="dropdown-item" href="static/gt_cobertura_cliente_objetivo.csv">GT - Cobertura</a></li>
+									<li><a class="dropdown-item" href="static/7_plantilla_dias_habiles.csv">Dias Habiles</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -157,7 +160,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_tipo where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM comisiones_cobnncc where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -166,24 +169,27 @@ if (isset($_POST['enviar'])) {
                 <table class='table table-bordered'>
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>pais</th>
-                        <th>sistema</th>
-                        <th>familia</th>
-                        <th>tipodecomision</th>
-                        <th>valor</th>
+                        <th>Pais</th>
+                        <th>Ruta</th>
+                        <th>Item</th>
+                        <th>Cob Obj</th>
+                        <th>Fecha</th>
+                        <th>Programados</th>
+                        <th>Obj Efect</th>
+                    </tr>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                     <tbody>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['sistema']; ?></td>
-                        <td><?php echo $row['familia']; ?></td>
-                        <td><?php echo $row['tipodecomision']; ?></td>
-                        <td><?php echo $row['valor']; ?></td>
+                        <td><?php echo $row['ruta']; ?></td>
+                        <td><?php echo $row['item']; ?></td>
+                        <td><?php echo $row['cobobj']; ?></td>
+                        <td><?php echo $row['fecha']; ?></td>
+                        <td><?php echo $row['programados']; ?></td>
+                        <td><?php echo $row['objefect']; ?></td>
                     </tr>
                     <?php
                     }
