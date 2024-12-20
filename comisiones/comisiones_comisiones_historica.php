@@ -1,7 +1,7 @@
 <?php
-require_once '/assets/jpgraph-4.2.10/src/jpgraph.php';
-require_once '/assets/jpgraph-4.2.10/src/jpgraph_canvas.php';
-require_once '/assets/jpgraph-4.2.10/src/jpgraph_table.php';
+require_once '../assets/jpgraph-4.2.10/src/jpgraph.php';
+require_once '../assets/jpgraph-4.2.10/src/jpgraph_canvas.php';
+require_once '../assets/jpgraph-4.2.10/src/jpgraph_table.php';
 
 session_start();
 global $mysqli;
