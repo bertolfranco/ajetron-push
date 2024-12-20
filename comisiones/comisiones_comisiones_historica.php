@@ -1,4 +1,7 @@
 <?php
+require_once '/assets/jpgraph-4.2.10/src/jpgraph.php';
+require_once '/assets/jpgraph-4.2.10/src/jpgraph_canvas.php';
+require_once '/assets/jpgraph-4.2.10/src/jpgraph_table.php';
 
 session_start();
 global $mysqli;
@@ -89,7 +92,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Modelos Compensacion</h3>
+            <h3 class="mt-3">Historico de Comisiones</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -106,6 +109,12 @@ if (isset($_POST['enviar'])) {
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="file">Escriba ruta</label>
                                 <input type="text" class="form-control" name="file" id="file">
+                            </div>
+
+                            <div class="input-append date" id="datepicker" data-date="02-2012"
+                                 data-date-format="mm-yyyy">
+                             <input  type="text" readonly="readonly" name="date" >
+                             <span class="add-on"><i class="icon-th"></i></span>
                             </div>
 
                             <div class="mb-3">
