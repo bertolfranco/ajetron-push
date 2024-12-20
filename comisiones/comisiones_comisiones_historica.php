@@ -111,16 +111,29 @@ if (isset($_POST['enviar'])) {
                                 <input type="text" class="form-control" name="file" id="file">
                             </div>
 
-                            <div class="input-append date" id="datepicker" data-date="02-2012"
-                                 data-date-format="mm-yyyy">
-                             <input  type="text" readonly="readonly" name="date" >
-                             <span class="add-on"><i class="icon-th"></i></span>
+                            <div class="mb-3">
+                                <label class="form-label" for="mes">Seleccione Mes: </label>
+                                <select class="form-select form-select-sm" aria-label="Default select example"
+                                        name="mes" id="mes">
+                                    <option value="1">Enero</option>
+                                    <option value="2">Febrero</option>
+                                    <option value="3">Marzo</option>
+                                    <option value="4">Abril</option>
+                                    <option value="5">Mayo</option>
+                                    <option value="6">Junio</option>
+                                    <option value="7">Julio</option>
+                                    <option value="8">Agosto</option>
+                                    <option value="9">Setiembre</option>
+                                    <option value="10">Octubre</option>
+                                    <option value="11">Noviembre</option>
+                                    <option value="12">Diciembre</option>
+                                </select>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label" for="delimiter">Seleccione pais: </label>
+                                <label class="form-label" for="pais">Seleccione pais: </label>
                                 <select class="form-select form-select-sm" aria-label="Default select example"
-                                        name="delimiter" id="delimiter">
+                                        name="paos" id="pais">
                                     <option value="CO">Colombia</option>
                                     <option value="PE">Perú</option>
                                     <option value="EC">Ecuador</option>
