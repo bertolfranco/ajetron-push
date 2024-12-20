@@ -164,42 +164,6 @@ if (isset($_POST['enviar'])) {
                 } ?>
             </div>
             <br>
-
-
-            <?php
-            $sqlSelect = "SELECT * FROM modelos_compensacion where pais = '".$paisSession."'";
-            $result = mysqli_query($mysqli, $sqlSelect);
-
-            if (mysqli_num_rows($result) > 0) {
-                ?>
-
-                <table class='table table-bordered'>
-                    <thead>
-                    <tr>
-                        <th>Pais</th>
-                        <th>Ruta</th>
-                        <th>Descripcion</th>
-                        <th>Modelo</th>
-                    </tr>
-                    </thead>
-                    <?php
-                    while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                    <tbody>
-                    <tr>
-                        <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['ruta']; ?></td>
-                        <td><?php echo $row['descripcion']; ?></td>
-                        <td><?php echo $row['modelo']; ?></td>
-                    </tr>
-                    <?php
-                    }
-                    ?>
-                    </tbody>
-                </table>
-                <?php
-            }
-            ?>
             <!-- Fin Contenido -->
         </div>
     </div>
