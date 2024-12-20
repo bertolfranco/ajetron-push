@@ -103,24 +103,6 @@ if (isset($_POST['enviar'])) {
                 <form action="" method="post" name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data">
                     <div>
                         <div class="row">
-
-                            <div class="input-group mb-3">
-                                <label class="input-group-text" for="file">Elija archivo csv</label>
-                                <input type="file" class="form-control" name="file" id="file" accept=".csv">
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label" for="delimiter">Seleccione el delimitador: </label>
-                                <select class="form-select form-select-sm" aria-label="Default select example"
-                                        name="delimiter" id="delimiter">
-                                    <option value=",">Coma (,)</option>
-                                    <option value=";">Punto y coma (;)</option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="file">Escriba ruta</label>
                                 <input type="text" class="form-control" name="file" id="file">
@@ -146,8 +128,6 @@ if (isset($_POST['enviar'])) {
 
                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                             <button type="button" id="submit" name="enviar" class="btn btn-warning">Generar Imagen
-                            </button>
-                            <button type="button" id="submit" name="delete" class="btn btn-warning">Generar Excel
                             </button>
                         </div>
 
