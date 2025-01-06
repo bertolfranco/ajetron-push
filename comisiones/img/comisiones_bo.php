@@ -41,7 +41,7 @@ function generarReportes($conn,$ruta,$sql){
         $result = $stmt->get_result();
 
         if($result ->num_rows>0){
-            generarImagenes($result);
+            generarImagenes($result,$ruta);
         }else{
             $keep_asking_for_data=false;
         }
@@ -49,7 +49,7 @@ function generarReportes($conn,$ruta,$sql){
 
 }
 
-function generarImagenes($result){
+function generarImagenes($result,$codigo){
 
         $dataRutas = array();
 
