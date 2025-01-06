@@ -2,7 +2,6 @@
 // Conexión a la base de datos
 
 function generarImagenBolivia($mysqli,$ruta,$pais,$anio,$mes){
-    $path= "/var/www/html/ajetron-push/comisiones/img";
 
     $sqlMn = "SELECT
     	vcv.familia as 'Familia',
@@ -100,6 +99,8 @@ function generarImagenes($result,$codigo){
 
         // and send it back to the client
         $graph->Stroke(_IMG_HANDLER);
+        $path= "/var/www/html/ajetron-push/comisiones/img";
+
         $fileName = "$path/grafica_" . $codigo . ".png";
         $graph->img->Stream($fileName);
 }
