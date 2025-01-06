@@ -26,7 +26,7 @@ if (isset($_POST["delete"])) {
 
 if (isset($_POST['generar'])) {
     $ruta = $_POST['ruta'];
-    generarImagenBolivia($ruta,$pais,$anio,$mes);
+    generarImagenBolivia($ruta,$paisSession,2025,1);
 }
 
 ?>
