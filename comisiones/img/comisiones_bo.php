@@ -51,7 +51,13 @@ function generarReportes($conn,$ruta,$sql){
 
 function generarImagenes($result){
 
-        $num_filas = ($result ->num_rows);
+        $dataRutas = array();
+
+        while ($fila = $result->fetch_assoc()) {
+            $dataRutas[] = array_values($fila);
+        }
+
+        $num_filas = count($dataRutas);
 
         $ancho_grafico = 600; // Ancho estimado por columna
         $alto_grafico = $num_filas * 25; // Alto estimado por fila
@@ -66,7 +72,7 @@ function generarImagenes($result){
 
         // Setup a basic table
         $table = new GTextTable();
-        $table->Set($result);
+        $table->Set($dataRutas);
 
         // Setup fonts
         $table->SetFont(FF_FONT1,FF_FONT2,16);
