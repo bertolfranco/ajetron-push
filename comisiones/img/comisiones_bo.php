@@ -51,7 +51,7 @@ function generarReportes($conn,$ruta,$sql){
 
 function generarImagenes($result){
 
-        $num_filas = count($result);
+        $num_filas = ($result ->num_rows);
 
         $ancho_grafico = 600; // Ancho estimado por columna
         $alto_grafico = $num_filas * 25; // Alto estimado por fila
