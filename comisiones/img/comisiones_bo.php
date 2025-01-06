@@ -1,7 +1,7 @@
 <?php
 // Conexión a la base de datos
 
-function generarImagenBolivia($ruta,$pais,$anio,$mes){
+function generarImagenBolivia($mysqli,$ruta,$pais,$anio,$mes){
     $path= "/var/www/html/ajetron-push/comisiones/img";
 
     $sqlMn = "SELECT

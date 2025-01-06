@@ -26,7 +26,7 @@ if (isset($_POST["delete"])) {
 
 if (isset($_POST['generar'])) {
     $ruta = $_POST['ruta'];
-    generarImagenBolivia($ruta,$paisSession,2025,1);
+    generarImagenBolivia($mysqli,$ruta,$paisSession,2025,1);
 }
 
 ?>
