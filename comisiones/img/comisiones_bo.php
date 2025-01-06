@@ -99,7 +99,7 @@ function generarImagenes($result,$codigo){
 
         // and send it back to the client
         $graph->Stroke(_IMG_HANDLER);
-        $path= "/var/www/html/ajetron-push/comisiones/img";
+        $path= "/var/www/html/ajetron-push/public";
 
         $fileName = "$path/grafica_" . $codigo . ".png";
         $graph->img->Stream($fileName);
