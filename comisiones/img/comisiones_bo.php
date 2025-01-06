@@ -31,9 +31,6 @@ function generarImagenBolivia($mysqli,$ruta,$pais,$anio,$mes){
 
 
 function generarReportes($conn,$ruta,$sql){
-    $keep_asking_for_data = true;
-    do{
-
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $ruta);
         $stmt->execute();
@@ -41,10 +38,7 @@ function generarReportes($conn,$ruta,$sql){
 
         if($result ->num_rows>0){
             generarImagenes($result,$ruta);
-        }else{
-            $keep_asking_for_data=false;
         }
-    }while($keep_asking_for_data);
 
 }
 
