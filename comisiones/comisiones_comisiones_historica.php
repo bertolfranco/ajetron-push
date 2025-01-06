@@ -6,6 +6,7 @@ require_once '../assets/jpgraph-4.2.10/src/jpgraph_table.php';
 session_start();
 global $mysqli;
 require_once 'dbconect.php';
+require_once 'img/comisiones_bo.php';
 
 if (!isset($_SESSION["username"])) {
     header("Location: index.php");
@@ -23,39 +24,9 @@ if (isset($_POST["delete"])) {
 
 }
 
-if (isset($_POST['enviar'])) {
-
-    $filename = $_FILES["file"]["name"];
-    $info = new SplFileInfo($filename);
-    $extension = pathinfo($info->getFilename(), PATHINFO_EXTENSION);
-
-    if ($extension == 'csv') {
-        $filename = $_FILES['file']['tmp_name'];
-        $handle = fopen($filename, "r");
-        $firstRowSkipped = false; // Añadir esta línea
-
-        // Obtener el delimitador seleccionado por el usuario
-        $selectedDelimiter = $_POST['delimiter'];
-
-//  $handle = str_replace(',',';',$handle);
-        while (($data = fgetcsv($handle, 100000, $selectedDelimiter)) !== FALSE) {
-
-            if (!$firstRowSkipped) {
-                $firstRowSkipped = true;
-                continue; // Saltar la primera fila
-            }
-
-            $q = "INSERT INTO modelos_compensacion (pais,ruta,descripcion,modelo) VALUES (
-            '$data[0]',
-            '$data[1]',
-            '$data[2]',
-            '$data[3]'
-            )";
-
-            $mysqli->query($q);
-        }
-        fclose($handle);
-    }
+if (isset($_POST['generar'])) {
+    $ruta = $_POST['ruta'];
+    generarImagenBolivia($ruta,$pais,$anio,$mes);
 }
 
 ?>
@@ -107,8 +78,8 @@ if (isset($_POST['enviar'])) {
                     <div>
                         <div class="row">
                             <div class="input-group mb-3">
-                                <label class="input-group-text" for="file">Escriba ruta</label>
-                                <input type="text" class="form-control" name="file" id="file">
+                                <label class="input-group-text" for="ruta">Escriba ruta</label>
+                                <input type="text" class="form-control" name="ruta" id="ruta">
                             </div>
 
                             <div class="mb-3">
@@ -149,7 +120,7 @@ if (isset($_POST['enviar'])) {
                         </div>
 
                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                            <button type="button" id="submit" name="enviar" class="btn btn-warning">Generar Imagen
+                            <button type="submit" id="submit" name="generar" class="btn btn-warning">Generar Imagen
                             </button>
                         </div>
 
