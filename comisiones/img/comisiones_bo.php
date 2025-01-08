@@ -56,7 +56,7 @@ function generarImagenes($result,$codigo){
         $alto_grafico = $num_filas * 25; // Alto estimado por fila
 
         header("Content-Type: application/png");
-        header("Content-Disposition:attachment; filename=grafica_101.png");
+        header("Content-Disposition:attachment; filename=grafica_".$codigo.".png");
         header("Pragma: no-cache");
         header("Expires:0");
 
@@ -96,10 +96,6 @@ function generarImagenes($result,$codigo){
         // and send it back to the client
         $img = $graph->Stroke(_IMG_HANDLER);
         ImagePNG($img);
-        $path= "/var/www/html/ajetron-push/public";
-
-        $fileName = "$path/grafica_" . $codigo . ".png";
-        $graph->img->Stream($fileName);
 
 }
 
