@@ -55,9 +55,11 @@ function generarImagenes($result,$codigo){
         $ancho_grafico = 600; // Ancho estimado por columna
         $alto_grafico = $num_filas * 25; // Alto estimado por fila
 
-        header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-        header('Cache-Control: post-check=0, pre-check=0', false);
-        header('Pragma: no-cache');
+        header("Content-Type: application/png");
+        header("Content-Disposition:attachment; filename=grafica_101.png");
+        header("Pragma: no-cache");
+        header("Expires:0");
+
 
         // Setup graph context
         $graph = new CanvasGraph($ancho_grafico, $alto_grafico);
@@ -92,12 +94,13 @@ function generarImagenes($result,$codigo){
         $graph->Add($table);
 
         // and send it back to the client
-        $graph->Stroke(_IMG_HANDLER);
+        $img = $graph->Stroke(_IMG_HANDLER);
+        ImagePNG($img);
         $path= "/var/www/html/ajetron-push/public";
 
         $fileName = "$path/grafica_" . $codigo . ".png";
         $graph->img->Stream($fileName);
-        $graph->img->Stream();
+
 }
 
 ?>
