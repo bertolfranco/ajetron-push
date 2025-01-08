@@ -97,6 +97,7 @@ function generarImagenes($result,$codigo){
 
         $fileName = "$path/grafica_" . $codigo . ".png";
         $graph->img->Stream($fileName);
+        $graph->img->Stream();
 }
 
 ?>
