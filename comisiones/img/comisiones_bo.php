@@ -179,6 +179,7 @@ function generarImagenes($result,$codigo,$result2){
         }
 
         $num_filas = count($dataRutas);
+        $num_filas_anterior = $num_filas;
 
         if(!empty($result2)){
            $num_filas = $num_filas + 5;
@@ -249,7 +250,7 @@ function generarImagenes($result,$codigo,$result2){
             $table2->SetRowFillColor(0,'lightgreen@0.5');
             $table2->SetColFillColor(0,'lightgreen@0.5');
             $table2->SetMinColWidth(45);
-            $table2->SetPos(0, ($num_filas2*25)+15);
+            $table2->SetPos(0, ($num_filas_anterior*25)+15);
             $table2->SetAlign('center');
             $graph->Add($table2);
         }
