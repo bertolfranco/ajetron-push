@@ -150,7 +150,7 @@ function generarReportes($conn,$ruta,$sql,$sql2){
                 $stmt2 = $conn->prepare($sql2);
                 $stmt2->bind_param("s", $ruta);
                 $stmt2->execute();
-                $result2 = $stmt->get_result();
+                $result2 = $stmt2->get_result();
                 if($result2 ->num_rows>0){
                     generarImagenes($result,$ruta,$result2);
                 }
@@ -180,8 +180,13 @@ function generarImagenes($result,$codigo,$result2){
 
         $num_filas = count($dataRutas);
 
+        if(!empty($result2)){
+           $num_filas = $num_filas + 5;
+        }
+
         $ancho_grafico = 650; // Ancho estimado por columna
         $alto_grafico = $num_filas * 25; // Alto estimado por fila
+
 
         header("Content-Type: application/png");
         header("Content-Disposition:attachment; filename=grafica_".$codigo.".png");
