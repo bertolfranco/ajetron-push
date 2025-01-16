@@ -32,6 +32,7 @@ function generarImagenBolivia($mysqli,$ruta,$pais,$anio,$mes){
 function generarImagenCostaRica($mysqli,$ruta,$pais,$anio,$mes){
 
     $sqlMn = "SELECT
+              t1.cod_ruta,
               t1.tipodecomision,
               (CASE
                   WHEN t1.tipodecomision IN ('Monetaria','Cobertura') THEN CONCAT('C. ',FORMAT(t1.valor, 2))
@@ -72,6 +73,7 @@ function generarImagenCostaRica($mysqli,$ruta,$pais,$anio,$mes){
 function generarImagenMexico($mysqli,$ruta,$pais,$anio,$mes){
 
     $sqlMn = "SELECT
+              t2.cod_ruta,
               t2.tipodecomision,
               cat.PLATAFORMA AS FAMILIA,
               FORMAT(COALESCE(t1.meta, 0), 0) AS META,
