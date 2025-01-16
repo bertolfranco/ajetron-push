@@ -123,7 +123,7 @@ if (isset($_POST['generar'])) {
                             <div class="col-sm">
                                 <label class="form-label" for="pais">Seleccione pais: </label>
                                 <select class="form-select form-select-sm" aria-label="Default select example"
-                                        name="paos" id="pais">
+                                        name="pais" id="pais">
                                     <option value="CO">Colombia</option>
                                     <option value="PE">Perú</option>
                                     <option value="EC">Ecuador</option>
