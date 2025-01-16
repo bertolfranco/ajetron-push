@@ -29,6 +29,31 @@ function generarImagenBolivia($mysqli,$ruta,$pais,$anio,$mes){
     $mysqli->close();
 }
 
+function generarImagenColombia($mysqli,$ruta,$pais,$anio,$mes){
+
+    $sqlMn = "SELECT
+    t1.tipodecomision,
+    t1.familia AS FAMILIA,
+    (CASE
+        WHEN t1.tipodecomision='Monetaria' THEN FORMAT(t1.valor, 3)
+    END) as 'FACTOR POR CF',
+    FORMAT(t1.presupuesto, 0) AS 'Objetivo',
+    FORMAT(t1.acumulado, 0) AS 'Avance',
+    FORMAT(t1.venta_proyectada, 0) AS 'Proy Cierre',
+    CONCAT(FORMAT(t1.alcance*100, 1), '%') AS '% Proy Cierre',
+    CONCAT(FORMAT(t1.porcent_pago*100, 0), '%') AS '%',
+    CONCAT('$ ',FORMAT(t1.pago_comision_final,2)) AS 'Proy Pago',
+    FORMAT(t1.pago_comision_final,2) AS 'Compensacion_num'
+    FROM v_comisiones_co_m1 AS t1
+    WHERE t1.pais='CO' AND t1.cod_ruta = ?
+    order by cod_ruta,tipodecomision desc, t1.valor asc
+    ";
+
+    generarReportes($mysqli,$ruta,$sqlMn);
+
+    $mysqli->close();
+}
+
 function generarImagenCostaRica($mysqli,$ruta,$pais,$anio,$mes){
 
     $sqlMn = "SELECT t1.tipodecomision,

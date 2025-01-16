@@ -34,6 +34,8 @@ if (isset($_POST['generar'])) {
         generarImagenMexico($mysqli,$ruta,$paisactual,2025,1);
         case "CR":
          generarImagenCostaRica($mysqli,$ruta,$paisactual,2025,1);
+        case "CO":
+         generarImagenColombia($mysqli,$ruta,$paisactual,2025,1);
         default:
         break;
         }
