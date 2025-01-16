@@ -185,7 +185,7 @@ function generarImagenes($result,$codigo,$result2){
            $num_filas = $num_filas + 5;
         }
 
-        $ancho_grafico = 650; // Ancho estimado por columna
+        $ancho_grafico = 700; // Ancho estimado por columna
         $alto_grafico = $num_filas * 25; // Alto estimado por fila
 
 
