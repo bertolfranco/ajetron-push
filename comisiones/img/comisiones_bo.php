@@ -48,7 +48,7 @@ function generarImagenColombia($mysqli,$ruta,$pais,$anio,$mes){
     order by cod_ruta,tipodecomision desc, t1.valor asc
     ";
 
-    generarReportes($mysqli,$ruta,$sqlMn);
+    
 
     $sqlEfect = "SELECT Items as Items,  objetivo as Objetivo,avance as Avance,
                                        Compensacion as Compensacion from ajetron.v_efectividad_m1 g
