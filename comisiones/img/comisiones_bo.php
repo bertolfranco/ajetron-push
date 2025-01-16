@@ -31,9 +31,7 @@ function generarImagenBolivia($mysqli,$ruta,$pais,$anio,$mes){
 
 function generarImagenCostaRica($mysqli,$ruta,$pais,$anio,$mes){
 
-    $sqlMn = "SELECT
-              t1.cod_ruta,
-              t1.tipodecomision,
+    $sqlMn = "SELECT t1.tipodecomision,
               (CASE
                   WHEN t1.tipodecomision IN ('Monetaria','Cobertura') THEN CONCAT('C. ',FORMAT(t1.valor, 2))
               END) as PAGO,
@@ -53,7 +51,7 @@ function generarImagenCostaRica($mysqli,$ruta,$pais,$anio,$mes){
 
               inner join (SELECT DISTINCT pais,cod_ruta  FROM v_comisiones_cob_gt  WHERE  `pais`='CR' and cod_ruta = ? order by cod_ruta) t2
               on t1.pais=t2.pais and t1.cod_ruta=t2.cod_ruta
-              order by cod_ruta,tipodecomision desc,CASE
+              order by t1.cod_ruta,tipodecomision desc,CASE
                       WHEN t1.tipodecomision = 'Monetaria' THEN FIELD(
                           t1.familia,
                           'BIG + CIELO',
@@ -73,7 +71,6 @@ function generarImagenCostaRica($mysqli,$ruta,$pais,$anio,$mes){
 function generarImagenMexico($mysqli,$ruta,$pais,$anio,$mes){
 
     $sqlMn = "SELECT
-              t2.cod_ruta,
               t2.tipodecomision,
               cat.PLATAFORMA AS FAMILIA,
               FORMAT(COALESCE(t1.meta, 0), 0) AS META,
@@ -105,7 +102,7 @@ function generarImagenMexico($mysqli,$ruta,$pais,$anio,$mes){
               on  t1.cod_ruta = t2.cod_ruta
               AND t1.tipodecomision = t2.tipodecomision and
               t1.marca = cat.PLATAFORMA
-              order by cod_ruta,tipodecomision desc, t1.valor asc
+              order by t1.cod_ruta,tipodecomision desc, t1.valor asc
     ";
 
     generarReportes($mysqli,$ruta,$sqlMn);
