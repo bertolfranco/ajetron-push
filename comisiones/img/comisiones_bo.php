@@ -32,7 +32,6 @@ function generarImagenBolivia($mysqli,$ruta,$pais,$anio,$mes){
 function generarImagenColombia($mysqli,$ruta,$pais,$anio,$mes){
 
     $sqlMn = "SELECT
-    t1.tipodecomision,
     t1.familia AS FAMILIA,
     (CASE
         WHEN t1.tipodecomision='Monetaria' THEN FORMAT(t1.valor, 3)
