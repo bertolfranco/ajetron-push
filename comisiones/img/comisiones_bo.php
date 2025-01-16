@@ -29,6 +29,90 @@ function generarImagenBolivia($mysqli,$ruta,$pais,$anio,$mes){
     $mysqli->close();
 }
 
+function generarImagenCostaRica($mysqli,$ruta,$pais,$anio,$mes){
+
+    $sqlMn = "SELECT
+              t1.cod_ruta,
+              t1.tipodecomision,
+              (CASE
+                  WHEN t1.tipodecomision IN ('Monetaria','Cobertura') THEN CONCAT('C. ',FORMAT(t1.valor, 2))
+              END) as PAGO,
+              t1.familia AS FAMILIA,
+              FORMAT(t1.meta, 0) AS META,
+              FORMAT(t1.acumulado, 0) AS ACUMULADO,
+              CONCAT(FORMAT(t1.alcance*100, 0), '%') AS ALCANCE,
+              (CASE
+                  WHEN t1.familia='TOTAL' THEN '-'
+                  ELSE CONCAT(FORMAT(t1.porcent_pago*100, 0), '%')
+              END) AS '% PAGO',
+              (CASE
+                  WHEN t1.tipodecomision IN ('Monetaria','Cobertura') THEN CONCAT('C. ',FORMAT(t1.pago_comision_final, 0))
+                  WHEN t1.familia='TOTAL' THEN CONCAT('C. ',FORMAT(t1.pago_comision_final, 0))
+              END)  AS 'BONO'
+              FROM v_comisiones_cob_gt AS t1
+
+              inner join (SELECT DISTINCT pais,cod_ruta  FROM v_comisiones_cob_gt  WHERE  `pais`='CR' and cod_ruta = ? order by cod_ruta) t2
+              on t1.pais=t2.pais and t1.cod_ruta=t2.cod_ruta
+              order by cod_ruta,tipodecomision desc,CASE
+                      WHEN t1.tipodecomision = 'Monetaria' THEN FIELD(
+                          t1.familia,
+                          'BIG + CIELO',
+                          'CIFRUT + BIO',
+                          'VOLT + SPORADE',
+                          'D GUSSTO + PULP'
+                      )
+                      ELSE t1.familia -- Para otros casos, se usa el orden natural de familia
+                  END, t1.valor asc
+    ";
+
+    generarReportes($mysqli,$ruta,$sqlMn);
+
+    $mysqli->close();
+}
+
+function generarImagenMexico($mysqli,$ruta,$pais,$anio,$mes){
+
+    $sqlMn = "SELECT
+              t2.cod_ruta,
+              t2.tipodecomision,
+              cat.PLATAFORMA AS FAMILIA,
+              FORMAT(COALESCE(t1.meta, 0), 0) AS META,
+              FORMAT(COALESCE(t1.acumulado, 0), 0) AS ACUMULADO,
+              FORMAT(COALESCE(t1.venta_proyectada, 0), 0) AS 'VENTA PROYECTADA',
+              CONCAT(FORMAT(COALESCE(t1.alcance, 0) * 100, 0), '%') AS ALCANCE,
+              CASE
+                      WHEN t1.marca = 'TOTAL' THEN '-'
+                      ELSE CONCAT(FORMAT(COALESCE(t1.porcent_pago, 0) * 100, 0), '%')
+              END AS '% PAGO',
+              CONCAT(FORMAT(COALESCE(t1.pago_comision_final, 0), 0), '%') AS 'PAGO FINAL COMISION',
+              CONCAT('$ ', FORMAT(COALESCE(t1.bono_volumen, 0), 0)) AS 'BONO VOLUMEN',
+              CONCAT('$ ', FORMAT(COALESCE(t1.bono_ingresos, 0), 0)) AS 'BONO INGRESOS',
+              CONCAT('$ ', FORMAT(COALESCE(t1.pago_incentivo, 0), 0)) AS 'BONO IMPER.'
+              FROM
+              (SELECT DISTINCT pais, cod_ruta, tipodecomision FROM v_comisiones_nuevo_mx WHERE pais='MX' and cod_ruta = ?) AS t2
+              CROSS JOIN
+               (SELECT DISTINCT 'BIG' AS PLATAFORMA UNION ALL
+                   SELECT DISTINCT 'SPORADE' UNION ALL
+                   SELECT DISTINCT 'CIFRUT' UNION ALL
+                   SELECT DISTINCT 'VOLT' UNION ALL
+                   SELECT DISTINCT 'AMAYU' UNION ALL
+                   SELECT DISTINCT 'PULP' UNION ALL
+                   SELECT DISTINCT 'ROMPE' UNION ALL
+                   SELECT DISTINCT 'VIDA' UNION ALL
+                   SELECT DISTINCT 'TOTAL') AS cat
+              LEFT JOIN
+               v_comisiones_nuevo_mx AS t1
+              on  t1.cod_ruta = t2.cod_ruta
+              AND t1.tipodecomision = t2.tipodecomision and
+              t1.marca = cat.PLATAFORMA
+              order by cod_ruta,tipodecomision desc, t1.valor asc
+    ";
+
+    generarReportes($mysqli,$ruta,$sqlMn);
+
+    $mysqli->close();
+}
+
 
 function generarReportes($conn,$ruta,$sql){
         $stmt = $conn->prepare($sql);

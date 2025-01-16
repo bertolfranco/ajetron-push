@@ -26,7 +26,17 @@ if (isset($_POST["delete"])) {
 
 if (isset($_POST['generar'])) {
     $ruta = $_POST['ruta'];
-    generarImagenBolivia($mysqli,$ruta,$paisSession,2025,1);
+    $paisactual = $_POST['pais'];
+    switch($paisactual) {
+        case "BO":
+        generarImagenBolivia($mysqli,$ruta,$paisactual,2025,1);
+        case "MX":
+        generarImagenMexico($mysqli,$ruta,$paisactual,2025,1);
+        case "CR":
+         generarImagenCostaRica($mysqli,$ruta,$paisactual,2025,1);
+        default:
+        break;
+        }
 }
 
 ?>
@@ -82,7 +92,7 @@ if (isset($_POST['generar'])) {
                                 <input type="text" class="form-control" name="ruta" id="ruta">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="col-sm">
                                 <label class="form-label" for="mes">Seleccione Mes: </label>
                                 <select class="form-select form-select-sm" aria-label="Default select example"
                                         name="mes" id="mes">
@@ -101,7 +111,16 @@ if (isset($_POST['generar'])) {
                                 </select>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="col-sm">
+                                <label class="form-label" for="anio">Seleccione Año: </label>
+                                <select class="form-select form-select-sm" aria-label="Default select example"
+                                        name="anio" id="anio">
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm">
                                 <label class="form-label" for="pais">Seleccione pais: </label>
                                 <select class="form-select form-select-sm" aria-label="Default select example"
                                         name="paos" id="pais">
