@@ -125,7 +125,14 @@ function generarReportes($conn,$ruta,$sql){
 
 function generarImagenes($result,$codigo){
 
+        $encabezados = array();
+        while ($columna = $result->fetch_field()) {
+             $encabezados[] = $columna->name;
+        }
+
         $dataRutas = array();
+
+        $dataRutas[]=$encabezados;
 
         while ($fila = $result->fetch_assoc()) {
             $dataRutas[] = array_values($fila);
