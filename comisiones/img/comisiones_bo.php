@@ -42,13 +42,16 @@ function generarImagenColombia($mysqli,$ruta,$pais,$anio,$mes){
     CONCAT(FORMAT(t1.alcance*100, 1), '%') AS '% Proy Cierre',
     CONCAT(FORMAT(t1.porcent_pago*100, 0), '%') AS '%',
     CONCAT('$ ',FORMAT(t1.pago_comision_final,2)) AS 'Proy Pago',
-    FORMAT(t1.pago_comision_final,2) AS 'Compensacion_num'
+    FORMAT(t1.pago_comision_final,2) AS 'Compensacion'
     FROM v_comisiones_co_m1 AS t1
     WHERE t1.pais='CO' AND t1.cod_ruta = ?
     order by cod_ruta,tipodecomision desc, t1.valor asc
     ";
 
-    $sqlEfect = "SELECT Items as Items,  objetivo as Objetivo,avance as Avance,
+    $sqlEfect = "SELECT 'IPP' as Items, FORMAT(objetivo,2) as objetivo,FORMAT(avance,2) as avance,
+                            0 as Compensacion from ajetron.ipp_actual where ruta = ?
+                            union all
+                            SELECT Items as Items,  objetivo as Objetivo,avance as Avance,
                                        Compensacion as Compensacion from ajetron.v_efectividad_m1 g
                                        where `pais`='CO' and cod_ruta = ?";
 
@@ -148,7 +151,7 @@ function generarReportes($conn,$ruta,$sql,$sql2){
         if($result ->num_rows>0){
             if(!empty($sql2)){
                 $stmt2 = $conn->prepare($sql2);
-                $stmt2->bind_param("s", $ruta);
+                $stmt2->bind_param("ss", $ruta,$ruta);
                 $stmt2->execute();
                 $result2 = $stmt2->get_result();
                 if($result2 ->num_rows>0){
