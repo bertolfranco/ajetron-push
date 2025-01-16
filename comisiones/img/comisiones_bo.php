@@ -24,7 +24,7 @@ function generarImagenBolivia($mysqli,$ruta,$pais,$anio,$mes){
     WHERE vcv.pais = 'BO' and vcv.cod_ruta = ?
     ";
 
-    generarReportes($mysqli,$ruta,$sqlMn);
+    generarReportes($mysqli,$ruta,$sqlMn,null);
 
     $mysqli->close();
 }
@@ -48,13 +48,11 @@ function generarImagenColombia($mysqli,$ruta,$pais,$anio,$mes){
     order by cod_ruta,tipodecomision desc, t1.valor asc
     ";
 
-    
-
     $sqlEfect = "SELECT Items as Items,  objetivo as Objetivo,avance as Avance,
                                        Compensacion as Compensacion from ajetron.v_efectividad_m1 g
                                        where `pais`='CO' and cod_ruta = ?";
 
-    generarReportes($mysqli,$ruta,$sqlEfect);
+    generarReportes($mysqli,$ruta,$sqlMn,$sqlEfect);
 
     $mysqli->close();
 }
@@ -93,7 +91,7 @@ function generarImagenCostaRica($mysqli,$ruta,$pais,$anio,$mes){
                   END, t1.valor asc
     ";
 
-    generarReportes($mysqli,$ruta,$sqlMn);
+    generarReportes($mysqli,$ruta,$sqlMn,null);
 
     $mysqli->close();
 }
@@ -135,25 +133,37 @@ function generarImagenMexico($mysqli,$ruta,$pais,$anio,$mes){
               order by t1.cod_ruta,tipodecomision desc, t1.valor asc
     ";
 
-    generarReportes($mysqli,$ruta,$sqlMn);
+    generarReportes($mysqli,$ruta,$sqlMn,null);
 
     $mysqli->close();
 }
 
 
-function generarReportes($conn,$ruta,$sql){
+function generarReportes($conn,$ruta,$sql,$sql2){
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $ruta);
         $stmt->execute();
         $result = $stmt->get_result();
 
         if($result ->num_rows>0){
-            generarImagenes($result,$ruta);
+            if(!empty($sql2)){
+                $stmt2 = $conn->prepare($sql2);
+                $stmt2->bind_param("s", $ruta);
+                $stmt2->execute();
+                $result2 = $stmt->get_result();
+                if($result2 ->num_rows>0){
+                    generarImagenes($result,$ruta,$result2);
+                }
+                else{
+                    generarImagenes($result,$ruta,null);
+                }
+            } else{
+                generarImagenes($result,$ruta,null);
+            }
         }
-
 }
 
-function generarImagenes($result,$codigo){
+function generarImagenes($result,$codigo,$result2){
 
         $encabezados = array();
         while ($columna = $result->fetch_field()) {
@@ -170,7 +180,7 @@ function generarImagenes($result,$codigo){
 
         $num_filas = count($dataRutas);
 
-        $ancho_grafico = 600; // Ancho estimado por columna
+        $ancho_grafico = 650; // Ancho estimado por columna
         $alto_grafico = $num_filas * 25; // Alto estimado por fila
 
         header("Content-Type: application/png");
@@ -210,6 +220,34 @@ function generarImagenes($result,$codigo){
 
         // Add table to the graph
         $graph->Add($table);
+
+        if(!empty($result2)){
+            $encabezados2 = array();
+            while ($columna = $result2->fetch_field()) {
+                 $encabezados2[] = $columna->name;
+            }
+
+            $dataRutas2 = array();
+
+            $dataRutas2[]=$encabezados2;
+
+            while ($fila = $result2->fetch_assoc()) {
+                $dataRutas2[] = array_values($fila);
+            }
+
+            $num_filas2 = count($dataRutas2);
+
+            $table2 = new GTextTable();
+            $table2->Set($dataRutas2);
+            $table2->SetFont(FF_FONT1,FF_FONT2,16);
+            $table2->SetGrid(0);
+            $table2->SetRowFillColor(0,'lightgreen@0.5');
+            $table2->SetColFillColor(0,'lightgreen@0.5');
+            $table2->SetMinColWidth(45);
+            $table2->SetPos(0, ($num_filas2*25)+15);
+            $table2->SetAlign('center');
+            $graph->Add($table2);
+        }
 
         // and send it back to the client
         $img = $graph->Stroke(_IMG_HANDLER);
