@@ -51,11 +51,11 @@ function generarImagenColombia($mysqli,$ruta,$pais,$anio,$mes){
     generarReportes($mysqli,$ruta,$sqlMn);
 
     $sqlEfect = "SELECT 'IPP' as Items, FORMAT(objetivo,2) as objetivo,FORMAT(avance,2) as avance,
-                            0 as Compensacion from ajetron.ipp_actual
+                            0 as Compensacion from ajetron.ipp_actual where ruta ='".$ruta."'
                             union all
-                            SELECT cod_ruta, Items as Items,  objetivo as Objetivo,avance as Avance,
+                            SELECT Items as Items,  objetivo as Objetivo,avance as Avance,
                                        Compensacion as Compensacion from ajetron.v_efectividad_m1 g
-                                       where `pais`='CO' and ruta = ?";
+                                       where `pais`='CO' and cod_ruta = ?";
 
     generarReportes($mysqli,$ruta,$sqlEfect);
 
