@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a <?php if($active == "ipp" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_comisiones_historica.php">
+                        <a <?php if($active == "historico" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_comisiones_historica.php">
                             Históricos
                         </a>
                     </li>
