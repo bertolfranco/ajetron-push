@@ -128,7 +128,7 @@ if (isset($_POST['generar'])) {
                                         name="pais" id="pais">
                                     <?php
                                     if ($paisSession == "AD"){
-                                        echo "<option value="CO">Colombia</option>
+                                        echo '<option value="CO">Colombia</option>
                                         <option value="PE">Perú</option>
                                         <option value="EC">Ecuador</option>
                                         <option value="CO">Colombia</option>
@@ -136,10 +136,10 @@ if (isset($_POST['generar'])) {
                                         <option value="GT">Guatemala</option>
                                         <option value="CR">Costa Rica</option>
                                         <option value="MX">Mexico</option>
-                                        <option value="BO">Bolivia</option>":
+                                        <option value="BO">Bolivia</option>':
                                     }
                                     else{
-                                        echo "<option value=".$paisSession.">Colombia</option>";
+                                        echo '<option value="'.$paisSession.'">Colombia</option>"';
                                     } ?>
                                 </select>
                             </div>
