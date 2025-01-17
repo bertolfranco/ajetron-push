@@ -126,15 +126,21 @@ if (isset($_POST['generar'])) {
                                 <label class="form-label" for="pais">Seleccione pais: </label>
                                 <select class="form-select form-select-sm" aria-label="Default select example"
                                         name="pais" id="pais">
-                                    <option value="CO">Colombia</option>
-                                    <option value="PE">Perú</option>
-                                    <option value="EC">Ecuador</option>
-                                    <option value="CO">Colombia</option>
-                                    <option value="PA">Panamá</option>
-                                    <option value="GT">Guatemala</option>
-                                    <option value="CR">Costa Rica</option>
-                                    <option value="MX">Mexico</option>
-                                    <option value="BO">Bolivia</option>
+                                    <?php
+                                    if ($paisSession == "AD"){
+                                        echo "<option value="CO">Colombia</option>
+                                        <option value="PE">Perú</option>
+                                        <option value="EC">Ecuador</option>
+                                        <option value="CO">Colombia</option>
+                                        <option value="PA">Panamá</option>
+                                        <option value="GT">Guatemala</option>
+                                        <option value="CR">Costa Rica</option>
+                                        <option value="MX">Mexico</option>
+                                        <option value="BO">Bolivia</option>":
+                                    }
+                                    else{
+                                        echo "<option value=".$paisSession.">Colombia</option>";
+                                    } ?>
                                 </select>
                             </div>
 
