@@ -99,7 +99,18 @@ if (isset($_POST['enviar'])) {
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="comisiones/comisiones_celula.php">
+                        <a class="nav-link"
+                        <?php
+                            $paisSession = $_SESSION["pais"];
+                            if ($paisSession == "CO"){
+                                echo 'href="comisiones/comisiones_modelo_compensacion.php"';
+                            }
+                            else
+                            {
+                                echo 'href="comisiones/comisiones_celula.php"';
+                            }
+                        ?>
+                        >
                             Comisiones
                         </a>
                     </li>

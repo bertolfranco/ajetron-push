@@ -11,6 +11,7 @@ if (!isset($_SESSION["username"])) {
 clearstatcache();
 
 $paisSession = $_SESSION["pais"];
+$active = "gtcobertura";
 // conexión
 
 if (isset($_POST["delete"])) {
@@ -77,6 +78,7 @@ if (isset($_POST['enviar'])) {
 <body>
 <header>
     <!-- Fixed navbar -->
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">AJEPER</a>
@@ -134,6 +136,15 @@ if (isset($_POST['enviar'])) {
             </div>
         </div>
     </nav>
+=======
+    <?php
+        if ($paisSession == "CO"){
+            include "./comisiones_menu_co.php";
+        }
+        else{
+            include "./comisiones_menu.php";
+        } ?>
+>>>>>>> f667b951eb7b2302edfe6eb4c9920a19f7bcdbc1
 </header>
 
 <!-- Begin page content -->

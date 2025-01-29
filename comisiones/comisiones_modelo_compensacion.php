@@ -11,11 +11,11 @@ if (!isset($_SESSION["username"])) {
 clearstatcache();
 
 $paisSession = $_SESSION["pais"];
-$active = "tipo";
+$active = "compensacion";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM comisiones_tipo WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM modelos_compensacion WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -42,12 +42,11 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO comisiones_tipo (pais,sistema,familia,tipodecomision,valor) VALUES (
+            $q = "INSERT INTO modelos_compensacion (pais,ruta,descripcion,modelo) VALUES (
             '$data[0]',
             '$data[1]',
             '$data[2]',
-            '$data[3]',
-            '$data[4]'       
+            '$data[3]'
             )";
 
             $mysqli->query($q);
@@ -76,73 +75,13 @@ if (isset($_POST['enviar'])) {
 <body>
 <header>
     <!-- Fixed navbar -->
-<<<<<<< HEAD
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">AJEPER</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../carga.php">
-                            PUSH
-                            <span class="sr-only">(Volver)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="comisiones_celula.php">
-                            Comisiones Celula
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="comisiones_banda.php">
-                            Comisiones Banda
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link active" href="comisiones_hitrate.php">
-                            Comisiones Hit Rate
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="comisiones_familias.php">
-                            Comisiones Familias
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link active" href="comisiones_tipo_comision.php">
-                            Comisiones Tipo Comision
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="comisiones_foco.php">
-                            Comisiones Foco
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="comisiones_gt_cobertura.php">
-                            GT Cobertura
-                        </a>
-                    </li>
-                </ul>
-                <form class="form-inline mt-2 mt-md-0">
-                    <a href="../cerrarsesion.php" class="btn btn-danger">Cerrar sesión</a>
-                </form>
-            </div>
-        </div>
-    </nav>
-=======
     <?php
-        if ($paisSession == "CO"){
-            include "./comisiones_menu_co.php";
-        }
-        else{
-            include "./comisiones_menu.php";
-        } ?>
->>>>>>> f667b951eb7b2302edfe6eb4c9920a19f7bcdbc1
+    if ($paisSession == "CO"){
+        include "./comisiones_menu_co.php";
+    }
+    else{
+        include "./comisiones_menu.php";
+    } ?>
 </header>
 
 <!-- Begin page content -->
@@ -150,7 +89,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Tipo Comision</h3>
+            <h3 class="mt-3">Carga Plantilla Modelos Compensacion</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -192,15 +131,9 @@ if (isset($_POST['enviar'])) {
                                         aria-expanded="false">
                                     Descargar Plantillas
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="static/1_plantilla_celula.csv">Celula</a></li>
-                                    <li><a class="dropdown-item" href="static/2_plantilla_banda.csv">Banda</a></li>
-                                    <li><a class="dropdown-item" href="static/8_plantilla_hitrate.csv">Hit Rate</a></li>
-                                    <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
-                                    <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
-                                    <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <li><a class="dropdown-item" href="static/gt_cobertura_cliente_objetivo.csv">GT - Cobertura</a></li>
-                                </ul>
+                            <?php
+                                include "./comisiones_static_files.php";
+                            ?>
                             </div>
                         </div>
 
@@ -218,7 +151,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_tipo where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM modelos_compensacion where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -227,24 +160,21 @@ if (isset($_POST['enviar'])) {
                 <table class='table table-bordered'>
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>pais</th>
-                        <th>sistema</th>
-                        <th>familia</th>
-                        <th>tipodecomision</th>
-                        <th>valor</th>
+                        <th>Pais</th>
+                        <th>Ruta</th>
+                        <th>Descripcion</th>
+                        <th>Modelo</th>
+                    </tr>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                     <tbody>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['sistema']; ?></td>
-                        <td><?php echo $row['familia']; ?></td>
-                        <td><?php echo $row['tipodecomision']; ?></td>
-                        <td><?php echo $row['valor']; ?></td>
+                        <td><?php echo $row['ruta']; ?></td>
+                        <td><?php echo $row['descripcion']; ?></td>
+                        <td><?php echo $row['modelo']; ?></td>
                     </tr>
                     <?php
                     }
