@@ -42,30 +42,59 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO comisiones_familias (pais,articulo,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
-            '$data[0]',
-            '$data[1]',
-            '$data[2]',
-            '$data[3]',
-            '$data[4]',
-            '$data[5]',
-            '$data[6]',
-            '$data[7]',
-            '$data[8]',
-            '$data[9]',
-            '$data[10]',
-            '$data[11]',
-            '$data[12]',
-            '$data[13]',
-            '$data[14]',
-            '$data[15]',
-            '$data[16]',
-            '$data[17]',
-            '$data[18]',
-            '$data[19]',
-            '$data[20]',
-            '$data[21]'        
-            )";
+            if ($paisSession == 'GT') {
+                $q = "INSERT INTO comisiones_familias (pais,cod_familia,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
+                    '$data[0]',
+                    '$data[1]',
+                    '$data[2]',
+                    '$data[3]',
+                    '$data[4]',
+                    '$data[5]',
+                    '$data[6]',
+                    '$data[7]',
+                    '$data[8]',
+                    '$data[9]',
+                    '$data[10]',
+                    '$data[11]',
+                    '$data[12]',
+                    '$data[13]',
+                    '$data[14]',
+                    '$data[15]',
+                    '$data[16]',
+                    '$data[17]',
+                    '$data[18]',
+                    '$data[19]',
+                    '$data[20]',
+                    '$data[21]'        
+                    )";
+            } else {
+                $q = "INSERT INTO comisiones_familias (pais,articulo,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
+                    '$data[0]',
+                    '$data[1]',
+                    '$data[2]',
+                    '$data[3]',
+                    '$data[4]',
+                    '$data[5]',
+                    '$data[6]',
+                    '$data[7]',
+                    '$data[8]',
+                    '$data[9]',
+                    '$data[10]',
+                    '$data[11]',
+                    '$data[12]',
+                    '$data[13]',
+                    '$data[14]',
+                    '$data[15]',
+                    '$data[16]',
+                    '$data[17]',
+                    '$data[18]',
+                    '$data[19]',
+                    '$data[20]',
+                    '$data[21]'        
+                    )";
+            }
+
+
 
             $mysqli->query($q);
         }
@@ -216,7 +245,14 @@ if (isset($_POST['enviar'])) {
                     <tr>
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['articulo']; ?></td>
+                        <?php
+                        // Solo mostrar las columnas "Formato" y "Tipo Formato" si el país es "GT"
+                        if ($paisSession == 'GT') {
+                            echo "<td>" . $row['cod_familia'] . "</td>";
+                        } else {
+                            echo "<td>" . $row['articulo'] . "</td>";
+                        }
+                        ?>
                         <td><?php echo $row['s1']; ?></td>
                         <td><?php echo $row['s2']; ?></td>
                         <td><?php echo $row['s3']; ?></td>
