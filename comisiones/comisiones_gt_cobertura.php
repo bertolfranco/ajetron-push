@@ -188,7 +188,13 @@ if (isset($_POST['enviar'])) {
                         <th>Pais</th>
                         <th>Cod_zona</th>
                         <th>Cod_ruta</th>
-                        <th>Desc_marca</th>
+                        <?php
+                        if ($paisSession == 'GT') {
+                            echo "<th>Tipo</th>";
+                        } else {
+                            echo "<th>Desc_marca</th>";
+                        }
+                         ?>
                         <?php
                         // Solo mostrar "Formato" y "Tipo Formato" si el país es "GT"
                         if ($paisSession == 'GT') {
