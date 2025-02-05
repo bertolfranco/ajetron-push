@@ -173,6 +173,13 @@ if (isset($_POST['enviar'])) {
                         <th>Cod_zona</th>
                         <th>Cod_ruta</th>
                         <th>Desc_marca</th>
+                        <?php
+                        // Solo mostrar "Formato" y "Tipo Formato" si el país es "GT"
+                        if ($paisSession == 'GT') {
+                            echo "<th>Formato</th>";
+                            echo "<th>Tipo Formato</th>";
+                        }
+                        ?>
                         <th>Objetivo_clientes</th>
 						<th>Valor</th>
 						<th>Sistema</th>
@@ -187,6 +194,13 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['cod_zona']; ?></td>
                         <td><?php echo $row['cod_ruta']; ?></td>
                         <td><?php echo $row['desc_marca']; ?></td>
+                        <?php
+                        // Solo mostrar las columnas "Formato" y "Tipo Formato" si el país es "GT"
+                        if ($paisSession == 'GT') {
+                            echo "<td>" . $row['formato'] . "</td>";
+                            echo "<td>" . $row['tipo_formato'] . "</td>";
+                        }
+                        ?>
                         <td><?php echo $row['objetivo_clientes']; ?></td>
 						<td><?php echo $row['valor']; ?></td>
 						<td><?php echo $row['sistema']; ?></td>
