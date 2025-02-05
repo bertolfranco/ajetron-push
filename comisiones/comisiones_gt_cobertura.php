@@ -42,15 +42,31 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO cobertura_clientes_objetivo (pais,cod_zona,cod_ruta,desc_marca,objetivo_clientes,valor,sistema) VALUES (
-            '$data[0]',
-            '$data[1]',
-            '$data[2]',
-            '$data[3]',
-            '$data[4]',
-			'$data[5]',
-			'$data[6]'
-           )";
+            if ($pais == 'GT') {
+                // Inserción cuando el país es 'GT', incluyendo 'formato' y 'tipo_formato'
+                $q = "INSERT INTO cobertura_clientes_objetivo (pais, cod_zona, cod_ruta, desc_marca,formato, tipo_formato, objetivo_clientes, valor, sistema) VALUES (
+                        '$data[0]',
+                        '$data[1]',
+                        '$data[2]',
+                        '$data[3]',
+                        '$data[4]',
+                        '$data[5]',
+                        '$data[6]',
+                        '$data[7]',
+                        '$data[8]'
+                       )";
+            } else {
+                // Inserción cuando el país no es 'GT', sin 'formato' y 'tipo_formato'
+                $q = "INSERT INTO cobertura_clientes_objetivo (pais, cod_zona, cod_ruta, desc_marca, objetivo_clientes, valor, sistema) VALUES (
+                        '$data[0]',
+                        '$data[1]',
+                        '$data[2]',
+                        '$data[3]',
+                        '$data[4]',
+                        '$data[5]',
+                        '$data[6]'
+                       )";
+            }
 
             $mysqli->query($q);
         }
