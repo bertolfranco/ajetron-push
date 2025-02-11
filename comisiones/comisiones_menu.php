@@ -25,14 +25,11 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-<<<<<<< HEAD
                         <a <?php if($active == "hitrate" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_hitrate.php">
                             Comisiones Hit Rate
                         </a>
                     </li>
                     <li class="nav-item active">
-=======
->>>>>>> e712ba865e9efe7c92501bbc1607466ba1023b59
                         <a <?php if($active == "familias" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_familias.php">
                             Comisiones Familias
                         </a>
@@ -57,14 +54,11 @@
                             Comisiones Dias Habiles
                         </a>
                     </li>
-<<<<<<< HEAD
                     <li class="nav-item active">
                         <a <?php if($active == "historico" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_comisiones_historica.php">
                             Históricos
                         </a>
                     </li>
-=======
->>>>>>> e712ba865e9efe7c92501bbc1607466ba1023b59
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
                     <a href="../cerrarsesion.php" class="btn btn-danger">Cerrar sesión</a>
