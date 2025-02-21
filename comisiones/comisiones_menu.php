@@ -49,7 +49,7 @@
                             GT Cobertura
                         </a>
                     </li>
-                    <li <?php $paisSession == 'GT' ?> class="nav-item active">
+                    <li <?php if($paisSession == 'GT') ?> class="nav-item active">
                         <a <?php if($active == "gtadicional" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_gt_adicionales.php">
                             GT Adicionales
                         </a>
