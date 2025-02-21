@@ -49,6 +49,11 @@
                             GT Cobertura
                         </a>
                     </li>
+                    <li <?php $paisSession == 'GT' ?> class="nav-item active">
+                        <a <?php if($active == "gtadicional" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_gt_adicionales.php">
+                            GT Adicionales
+                        </a>
+                    </li>
 					<li class="nav-item active">
                         <a <?php if($active == "dias" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_diashabiles.php">
                             Comisiones Dias Habiles
