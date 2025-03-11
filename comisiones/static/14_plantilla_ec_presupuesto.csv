@@ -1,3 +1,3 @@
-﻿pais,cod_ruta,agrupacion,formato,tipo_formato,valor,sistema
-GT,13001,ARROZ,,CATEGORIA,200,9
-GT,13001,CEREALES,,CATEGORIA,300,8
+﻿pais,cod_ruta,marca,presupuesto
+EC,1001,PULP AVENA,1200
+EC,1001,BIG,1300
