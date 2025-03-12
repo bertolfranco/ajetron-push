@@ -42,11 +42,12 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO alcance_presupuesto (pais, cod_ruta, marca, presupuesto) VALUES (
+            $q = "INSERT INTO alcance_presupuesto (pais, cod_ruta, marca, presupuesto_cf,presupuesto_mn) VALUES (
                 '$data[0]',
                 '$data[1]',
                 '$data[2]',
-                '$data[3]'
+                '$data[3]',
+                '$data[4]'
                )";
 
             $mysqli->query($q);
@@ -158,7 +159,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM cobertura_clientes_objetivo where pais = '".$paisSession."' ORDER BY cod_ruta,desc_marca";
+            $sqlSelect = "SELECT * FROM alcance_presupuesto where pais = '".$paisSession."' ORDER BY cod_ruta";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -170,7 +171,8 @@ if (isset($_POST['enviar'])) {
                         <th>Pais</th>
                         <th>Cod_ruta</th>
                         <th>Marca</th>
-						<th>Presupuesto</th>
+						<th>Presupuesto CF</th>
+                        <th>Presupuesto MN</th>
                     </tr>
                     </thead>
                     <?php
@@ -181,7 +183,8 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['pais']; ?></td>
                         <td><?php echo $row['cod_ruta']; ?></td>
                         <td><?php echo $row['marca']; ?></td>
-                        <td><?php echo $row['presupuesto']; ?></td>
+                        <td><?php echo $row['presupuesto_cf']; ?></td>
+                        <td><?php echo $row['presupuesto_mn']; ?></td>
                     </tr>
                     <?php
                     }

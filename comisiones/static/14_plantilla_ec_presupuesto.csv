@@ -1,3 +1,3 @@
-﻿pais,cod_ruta,marca,presupuesto
-EC,1001,PULP AVENA,1200
-EC,1001,BIG,1300
+﻿pais,cod_ruta,marca,presupuesto_cf,presupuesto_mn
+EC,1001,PULP AVENA,1200,500
+EC,1001,BIG,1300,400
