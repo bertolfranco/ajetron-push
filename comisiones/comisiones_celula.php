@@ -42,12 +42,13 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO comisiones_celula (pais,celula,zona,sistema,foco) VALUES (
+            $q = "INSERT INTO comisiones_celula (pais,celula,zona,fuerza_venta,sistema,foco) VALUES (
             '$data[0]',
             '$data[1]',
             '$data[2]',
             '$data[3]',
-            '$data[4]'
+            '$data[4]',
+            '$data[5]'
             )";
 
             $mysqli->query($q);
@@ -171,6 +172,11 @@ if (isset($_POST['enviar'])) {
                         <th>Pais</th>
                         <th>Celula</th>
                         <th>Zona</th>
+                        <?php
+                        if ($paisSession == 'EC') {
+                            echo "<th>Fuerza Venta</th>";
+                        }
+                         ?>
                         <th>Sistema</th>
                         <th>Foco</th>
                     </tr>
@@ -184,6 +190,11 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['pais']; ?></td>
                         <td><?php echo $row['celula']; ?></td>
                         <td><?php echo $row['zona']; ?></td>
+                        <?php
+                         if ($paisSession == 'EC') {
+                             echo "<td>" . $row['fuerza_venta'] . "</td>";
+                         }
+                         ?>
                         <td><?php echo $row['sistema']; ?></td>
                         <td><?php echo $row['foco']; ?></td>
                     </tr>

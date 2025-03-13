@@ -1,19 +1,19 @@
-pais,celula,zona,sistema,foco
-PE,Lima Norte,,1,f1
-PE,Lima Callao,,1,f2
-PE,Huacho,,2,f3
-PE,Lima Centro,,7,f4
-PE,Lima Sur,,7,f5
-PE,Chincha,,2,f6
-PE,Tarapoto,,3,f7
-PE,Pucallpa,,3,f8
-PE,Juanjui,,3,f9
-PE,Arequipa,,4,f10
-PE,Cusco,,4,f11
-PE,Juliaca,,4,f12
-PE,Tacna,,4,f13
-PE,Huancayo,,5,f14
-PE,Chiclayo,,6,f15
-PE,Tumbes,,6,f16
-PE,Piura,,6,f17
-PE,Sullana,,6,f18
+pais,celula,zona,fuerza_venta,sistema,foco
+PE,Lima Norte,,,1,f1
+PE,Lima Callao,,,1,f2
+PE,Huacho,,,2,f3
+PE,Lima Centro,,,7,f4
+PE,Lima Sur,,,7,f5
+PE,Chincha,,,2,f6
+PE,Tarapoto,,,3,f7
+PE,Pucallpa,,,3,f8
+PE,Juanjui,,,3,f9
+PE,Arequipa,,,4,f10
+PE,Cusco,,,4,f11
+PE,Juliaca,,,4,f12
+PE,Tacna,,,4,f13
+PE,Huancayo,,,5,f14
+PE,Chiclayo,,,6,f15
+PE,Tumbes,,,6,f16
+PE,Piura,,,6,f17
+PE,Sullana,,,6,f18
