@@ -171,7 +171,11 @@ if (isset($_POST['enviar'])) {
                         <th>#</th>
                         <th>Pais</th>
                         <th>Celula</th>
-                        <th>Zona</th>
+                        <?php
+                        if ($paisSession == 'PE') {
+                            echo "<th>Zona</th>";
+                        }
+                         ?>
                         <?php
                         if ($paisSession == 'EC') {
                             echo "<th>Fuerza Venta</th>";
@@ -189,8 +193,10 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['pais']; ?></td>
                         <td><?php echo $row['celula']; ?></td>
-                        <td><?php echo $row['zona']; ?></td>
                         <?php
+                        if ($paisSession == 'PE') {
+                            echo "<td>" . $row['zona'] . "</td>";
+                        }
                          if ($paisSession == 'EC') {
                              echo "<td>" . $row['fuerza_venta'] . "</td>";
                          }
