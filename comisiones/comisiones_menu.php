@@ -46,13 +46,6 @@
                             Comisiones Foco
                         </a>
                     </li>
-                    <?php if($paisSession == 'EC'): ?>
-                     <li class="nav-item active">
-                        <a <?php if($active == "ecpresupuesto" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="alcance_ec_presupuestos.php">
-                            EC Presupuesto
-                        </a>
-                    </li>
-                    <?php endif; ?>
                     <li class="nav-item active">
                         <a <?php if($active == "gtcobertura" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_gt_cobertura.php">
                             GT Cobertura
