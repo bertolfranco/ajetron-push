@@ -68,30 +68,57 @@ if (isset($_POST['enviar'])) {
                     '$data[21]'        
                     )";
             } else {
-                $q = "INSERT INTO comisiones_familias (pais,articulo,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
-                    '$data[0]',
-                    '$data[1]',
-                    '$data[2]',
-                    '$data[3]',
-                    '$data[4]',
-                    '$data[5]',
-                    '$data[6]',
-                    '$data[7]',
-                    '$data[8]',
-                    '$data[9]',
-                    '$data[10]',
-                    '$data[11]',
-                    '$data[12]',
-                    '$data[13]',
-                    '$data[14]',
-                    '$data[15]',
-                    '$data[16]',
-                    '$data[17]',
-                    '$data[18]',
-                    '$data[19]',
-                    '$data[20]',
-                    '$data[21]'        
-                    )";
+                if ($paisSession == 'HN' || $paisSession == 'SV'){
+                    $q = "INSERT INTO comisiones_familias (pais,articulo,cod_familia,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
+                                        '$data[0]',
+                                        '$data[1]',
+                                        '$data[2]',
+                                        '$data[3]',
+                                        '$data[4]',
+                                        '$data[5]',
+                                        '$data[6]',
+                                        '$data[7]',
+                                        '$data[8]',
+                                        '$data[9]',
+                                        '$data[10]',
+                                        '$data[11]',
+                                        '$data[12]',
+                                        '$data[13]',
+                                        '$data[14]',
+                                        '$data[15]',
+                                        '$data[16]',
+                                        '$data[17]',
+                                        '$data[18]',
+                                        '$data[19]',
+                                        '$data[20]',
+                                        '$data[21]'
+                                        )";
+                }else{
+                    $q = "INSERT INTO comisiones_familias (pais,articulo,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
+                                        '$data[0]',
+                                        '$data[1]',
+                                        '$data[2]',
+                                        '$data[3]',
+                                        '$data[4]',
+                                        '$data[5]',
+                                        '$data[6]',
+                                        '$data[7]',
+                                        '$data[8]',
+                                        '$data[9]',
+                                        '$data[10]',
+                                        '$data[11]',
+                                        '$data[12]',
+                                        '$data[13]',
+                                        '$data[14]',
+                                        '$data[15]',
+                                        '$data[16]',
+                                        '$data[17]',
+                                        '$data[18]',
+                                        '$data[19]',
+                                        '$data[20]',
+                                        '$data[21]'
+                                        )";
+                }
             }
 
 
@@ -216,6 +243,11 @@ if (isset($_POST['enviar'])) {
                         <th>#</th>
                         <th>pais</th>
                         <th>articulo</th>
+                        <?php
+                        if ($paisSession == 'HN' || $paisSession == 'SV') {
+                           echo "<th>cod_familia</th>";
+                        }
+                        ?>
                         <th>s1</th>
                         <th>s2</th>
                         <th>s3</th>
@@ -250,7 +282,11 @@ if (isset($_POST['enviar'])) {
                         if ($paisSession == 'GT') {
                             echo "<td>" . $row['cod_familia'] . "</td>";
                         } else {
-                            echo "<td>" . $row['articulo'] . "</td>";
+                            if ($paisSession == 'HN' || $paisSession == 'SV') {
+                               echo "<td>" . $row['articulo'] . "</td>"."<td>" . $row['cod_familia'] . "</td>";
+                            }else{
+                               echo "<td>" . $row['articulo'] . "</td>";
+                            }
                         }
                         ?>
                         <td><?php echo $row['s1']; ?></td>
