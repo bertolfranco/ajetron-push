@@ -42,15 +42,28 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO comisiones_tipo (pais,sistema,familia,tipodecomision,tipo,fuerza_venta,valor) VALUES (
-            '$data[0]',
-            '$data[1]',
-            '$data[2]',
-            '$data[3]',
-            '$data[4]',
-            '$data[5]',
-            '$data[6]'        
-            )";
+            if( $paisSession == "HN" ) {
+                $q = "INSERT INTO comisiones_tipo (pais,sistema,familia,tipodecomision,tipo,valor,valormin,valormax) VALUES (
+                            '$data[0]',
+                            '$data[1]',
+                            '$data[2]',
+                            '$data[3]',
+                            '$data[4]',
+                            '$data[5]',
+                            '$data[6]',
+                            '$data[7]'
+                            )";
+            }else {
+                $q = "INSERT INTO comisiones_tipo (pais,sistema,familia,tipodecomision,tipo,valor) VALUES (
+                            '$data[0]',
+                            '$data[1]',
+                            '$data[2]',
+                            '$data[3]',
+                            '$data[4]',
+                            '$data[5]'
+                            )";
+            }
+
 
             $mysqli->query($q);
         }
@@ -174,13 +187,11 @@ if (isset($_POST['enviar'])) {
                         <th>sistema</th>
                         <th>familia</th>
                         <th>tipodecomision</th>
-                        <?php
-                        if ($paisSession == 'EC') {
-                            echo "<th>Fuerza Venta</th>";
-                        }
-                         ?>
                         <th>tipo</th>
                         <th>valor</th>
+                        <?php
+                        if( $paisSession == "HN" ) { echo "<th>valormin</th><th>valormax</th>"; }
+                        ?>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
@@ -192,14 +203,10 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['sistema']; ?></td>
                         <td><?php echo $row['familia']; ?></td>
                         <td><?php echo $row['tipodecomision']; ?></td>
-                        <?php
-                        // Solo mostrar las columnas "Formato" y "Tipo Formato" si el país es "GT"
-                        if ($paisSession == 'EC') {
-                            echo "<td>" . $row['fuerza_venta'] . "</td>";
-                        }
-                        ?>
                         <td><?php echo $row['tipo']; ?></td>
                         <td><?php echo $row['valor']; ?></td>
+                        <td><?php if( $paisSession == "HN" ) { echo $row['valormin']; } ?></td>
+                        <td><?php if( $paisSession == "HN" ) { echo $row['valormax']; } ?></td>
                     </tr>
                     <?php
                     }
