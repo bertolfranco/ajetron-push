@@ -24,11 +24,13 @@
                             Comisiones Banda
                         </a>
                     </li>
+                    <?php if($paisSession == 'PE'): ?>
                     <li class="nav-item active">
                         <a <?php if($active == "hitrate" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_hitrate.php">
                             Comisiones Hit Rate
                         </a>
                     </li>
+                    <?php endif; ?>
                     <li class="nav-item active">
                         <a <?php if($active == "familias" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_familias.php">
                             Comisiones Familias
