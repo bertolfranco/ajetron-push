@@ -58,6 +58,13 @@
                         </a>
                     </li>
                     <?php endif; ?>
+                    <?php if($paisSession == 'GT'): ?>
+                     <li class="nav-item active">
+                        <a <?php if($active == "kpis" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_kpis.php">
+                            Kpis
+                        </a>
+                    </li>
+                    <?php endif; ?>
 					<li class="nav-item active">
                         <a <?php if($active == "dias" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_diashabiles.php">
                             Comisiones Dias Habiles
