@@ -42,7 +42,7 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            if ($paisSession == 'GT') {
+            if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV' ) {
                 // Inserción cuando el país es 'GT', incluyendo 'formato' y 'tipo_formato'
                 $q = "INSERT INTO cobertura_clientes_objetivo (pais, cod_zona, cod_ruta, desc_marca,formato, tipo_formato, objetivo_clientes, valor, sistema) VALUES (
                         '$data[0]',
@@ -189,7 +189,7 @@ if (isset($_POST['enviar'])) {
                         <th>Cod_zona</th>
                         <th>Cod_ruta</th>
                         <?php
-                        if ($paisSession == 'GT') {
+                        if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
                             echo "<th>Tipo</th>";
                         } else {
                             echo "<th>Desc_marca</th>";
@@ -197,7 +197,7 @@ if (isset($_POST['enviar'])) {
                          ?>
                         <?php
                         // Solo mostrar "Formato" y "Tipo Formato" si el país es "GT"
-                        if ($paisSession == 'GT') {
+                        if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
                             echo "<th>Formato</th>";
                             echo "<th>Tipo Formato</th>";
                         }
@@ -218,7 +218,7 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['desc_marca']; ?></td>
                         <?php
                         // Solo mostrar las columnas "Formato" y "Tipo Formato" si el país es "GT"
-                        if ($paisSession == 'GT') {
+                        if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
                             echo "<td>" . $row['formato'] . "</td>";
                             echo "<td>" . $row['tipo_formato'] . "</td>";
                         }
