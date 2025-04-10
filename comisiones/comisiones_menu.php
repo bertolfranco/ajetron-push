@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <?php endif; ?>
-                    <?php if($paisSession == 'GT'): ?>
+                    <?php if(in_array($paisSession, ['GT', 'HN', 'SV'])): ?>
                      <li class="nav-item active">
                         <a <?php if($active == "kpis" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_kpis.php">
                             Kpis
