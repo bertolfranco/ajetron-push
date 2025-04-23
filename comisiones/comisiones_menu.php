@@ -70,6 +70,13 @@
                             Comisiones Dias Habiles
                         </a>
                     </li>
+                    <?php if($paisSession == 'PE'): ?>
+                     <li class="nav-item active">
+                        <a <?php if($active == "concurso" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_concursos.php">
+                            Comisiones Concursos
+                        </a>
+                    </li>
+                    <?php endif; ?>
                     <li class="nav-item active">
                         <a <?php if($active == "historico" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_comisiones_historica.php">
                             Históricos
