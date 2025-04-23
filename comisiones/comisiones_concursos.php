@@ -15,7 +15,7 @@ $active = "concurso";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "TRUNCATE TABLE comisiones_concurso";
+    $query = "TRUNCATE TABLE comisiones_concursos";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -42,7 +42,7 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-             $q = "INSERT INTO comisiones_concurso (concurso,premio) VALUES (
+             $q = "INSERT INTO comisiones_concursos (concurso,premio) VALUES (
                                         '$data[0]',
                                         '$data[1]'
                                         )";
@@ -155,7 +155,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_concurso";
+            $sqlSelect = "SELECT * FROM comisiones_concursos";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
