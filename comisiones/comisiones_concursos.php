@@ -15,7 +15,7 @@ $active = "concurso";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "TRUNCATE TABLE comisiones_concursos";
+    $query = "DELETE FROM comisiones_concursos WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -42,9 +42,11 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-             $q = "INSERT INTO comisiones_concursos (concurso,premio) VALUES (
+             $q = "INSERT INTO comisiones_concursos (cod_ruta,concurso,premio,pais) VALUES (
                                         '$data[0]',
-                                        '$data[1]'
+                                        '$data[1]',
+                                        '$data[2]',
+                                        '$data[3]',
                                         )";
 
             $mysqli->query($q);
@@ -174,8 +176,10 @@ if (isset($_POST['enviar'])) {
                     <tbody>
                     <tr>
                         <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['cod_ruta']; ?></td>
                         <td><?php echo $row['concurso']; ?></td>
                         <td><?php echo $row['premio']; ?></td>
+                        <td><?php echo $row['pais']; ?></td>
                     </tr>
                     <?php
                     }
