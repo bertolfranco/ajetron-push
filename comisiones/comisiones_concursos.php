@@ -139,6 +139,7 @@ if (isset($_POST['enviar'])) {
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
                                     <li><a class="dropdown-item" href="static/gt_cobertura_cliente_objetivo.csv">GT - Cobertura</a></li>
+                                    <li><a class="dropdown-item" href="static/15_plantilla_concursos.csv">Concursos</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -167,8 +168,10 @@ if (isset($_POST['enviar'])) {
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>concurso</th>
-                        <th>premio</th>
+                        <th>Cod_ruta</th>
+                        <th>Concurso</th>
+                        <th>Premio</th>
+                        <th>Pais</th>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
