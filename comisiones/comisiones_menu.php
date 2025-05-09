@@ -67,7 +67,7 @@
                     <?php endif; ?>
                     <?php if(in_array($paisSession, ['GT', 'HN', 'SV'])): ?>
                      <li class="nav-item active">
-                        <a <?php if($active == "tpc" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_kpis.php">
+                        <a <?php if($active == "tpc" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_parametros.php">
                             Param. Conf.
                         </a>
                     </li>
