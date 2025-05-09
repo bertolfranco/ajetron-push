@@ -65,6 +65,13 @@
                         </a>
                     </li>
                     <?php endif; ?>
+                    <?php if(in_array($paisSession, ['GT', 'HN', 'SV'])): ?>
+                     <li class="nav-item active">
+                        <a <?php if($active == "tpc" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_kpis.php">
+                            Param. Conf.
+                        </a>
+                    </li>
+                    <?php endif; ?>
 					<li class="nav-item active">
                         <a <?php if($active == "dias" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_diashabiles.php">
                             Comisiones Dias Habiles
