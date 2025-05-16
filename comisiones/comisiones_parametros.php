@@ -42,11 +42,12 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO parametros_configuracion (pais, cod_ruta, descripcion, valor) VALUES (
+            $q = "INSERT INTO parametros_configuracion (pais, cod_ruta, descripcion, tipo, valor) VALUES (
                 '$data[0]',
                 '$data[1]',
                 '$data[2]',
-                '$data[3]'
+                '$data[3]',
+                '$data[4]'
                )";
 
             $mysqli->query($q);
@@ -182,6 +183,7 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['ruta']; ?></td>
                         <td><?php echo $row['descripcion']; ?></td>
                         <td><?php echo $row['valor']; ?></td>
+                        <td><?php echo $row['tipo']; ?></td>
                     </tr>
                     <?php
                     }
