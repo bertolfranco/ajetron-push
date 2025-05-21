@@ -48,13 +48,16 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO push_carga (pais, descripcion, tipo, valor, etiqueta, programacion) VALUES (
+            $q = "INSERT INTO push_carga (pais, descripcion, tipo, valor, etiqueta,sucursal,zona,ruta, programacion) VALUES (
 		'$data[0]',
 		'$data[1]',
         '$data[2]',
         '$data[3]',
         '$data[4]',
-        '$data[5]'
+        '$data[5]',
+        '$data[6]',
+        '$data[7]',
+        '$data[8]'
 	    )";
 
             $mysqli->query($q);
@@ -210,6 +213,9 @@ if (isset($_POST['enviar'])) {
                         <th colspan="1">tipo</th>
                         <th colspan="2">valor</th>
                         <th colspan="1">etiqueta</th>
+                        <th colspan="1">sucursal</th>
+                        <th colspan="1">zona</th>
+                        <th colspan="1">ruta</th>
                         <th colspan="1">programacion</th>
                         <th colspan="1">opcion</th>
 
@@ -226,6 +232,9 @@ if (isset($_POST['enviar'])) {
                         <td colspan="1"><?php echo $row['tipo']; ?></td>
                         <td colspan="2"><?php echo $row['valor']; ?></td>
                         <td colspan="1"><?php echo $row['etiqueta']; ?></td>
+                        <td colspan="1"><?php echo $row['sucursal']; ?></td>
+                        <td colspan="1"><?php echo $row['zona']; ?></td>
+                        <td colspan="1"><?php echo $row['ruta']; ?></td>
                         <td colspan="1"><?php echo $row['programacion']; ?></td>
                         <td colspan="2">
                             <form method="post" action="">
