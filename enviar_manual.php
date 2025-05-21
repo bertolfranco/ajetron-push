@@ -26,7 +26,11 @@ $token = $TOKEN_BOT;
 
 $res ="select DISTINCT pc.*, vpb.idtelegram 
 from push_carga pc 
-join v_push_base vpb on pc.pais=vpb.pais
+left join v_push_base vpb on pc.pais=vpb.pais AND (
+        (pc.sucursal IS NOT NULL AND pc.sucursal = vpb.cod_sucursal) OR
+        (pc.zona     IS NOT NULL AND pc.zona     = vpb.zona) OR
+        (pc.ruta     IS NOT NULL AND pc.ruta     = vpb.ruta)
+    )
 where pc.id  = '$id'
 ";
 
@@ -94,7 +98,7 @@ foreach ($fila as  $value) {
     }
 
     $r_array = json_decode(curl_exec($ch), true);
-
+    
     curl_close($ch);
     if($r_array['ok'] == 1){
         echo $value['idtelegram']," ","Campaña"," ",$value['id']," EXITOSO\n";
