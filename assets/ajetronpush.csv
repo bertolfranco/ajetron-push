@@ -1,5 +1,6 @@
-﻿pais,descripcion,tipo,valor,etiqueta,cod_sucursal,zona,ruta,programacion
-PE,PASOS AJETRON,texto,Hola ajelover, Checa los siguientes simples pasos para que te asegures de como podemos conversar y darte toda la información que necesites: 1. Escribe /start o Hola. 2. Ingresa tu código de ruta. 3. Ingresa tu contraseña: Últimos 4 dígitos del DNI. 4. Escribe Menu. 5. Selecciona la opción que quieres revisar. Mejora tu gestión con toda la información disponible.,,0020|06,1000,10000,tipo1
-PE,AJETRON IMAGEN,imagen,https://drive.google.com/uc?id=1hkHiEDhrrBmaPyCLMFF89psxrlN2FCZn,AJETRON Notify,0020|07,1000,10001,tipo2
-GT,AJETRON DOCUMENTO,documento,https://drive.google.com/uc?id=1FrxQuNpLdMMAcJwaApwRfRa1CANGuTuw,AJETRON Notify,0020|08,1351,27,tipo3
-GT,AJETRON DOCUMENTO,documento,https://drive.google.com/uc?id=1FrxQuNpLdMMAcJwaApwRfRa1CANGuTuw,AJETRON Notify,0020|09,1351,25,
+﻿pais,descripcion,tipo,valor,etiqueta,cod_sucursal,zona,ruta,programacion,
+PE,PASOS AJETRON,texto,Hola ajelover," Checa los siguientes simples pasos para que te asegures de como podemos conversar y darte toda la información que necesites: 1. Escribe /start o Hola. 
+2. Ingresa tu código de ruta. 3. Ingresa tu contraseña: Últimos 4 dígitos del DNI. 4. Escribe Menu. 5. Selecciona la opción que quieres revisar. Mejora tu gestión con toda la información disponible.",0020|06,1000,1000,10000,tipo1
+PE,AJETRON IMAGEN,imagen,https://drive.google.com/uc?id=1hkHiEDhrrBmaPyCLMFF89psxrlN2FCZn,AJETRON Notify,0020|07,1000,10001,tipo2,
+GT,AJETRON DOCUMENTO,documento,https://drive.google.com/uc?id=1FrxQuNpLdMMAcJwaApwRfRa1CANGuTuw,AJETRON Notify,0020|08,1351,27,tipo3,
+GT,AJETRON DOCUMENTO,documento,https://drive.google.com/uc?id=1FrxQuNpLdMMAcJwaApwRfRa1CANGuTuw,AJETRON Notify,0020|09,1351,25,,
