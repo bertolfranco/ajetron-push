@@ -53,7 +53,7 @@ foreach ($fila as  $value) {
     }elseif($value['tipo']=='texto'){
         $escapedMessage = str_replace(['.', '-', '#', '(', ')', '!'], ['\.', '\-', '\#', '\(', '\)', '\!'], $value['valor']); // Escapar los puntos con barra invertida
         $datos = [
-            'chat_id' => '5630226271',
+            'chat_id' => $value['idtelegram'],
             //'chat_id' => 538709214,
             'text' => $escapedMessage,
             'parse_mode' => 'MarkdownV2' #formato del mensaje
