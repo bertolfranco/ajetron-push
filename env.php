@@ -5,5 +5,5 @@ $DB_BIIOT="admin_biiot";
 $DB_AJETRON="ajetron";
 $DB_USER="ajetron";
 $DB_PASSWORD="Re!kHpN74ztHGXDBa^ep!e*3hCLN6wj";
-$TOKEN_BOT="6514974985:AAG06s2qRdtNxE0k0yhwHkZ-cbGb8Jfd-Yg";
+$TOKEN_BOT="8042954676:AAHxUxR-o61yAS-3Ebedg90GNO32IkHWCHI";
 ?>
