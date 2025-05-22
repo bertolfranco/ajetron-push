@@ -26,11 +26,15 @@ $token = $TOKEN_BOT;
 
 $res ="select DISTINCT pc.*, vpb.idtelegram 
 from push_carga pc 
-left join v_push_base vpb on pc.pais=vpb.pais AND (
-        (pc.sucursal IS NOT NULL AND pc.sucursal = vpb.cod_sucursal) OR
-        (pc.zona     IS NOT NULL AND pc.zona     = vpb.zona) OR
-        (pc.ruta     IS NOT NULL AND pc.ruta     = vpb.ruta)
-    )
+join v_push_base vpb on pc.pais=vpb.pais
+AND ((
+      (pc.sucursal IS NULL OR pc.sucursal = '')
+      AND (pc.zona IS NULL OR pc.zona = '')
+	  AND (pc.ruta IS NULL OR pc.ruta = ''))
+        OR
+        ((pc.sucursal IS NOT NULL AND pc.sucursal != '' AND pc.sucursal = vpb.cod_sucursal)
+            OR (pc.zona     IS NOT NULL AND pc.zona     != '' AND pc.zona = vpb.zona)
+            OR (pc.ruta     IS NOT NULL AND pc.ruta     != '' AND pc.ruta = vpb.ruta)))
 where pc.id  = '$id'
 ";
 
@@ -49,7 +53,7 @@ foreach ($fila as  $value) {
     }elseif($value['tipo']=='texto'){
         $escapedMessage = str_replace(['.', '-', '#', '(', ')', '!'], ['\.', '\-', '\#', '\(', '\)', '\!'], $value['valor']); // Escapar los puntos con barra invertida
         $datos = [
-            'chat_id' => $value['idtelegram'],
+            'chat_id' => '5630226271',
             //'chat_id' => 538709214,
             'text' => $escapedMessage,
             'parse_mode' => 'MarkdownV2' #formato del mensaje
