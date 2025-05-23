@@ -100,6 +100,9 @@ foreach ($fila as  $value) {
     curl_close($ch);
     if($r_array['ok'] == 1){
         echo $value['idtelegram']," ","Campaña"," ",$value['id']," EXITOSO\n";
+        $id = $value['id'];  // id de push_carga
+        $update = "UPDATE push_carga SET enviado = 1 WHERE id = $id";
+        $mysqli->query($update);
     }else{
         echo $value['idtelegram']," ","Campaña"," ",$value['id']," FALLO ", $r_array['error_code'], " ", $r_array['description'], "\n"  ;
     }
