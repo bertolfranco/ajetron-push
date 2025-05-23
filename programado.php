@@ -13,11 +13,7 @@ date_default_timezone_set('America/Guatemala');
 if(!isset($_GET['tipo'])){
     throw new Exception('Pais requerido');
 }
-if(!isset($_GET['pais'])){
-    throw new Exception('Pais requerido');
-}
 $tipo=$_GET['tipo'];
-$pais=$_GET['pais'];
 $token = $TOKEN_BOT;
 
 $res ="select DISTINCT pc.*, vpb.idtelegram 
@@ -31,7 +27,7 @@ AND ((
         ((pc.sucursal IS NOT NULL AND pc.sucursal != '' AND pc.sucursal = vpb.cod_sucursal)
             OR (pc.zona     IS NOT NULL AND pc.zona     != '' AND pc.zona = vpb.zona)
             OR (pc.ruta     IS NOT NULL AND pc.ruta     != '' AND pc.ruta = vpb.ruta)))
-where pc.programacion  = '$tipo' and pc.pais = '$pais'
+where pc.programacion  = '$tipo'
 ";
 
 $res = $mysqli->query("$res");
