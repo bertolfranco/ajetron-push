@@ -28,7 +28,7 @@ AND ((
         ((pc.sucursal IS NOT NULL AND pc.sucursal != '' AND pc.sucursal = vpb.cod_sucursal)
             OR (pc.zona     IS NOT NULL AND pc.zona     != '' AND pc.zona = vpb.zona)
             OR (pc.ruta     IS NOT NULL AND pc.ruta     != '' AND pc.ruta = vpb.ruta)))
-where pc.programacion  = '$tipo' and pc.pais = '$pais'
+where pc.programacion  = '$tipo'
 ";
 
 $res = $mysqli->query("$res");
