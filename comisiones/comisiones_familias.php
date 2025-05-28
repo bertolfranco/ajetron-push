@@ -35,8 +35,10 @@ if (isset($_POST['enviar'])) {
         $selectedDelimiter = $_POST['delimiter'];
 
 //  $handle = str_replace(',',';',$handle);
+        echo "si da insertar";
+        $contador = 0;
         while (($data = fgetcsv($handle, 100000, $selectedDelimiter)) !== FALSE) {
-
+            $contador++;
             if (!$firstRowSkipped) {
                 $firstRowSkipped = true;
                 continue; // Saltar la primera fila
@@ -69,6 +71,7 @@ if (isset($_POST['enviar'])) {
                     )";
             } else {
                 if ($paisSession == 'HN' || $paisSession == 'SV'){
+                    echo "entro en HN ANTES DE INSERT";
                     $q = "INSERT INTO comisiones_familias (pais,articulo,cod_familia,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
                                         '$data[0]',
                                         '$data[1]',
@@ -93,6 +96,7 @@ if (isset($_POST['enviar'])) {
                                         '$data[20]',
                                         '$data[21]'
                                         )";
+                    echo "entro en HN DESPUES DE INSERT";
                 }else{
                     $q = "INSERT INTO comisiones_familias (pais,articulo,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
                                         '$data[0]',
@@ -125,6 +129,7 @@ if (isset($_POST['enviar'])) {
 
             $mysqli->query($q);
         }
+        echo "contador".$contador;
         fclose($handle);
     }
 }
