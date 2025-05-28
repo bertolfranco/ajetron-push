@@ -126,7 +126,6 @@ if (isset($_POST['enviar'])) {
 
             $mysqli->query($q);
         }
-        echo "contador".$contador;
         fclose($handle);
     }
 }
