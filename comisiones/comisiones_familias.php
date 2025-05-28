@@ -96,7 +96,7 @@ if (isset($_POST['enviar'])) {
                                         '$data[20]',
                                         '$data[21]'
                                         )";
-                    echo "entro en HN DESPUES DE INSERT";
+                    echo "QUERY:".$q;
                 }else{
                     $q = "INSERT INTO comisiones_familias (pais,articulo,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
                                         '$data[0]',
