@@ -42,11 +42,12 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-             $q = "INSERT INTO comisiones_concursos (cod_ruta,concurso,premio,pais) VALUES (
+             $q = "INSERT INTO comisiones_concursos (cod_ruta,concurso,descripcion,premio,pais) VALUES (
                                         '$data[0]',
                                         '$data[1]',
                                         '$data[2]',
-                                        '$data[3]'
+                                        '$data[3]',
+                                        '$data[4]'
                                         )";
 
             $mysqli->query($q);
@@ -170,6 +171,7 @@ if (isset($_POST['enviar'])) {
                         <th>#</th>
                         <th>Cod_ruta</th>
                         <th>Concurso</th>
+                        <th>Descripcion</th>
                         <th>Premio</th>
                         <th>Pais</th>
                     </thead>
@@ -181,6 +183,7 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['cod_ruta']; ?></td>
                         <td><?php echo $row['concurso']; ?></td>
+                        <td><?php echo $row['descripcion']; ?></td>
                         <td><?php echo $row['premio']; ?></td>
                         <td><?php echo $row['pais']; ?></td>
                     </tr>
