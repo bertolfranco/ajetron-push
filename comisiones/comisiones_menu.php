@@ -143,7 +143,7 @@
                             echo 'class="nav-link active"';
                         } else {
                             echo 'class="nav-link"';
-                        } ?> href="clientes_programa.php">
+                        } ?> href="clientes_programas.php">
                             Clientes Programa
                         </a>
                     </li>
