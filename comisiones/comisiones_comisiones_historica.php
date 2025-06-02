@@ -29,7 +29,7 @@ if (isset($_POST['generar'])) {
     $anio = $_POST['anio'];
     $mes = $_POST['mes'];
     $urlComisionesHistorico = 'https://ajebotglobal.ajegroup.com/ajetron/public/comisiones-historicas';
-    $ruta_descarga = "$urlComisiones/$anio-$mes/$paisactual/grafica_".$ruta.".png";
+    $ruta_descarga = "$urlComisionesHistorico/$anio-$mes/$paisactual/grafica_".$ruta.".png";
     echo $ruta_descarga;
 }
 
