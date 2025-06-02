@@ -14,6 +14,7 @@ if(!isset($_GET['tipo'])){
     throw new Exception('Pais requerido');
 }
 $tipo=$_GET['tipo'];
+
 $token = $TOKEN_BOT;
 
 $res ="select DISTINCT pc.*, vpb.idtelegram 
