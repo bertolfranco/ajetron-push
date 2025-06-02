@@ -6,7 +6,6 @@ require_once '../assets/jpgraph-4.2.10/src/jpgraph_table.php';
 session_start();
 global $mysqli;
 require_once 'dbconect.php';
-require_once 'img/comisiones_bo.php';
 
 if (!isset($_SESSION["username"])) {
     header("Location: index.php");
@@ -27,18 +26,11 @@ if (isset($_POST["delete"])) {
 if (isset($_POST['generar'])) {
     $ruta = $_POST['ruta'];
     $paisactual = $_POST['pais'];
-    switch($paisactual) {
-        case "BO":
-        generarImagenBolivia($mysqli,$ruta,$paisactual,2025,1);
-        case "MX":
-        generarImagenMexico($mysqli,$ruta,$paisactual,2025,1);
-        case "CR":
-         generarImagenCostaRica($mysqli,$ruta,$paisactual,2025,1);
-        case "CO":
-         generarImagenColombia($mysqli,$ruta,$paisactual,2025,1);
-        default:
-        break;
-        }
+    $anio = $_POST['anio'];
+    $mes = $_POST['mes'];
+    $urlComisionesHistorico = 'https://ajebotglobal.ajegroup.com/ajetron/public/comisiones-historicas';
+    $ruta_descarga = "$urlComisiones/$anio-$mes/$paisactual/grafica_".$ruta.".png";
+    echo $ruta_descarga;
 }
 
 ?>
