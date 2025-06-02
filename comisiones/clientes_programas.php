@@ -138,7 +138,7 @@ if (isset($_POST['enviar'])) {
                                     <li><a class="dropdown-item" href="static/8_plantilla_hitrate.csv">Hit Rate</a></li>
                                     <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
-                                    <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Cliente Programa</a></li>
+                                    <li><a class="dropdown-item" href="static/16_plantilla_clientes_programas.csv">Cliente Programa</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
                                     <li><a class="dropdown-item" href="static/gt_cobertura_cliente_objetivo.csv">GT - Cobertura</a></li>
                                 </ul>
