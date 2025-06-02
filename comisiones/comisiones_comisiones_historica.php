@@ -32,7 +32,7 @@ if (isset($_POST['generar'])) {
     $ruta_descarga = "$urlComisionesHistorico/$anio-$mes/$paisactual/grafica_".$ruta.".png";
 
     // Nombre del archivo para descargar
-    $nombre_archivo = 'grafica_'.$ruta.$anio.$mes.'.png';
+    $nombre_archivo = 'grafica_'.$ruta.'_'.$anio.$mes.'.png';
 
     if (!file_exists($ruta_descarga)) {
         die('La imagen no existe.');
