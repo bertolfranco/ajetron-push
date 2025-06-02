@@ -28,30 +28,28 @@ if (isset($_POST['generar'])) {
     $paisactual = $_POST['pais'];
     $anio = $_POST['anio'];
     $mes = $_POST['mes'];
-    $urlComisionesHistorico = 'https://ajebotglobal.ajegroup.com/ajetron/public/comisiones-historicas';
+    $urlComisionesHistorico = '/var/www/html/ajetron/public/comisiones-historicas';
     $ruta_descarga = "$urlComisionesHistorico/$anio-$mes/$paisactual/grafica_".$ruta.".png";
-
-    // Obtener el contenido de la imagen
-    $imagen = file_get_contents($ruta_descarga);
-
-    if ($imagen === false) {
-        die("Error al descargar la imagen PNG.");
-    }
 
     // Nombre del archivo para descargar
     $nombre_archivo = 'grafica_'.$ruta.$anio.$mes.'.png';
 
-    // Forzar descarga con encabezados correctos para PNG
-    header('Content-Description: File Transfer');
+    if (!file_exists($ruta_descarga)) {
+        die('La imagen no existe.');
+    }
+
+    // Tipo MIME
     header('Content-Type: image/png');
+
+    // Forzar descarga
     header('Content-Disposition: attachment; filename="' . $nombre_archivo . '"');
-    header('Content-Length: ' . strlen($imagen));
+    header('Content-Length: ' . filesize($ruta_descarga));
     header('Cache-Control: must-revalidate');
     header('Pragma: public');
     header('Expires: 0');
 
-    // Enviar la imagen al navegador
-    echo $imagen;
+    // Enviar el archivo
+    readfile($ruta_descarga);
     exit;
 }
 
