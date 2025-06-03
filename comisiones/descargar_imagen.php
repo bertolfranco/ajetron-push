@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ruta_descarga = "$urlComisionesHistorico/$anio-$mes/$paisactual/grafica_".$ruta.".png";
 
     // Validar que todos los campos estén presentes
-    if (empty($campo1) || empty($campo2) || empty($campo3)) {
+    if (empty($ruta) || empty($paisactual) || empty($anio) || empty($mes)) {
         header('Content-Type: application/json');
         echo json_encode(['mensaje' => 'Todos los campos son obligatorios.']);
         exit;
