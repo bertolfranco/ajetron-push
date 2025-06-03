@@ -15,42 +15,13 @@ clearstatcache();
 
 $paisSession = $_SESSION["pais"];
 $active = "historico";
+
 // conexión
 
 if (isset($_POST["delete"])) {
     $query = "DELETE FROM modelos_compensacion WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
-}
-
-if (isset($_POST['generar'])) {
-    $ruta = $_POST['ruta'];
-    $paisactual = $_POST['pais'];
-    $anio = $_POST['anio'];
-    $mes = $_POST['mes'];
-    $urlComisionesHistorico = '/var/www/html/ajetron/public/comisiones-historicas';
-    $ruta_descarga = "$urlComisionesHistorico/$anio-$mes/$paisactual/grafica_".$ruta.".png";
-
-    // Nombre del archivo para descargar
-    $nombre_archivo = 'grafica_'.$ruta.'_'.$anio.$mes.'.png';
-
-    if (!file_exists($ruta_descarga)) {
-        die('La imagen no existe.');
-    }
-
-    // Tipo MIME
-    header('Content-Type: image/png');
-
-    // Forzar descarga
-    header('Content-Disposition: attachment; filename="' . $nombre_archivo . '"');
-    header('Content-Length: ' . filesize($ruta_descarga));
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    header('Expires: 0');
-
-    // Enviar el archivo
-    readfile($ruta_descarga);
-    exit;
 }
 
 ?>
@@ -98,7 +69,7 @@ if (isset($_POST['generar'])) {
         <div class="col-12 col-md-12">
             <!-- Contenido -->
             <div class="outer-container">
-                <form action="" method="post" name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data">
+                <form action="" name="frmExcelImport" id="formDescargar" method="post" enctype="multipart/form-data">
                     <div>
                         <div class="row">
                             <div class="input-group mb-3">
@@ -129,7 +100,6 @@ if (isset($_POST['generar'])) {
                                 <label class="form-label" for="anio">Seleccione Año: </label>
                                 <select class="form-select form-select-sm" aria-label="Default select example"
                                         name="anio" id="anio">
-                                    <option value="2024">2024</option>
                                     <option value="2025">2025</option>
                                 </select>
                             </div>
@@ -194,5 +164,38 @@ if (isset($_POST['generar'])) {
 <!-- Placed at the end of the document so the pages load faster -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById('formDescargar').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('descargar_imagen.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.headers.get('Content-Type') === 'application/json') {
+            return response.json().then(data => {
+                alert(data.mensaje);
+            });
+        } else {
+            return response.blob().then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = "imagen_descargada.png";
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            });
+        }
+    })
+    .catch(error => {
+        alert('Error al procesar la solicitud.');
+        console.error(error);
+    });
+});
+</script>
 </body>
 </html>
