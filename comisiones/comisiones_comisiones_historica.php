@@ -180,11 +180,20 @@ document.getElementById('formDescargar').addEventListener('submit', function (e)
                 alert(data.mensaje);
             });
         } else {
+            const contentDisposition = response.headers.get('Content-Disposition') || '';
+            let filename = 'archivo_descargado.png';
+
+            // Buscar filename en el header
+            const match = contentDisposition.match(/filename="?(.+?)"?$/);
+            if (match && match[1]) {
+                filename = match[1];
+            }
+
             return response.blob().then(blob => {
                 const url = window.URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = "imagen_descargada.png";
+                a.download = filename;
                 document.body.appendChild(a);
                 a.click();
                 a.remove();
