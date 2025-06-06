@@ -53,7 +53,7 @@ if (isset($_POST['enviar'])) {
                             '$data[6]',
                             '$data[7]'
                             )";
-            } if( $paisSession == "PE" ) {
+            } elseif( $paisSession == "PE" ) {
                  $q = "INSERT INTO comisiones_tipo (pais,sistema,familia,tipodecomision,valor) VALUES (
                             '$data[0]',
                             '$data[1]',
