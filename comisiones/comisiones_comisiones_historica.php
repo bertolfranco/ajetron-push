@@ -6,7 +6,6 @@ require_once '../assets/jpgraph-4.2.10/src/jpgraph_table.php';
 session_start();
 global $mysqli;
 require_once 'dbconect.php';
-require_once 'img/comisiones_bo.php';
 
 if (!isset($_SESSION["username"])) {
     header("Location: index.php");
@@ -16,29 +15,13 @@ clearstatcache();
 
 $paisSession = $_SESSION["pais"];
 $active = "historico";
+
 // conexión
 
 if (isset($_POST["delete"])) {
     $query = "DELETE FROM modelos_compensacion WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
-}
-
-if (isset($_POST['generar'])) {
-    $ruta = $_POST['ruta'];
-    $paisactual = $_POST['pais'];
-    switch($paisactual) {
-        case "BO":
-        generarImagenBolivia($mysqli,$ruta,$paisactual,2025,1);
-        case "MX":
-        generarImagenMexico($mysqli,$ruta,$paisactual,2025,1);
-        case "CR":
-         generarImagenCostaRica($mysqli,$ruta,$paisactual,2025,1);
-        case "CO":
-         generarImagenColombia($mysqli,$ruta,$paisactual,2025,1);
-        default:
-        break;
-        }
 }
 
 ?>
@@ -86,7 +69,7 @@ if (isset($_POST['generar'])) {
         <div class="col-12 col-md-12">
             <!-- Contenido -->
             <div class="outer-container">
-                <form action="" method="post" name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data">
+                <form action="" name="frmExcelImport" id="formDescargar" method="post" enctype="multipart/form-data">
                     <div>
                         <div class="row">
                             <div class="input-group mb-3">
@@ -98,15 +81,15 @@ if (isset($_POST['generar'])) {
                                 <label class="form-label" for="mes">Seleccione Mes: </label>
                                 <select class="form-select form-select-sm" aria-label="Default select example"
                                         name="mes" id="mes">
-                                    <option value="1">Enero</option>
-                                    <option value="2">Febrero</option>
-                                    <option value="3">Marzo</option>
-                                    <option value="4">Abril</option>
-                                    <option value="5">Mayo</option>
-                                    <option value="6">Junio</option>
-                                    <option value="7">Julio</option>
-                                    <option value="8">Agosto</option>
-                                    <option value="9">Setiembre</option>
+                                    <option value="01">Enero</option>
+                                    <option value="02">Febrero</option>
+                                    <option value="03">Marzo</option>
+                                    <option value="04">Abril</option>
+                                    <option value="05">Mayo</option>
+                                    <option value="06">Junio</option>
+                                    <option value="07">Julio</option>
+                                    <option value="08">Agosto</option>
+                                    <option value="09">Setiembre</option>
                                     <option value="10">Octubre</option>
                                     <option value="11">Noviembre</option>
                                     <option value="12">Diciembre</option>
@@ -117,7 +100,6 @@ if (isset($_POST['generar'])) {
                                 <label class="form-label" for="anio">Seleccione Año: </label>
                                 <select class="form-select form-select-sm" aria-label="Default select example"
                                         name="anio" id="anio">
-                                    <option value="2024">2024</option>
                                     <option value="2025">2025</option>
                                 </select>
                             </div>
@@ -182,5 +164,47 @@ if (isset($_POST['generar'])) {
 <!-- Placed at the end of the document so the pages load faster -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById('formDescargar').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('descargar_imagen.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.headers.get('Content-Type') === 'application/json') {
+            return response.json().then(data => {
+                alert(data.mensaje);
+            });
+        } else {
+            const contentDisposition = response.headers.get('Content-Disposition') || '';
+            let filename = 'archivo_descargado.png';
+
+            // Buscar filename en el header
+            const match = contentDisposition.match(/filename="?(.+?)"?$/);
+            if (match && match[1]) {
+                filename = match[1];
+            }
+
+            return response.blob().then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            });
+        }
+    })
+    .catch(error => {
+        alert('Error al procesar la solicitud.');
+        console.error(error);
+    });
+});
+</script>
 </body>
 </html>
