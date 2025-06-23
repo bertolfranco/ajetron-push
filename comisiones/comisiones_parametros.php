@@ -42,7 +42,7 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO parametros_configuracion (pais, cod_ruta, descripcion, tipo, valor) VALUES (
+            $q = "INSERT INTO parametros_configuracion (pais, ruta, descripcion, tipo, valor) VALUES (
                 '$data[0]',
                 '$data[1]',
                 '$data[2]',
@@ -172,6 +172,7 @@ if (isset($_POST['enviar'])) {
                         <th>Ruta</th>
                         <th>Descripcion</th>
 						<th>Valor</th>
+						<th>Tipo</th>
                     </tr>
                     </thead>
                     <?php
