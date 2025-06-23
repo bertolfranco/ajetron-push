@@ -70,6 +70,17 @@
                         </a>
                     </li>
                     <?php endif; ?>
+                    <?php if ($paisSession == 'PE'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "clientesprograma") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="clientes_programas.php">
+                            Clientes Programa
+                        </a>
+                    </li>
+                <?php endif; ?>
                     <li class="nav-item active">
                         <a <?php if($active == "historico" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_comisiones_historica.php">
                             Históricos
