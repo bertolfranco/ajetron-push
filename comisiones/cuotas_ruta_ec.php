@@ -133,12 +133,10 @@ if (isset($_POST['enviar'])) {
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="static/1_plantilla_celula.csv">Celula</a></li>
                                     <li><a class="dropdown-item" href="static/2_plantilla_banda.csv">Banda</a></li>
-                                    <li><a class="dropdown-item" href="static/8_plantilla_hitrate.csv">Hit Rate</a></li>
                                     <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <li><a class="dropdown-item" href="static/gt_cobertura_cliente_objetivo.csv">GT - Cobertura</a></li>
-                                    <li><a class="dropdown-item" href="static/15_plantilla_concursos.csv">Concursos</a></li>
+                                    <li><a class="dropdown-item" href="static/17_plantilla_cuotas_ruta.csv">Cuota Ruta</a></li>
                                 </ul>
                             </div>
                         </div>
