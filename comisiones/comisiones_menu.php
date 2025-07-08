@@ -137,6 +137,17 @@
                         </a>
                     </li>
                 <?php endif; ?>
+                  <?php if ($paisSession == 'EC'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "cuotas_ruta") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="cuotas_ruta_ec.php">
+                            Cuotas Ruta
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <?php if ($paisSession == 'PE'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "clientesprograma") {
