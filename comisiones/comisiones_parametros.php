@@ -142,6 +142,7 @@ if (isset($_POST['enviar'])) {
                                     <li><a class="dropdown-item" href="static/6_plantilla_cobertura.csv">GT - Cobertura</a></li>
                                     <li><a class="dropdown-item" href="static/13_plantilla_adicionales.csv">GT - Adicional</a></li>
                                     <li><a class="dropdown-item" href="static/14_plantilla_kpis.csv">Kpis</a></li>
+                                    <li><a class="dropdown-item" href="static/17_plantilla_parametros_configuracion.csv">Kpis</a></li>
                                 </ul>
                             </div>
                         </div>
