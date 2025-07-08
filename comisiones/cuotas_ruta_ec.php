@@ -11,11 +11,11 @@ if (!isset($_SESSION["username"])) {
 clearstatcache();
 
 $paisSession = $_SESSION["pais"];
-$active = "concurso";
+$active = "cuotas_ruta";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM comisiones_concursos WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM comisiones_cuotas WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -42,13 +42,10 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-             $q = "INSERT INTO comisiones_concursos (cod_ruta,concurso,descripcion,premio,premio_sinconcurso,pais) VALUES (
+             $q = "INSERT INTO comisiones_cuotas (pais,cod_ruta,plan) VALUES (
                                         '$data[0]',
                                         '$data[1]',
-                                        '$data[2]',
-                                        '$data[3]',
-                                        '$data[4]',
-                                        '$data[5]'
+                                        '$data[2]'
                                         )";
 
             $mysqli->query($q);
@@ -91,7 +88,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Concursos</h3>
+            <h3 class="mt-3">Carga Plantilla Cuotas por Ruta</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -160,7 +157,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_concursos";
+            $sqlSelect = "SELECT * FROM comisiones_cuotas";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -169,26 +166,18 @@ if (isset($_POST['enviar'])) {
                 <table class='table table-bordered'>
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Cod_ruta</th>
-                        <th>Concurso</th>
-                        <th>Detalle</th>
-                        <th>Premio con candado</th>
-                        <th>Premio sin candado</th>
                         <th>Pais</th>
+                        <th>Ruta</th>
+                        <th>Cuota</th>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                     <tbody>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
-                        <td><?php echo $row['cod_ruta']; ?></td>
-                        <td><?php echo $row['concurso']; ?></td>
-                        <td><?php echo $row['descripcion']; ?></td>
-                        <td><?php echo $row['premio']; ?></td>
-                        <td><?php echo $row['premio_sinconcurso']; ?></td>
                         <td><?php echo $row['pais']; ?></td>
+                        <td><?php echo $row['cod_ruta']; ?></td>
+                        <td><?php echo $row['plan']; ?></td>
                     </tr>
                     <?php
                     }

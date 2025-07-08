@@ -137,7 +137,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                  <?php if ($paisSession == 'EC'): ?>
+                <?php if ($paisSession == 'EC'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "cuotas_ruta") {
                             echo 'class="nav-link active"';
