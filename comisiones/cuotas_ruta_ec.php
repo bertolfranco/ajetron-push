@@ -157,7 +157,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_cuotas";
+            $sqlSelect = "SELECT * FROM comisiones_cuotas where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
