@@ -134,13 +134,11 @@ if (isset($_POST['enviar'])) {
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="static/1_plantilla_celula.csv">Celula</a></li>
                                     <li><a class="dropdown-item" href="static/2_plantilla_banda.csv">Banda</a></li>
-                                    <li><a class="dropdown-item" href="static/8_plantilla_hitrate.csv">Hit Rate</a></li>
                                     <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <li><a class="dropdown-item" href="static/6_plantilla_cobertura.csv">GT - Cobertura</a></li>
-                                    <li><a class="dropdown-item" href="static/13_plantilla_adicionales.csv">GT - Adicional</a></li>
-                                    <li><a class="dropdown-item" href="static/14_plantilla_kpis.csv">Kpis</a></li>
+                                    <li><a class="dropdown-item" href="static/17_plantilla_cuotas_ruta.csv">Cuota Ruta</a></li>
+                                    <li><a class="dropdown-item" href="static/18_plantilla_imperdonables.csv">Imperdonables</a></li>
                                 </ul>
                             </div>
                         </div>
