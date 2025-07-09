@@ -148,6 +148,17 @@
                         </a>
                     </li>
                 <?php endif; ?>
+                <?php if ($paisSession == 'EC'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "imperdonables") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="imperdonables_marcas.php">
+                            Imperdonables
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <?php if ($paisSession == 'PE'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "clientesprograma") {
