@@ -1,6 +1,6 @@
 <?php
 
-include '../env.php';
+include '/var/www/config/config.dev.php';
 global $HOST, $DB_USER, $DB_PASSWORD, $DB_AJETRON;
 
 $mysqli = new mysqli($HOST, $DB_USER, $DB_PASSWORD, $DB_AJETRON);
