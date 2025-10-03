@@ -170,6 +170,17 @@
                         </a>
                     </li>
                 <?php endif; ?>
+                <?php if ($paisSession == 'PE'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "paralela") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="comisiones_paralela.php">
+                            Portafolio Paralela
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <li class="nav-item active">
                     <a <?php if ($active == "historico") {
                         echo 'class="nav-link active"';
