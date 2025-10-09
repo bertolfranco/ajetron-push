@@ -189,7 +189,7 @@
                             echo 'class="nav-link active"';
                         } else {
                             echo 'class="nav-link"';
-                        } ?> href="clientesparalela.php">
+                        } ?> href="clientes_paralela.php">
                             Clientes Paralela
                         </a>
                     </li>
