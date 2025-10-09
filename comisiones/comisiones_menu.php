@@ -72,7 +72,8 @@
                         Comisiones Foco
                     </a>
                 </li>
-                <li class="nav-item active">
+                <?php if ($paisSession != 'PE'): ?>
+                  <li class="nav-item active">
                     <a <?php if ($active == "gtcobertura") {
                         echo 'class="nav-link active"';
                     } else {
@@ -81,6 +82,7 @@
                         GT Cobertura
                     </a>
                 </li>
+              <?php endif; ?>
                 <?php if ($paisSession == 'GT'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "gtadicional") {
@@ -178,6 +180,17 @@
                             echo 'class="nav-link"';
                         } ?> href="comisiones_paralela.php">
                             Portafolio Paralela
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if ($paisSession == 'PE'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "clientesparalela") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="clientesparalela.php">
+                            Clientes Paralela
                         </a>
                     </li>
                 <?php endif; ?>
