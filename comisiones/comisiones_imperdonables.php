@@ -46,7 +46,7 @@ if (isset($_POST['enviar'])) {
                         '$data[0]',
                         '$data[1]',
                         '$data[2]',
-                        '$data[3]',
+                        '$data[3]'
              )";
 
             $mysqli->query($q);
