@@ -1,2 +1,2 @@
-﻿cod_pais,cod_ruta,marca,tipo_formato
-EC,1240,Big,MARCA
+﻿cod_pais, cod_compania,desc_marca,desc_formato
+EC,1000,Big, 1500

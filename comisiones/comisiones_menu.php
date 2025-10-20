@@ -156,7 +156,7 @@
                             echo 'class="nav-link active"';
                         } else {
                             echo 'class="nav-link"';
-                        } ?> href="imperdonables_marcas.php">
+                        } ?> href="comisiones_imperdonables.php">
                             Imperdonables
                         </a>
                     </li>
