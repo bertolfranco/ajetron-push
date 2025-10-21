@@ -42,11 +42,12 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO comisiones_imperdonables (pais, cod_compania, desc_marca, desc_formato) VALUES (
+            $q = "INSERT INTO comisiones_imperdonables (pais, cod_compania, desc_marca, desc_formato, desc_sabor) VALUES (
                         '$data[0]',
                         '$data[1]',
                         '$data[2]',
-                        '$data[3]'
+                        '$data[3]',
+                        '$data[4]'
              )";
 
             $mysqli->query($q);
@@ -170,6 +171,7 @@ if (isset($_POST['enviar'])) {
                         <th>Cod_compania</th>
                         <th>Desc_marca</th>
                         <th>Desc_formato</th>
+                        <th>Desc_sabor</th>
                     </tr>
                     </thead>
                     <?php
@@ -181,6 +183,7 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['cod_compania']; ?></td>
                         <td><?php echo $row['desc_marca']; ?></td>
                         <td><?php echo $row['desc_formato']; ?></td>
+                        <td><?php echo $row['desc_sabor']; ?></td>
                     </tr>
                     <?php
                     }
