@@ -22,7 +22,7 @@ if (isset($_POST["delete"])) {
 }
 
 if (isset($_POST['enviar'])) {
-    $uploadDir = __DIR__ . '/assets/';
+    $uploadDir = __DIR__ . '/../assets/';
     $fileName = basename($_FILES['file']['name']);
     $fileTmp = $_FILES['file']['tmp_name'];
     $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
