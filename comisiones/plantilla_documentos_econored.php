@@ -19,6 +19,16 @@ if (isset($_POST["delete"])) {
     $query = "DELETE FROM documentos_push WHERE pais = '" . $paisSession . "'";
     $resultados = mysqli_query($mysqli, $query);
 
+    $uploadDir = __DIR__ . '/../assets/documentos/';
+
+    $files = glob($uploadDir . '*'); // obtiene todos los archivos dentro de la carpeta
+
+    foreach ($files as $file) {
+        if (is_file($file)) {
+            unlink($file); // elimina el archivo
+        }
+    }
+
 }
 
 if (isset($_POST['enviar'])) {
@@ -28,7 +38,7 @@ if (isset($_POST['enviar'])) {
     $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
     if ($fileExt !== 'pdf') {
-        echo("❌ Solo se permiten archivos PDFS.");
+        echo ("❌ Solo se permiten archivos PDFS.");
     }
     $destPath = $uploadDir . $fileName;
     if (move_uploaded_file($fileTmp, $destPath)) {
