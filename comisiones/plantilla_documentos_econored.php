@@ -32,7 +32,7 @@ if (isset($_POST['enviar'])) {
     }
     $destPath = $uploadDir . $fileName;
     if (move_uploaded_file($fileTmp, $destPath)) {
-        echo "✅ Archivo guardado correctamente: uploads/$newFileName";
+        echo "✅ Archivo guardado correctamente";
 
          $q = "INSERT INTO documentos_push (pais, nombre, url) VALUES (
                 $paisSession,
