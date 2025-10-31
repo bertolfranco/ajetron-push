@@ -1,5 +1,5 @@
 <?php
-include 'env.php';
+include(__DIR__ . '/../env.php');
 session_start();
 global $mysqli, $URLBASE;
 require_once 'dbconect.php';
