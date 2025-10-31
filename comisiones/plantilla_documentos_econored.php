@@ -92,7 +92,7 @@ if (isset($_POST['enviar'])) {
     <div class="container">
         <div class="row align-items-start text-center">
             <div class="col">
-                <h3 class="mt-3">Carga Plantilla Documentos Push</h3>
+                <h3 class="mt-3">Generador Docs URL</h3>
             </div>
             <div class="col">
                 <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
