@@ -27,8 +27,8 @@ if (isset($_POST['enviar'])) {
     $fileTmp = $_FILES['file']['tmp_name'];
     $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-    if ($fileExt !== 'csv') {
-        die("❌ Solo se permiten archivos CSV.");
+    if ($fileExt !== 'pdf') {
+        echo("❌ Solo se permiten archivos PDFS.");
     }
     $destPath = $uploadDir . $fileName;
     if (move_uploaded_file($fileTmp, $destPath)) {
