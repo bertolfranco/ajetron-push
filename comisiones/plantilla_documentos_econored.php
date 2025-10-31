@@ -97,8 +97,8 @@ if (isset($_POST['enviar'])) {
                             <div class="row">
 
                                 <div class="input-group mb-3">
-                                    <label class="input-group-text" for="file">Elija archivo csv</label>
-                                    <input type="file" class="form-control" name="file" id="file" accept=".csv">
+                                    <label class="input-group-text" for="file">Elija archivo pdf</label>
+                                    <input type="file" class="form-control" name="file" id="file" accept=".pdf">
                                 </div>
                             </div>
 
