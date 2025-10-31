@@ -172,6 +172,17 @@
                         </a>
                     </li>
                 <?php endif; ?>
+                <?php if ($paisSession == 'EC'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "documentoseconored") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="plantilla_documentos_econored.php">
+                            Documentos Econored
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <?php if ($paisSession == 'PE'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "clientesprograma") {

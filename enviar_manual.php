@@ -73,7 +73,7 @@ foreach ($fila as $value) {
         $datos = [
             'chat_id' => $value['idtelegram'],
             //'chat_id' => 538709214,
-            'text' => $escapedMessage,
+            'text' => $si,
             'parse_mode' => 'MarkdownV2' #formato del mensaje
         ];
     } elseif ($value['tipo'] == 'documento') {
