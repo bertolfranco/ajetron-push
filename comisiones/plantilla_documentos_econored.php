@@ -115,32 +115,11 @@ if (isset($_POST['enviar'])) {
                             </div>
 
                             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                                <button type="submit" id="submit" name="enviar" class="btn btn-warning">Importar
-                                    Registros
+                                <button type="submit" id="submit" name="enviar" class="btn btn-warning">Subir
+                                    Documento
                                 </button>
                                 <button type="submit" id="submit" name="delete" class="btn btn-warning">Borrar Registros
                                 </button>
-
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Descargar Plantillas
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="static/1_plantilla_celula.csv">Celula</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="static/2_plantilla_banda.csv">Banda</a></li>
-                                        <li><a class="dropdown-item" href="static/8_plantilla_hitrate.csv">Hit Rate</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo
-                                                Comision</a></li>
-                                        <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                        <li><a class="dropdown-item" href="static/gt_cobertura_cliente_objetivo.csv">GT
-                                                - Cobertura</a></li>
-                                    </ul>
-                                </div>
                             </div>
 
                         </div>
