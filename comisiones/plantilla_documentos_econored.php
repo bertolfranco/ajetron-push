@@ -1,7 +1,7 @@
 <?php
-
+include 'env.php';
 session_start();
-global $mysqli;
+global $mysqli, $URLBASE;
 require_once 'dbconect.php';
 
 if (!isset($_SESSION["username"])) {
@@ -33,12 +33,14 @@ if (isset($_POST['enviar'])) {
     $destPath = $uploadDir . $fileName;
     if (move_uploaded_file($fileTmp, $destPath)) {
         echo "✅ Archivo guardado correctamente";
+        $basename = basename(dirname(__DIR__));
+        $urlDocumentSave = $URLBASE . "/$basename/assets/documentos/" . $fileName;
 
         $paisSession = $mysqli->real_escape_string($paisSession);
         $fileName = $mysqli->real_escape_string($fileName);
-        $destPath = $mysqli->real_escape_string($destPath);
+        $urlDocumentSave = $mysqli->real_escape_string($urlDocumentSave);
 
-        $q = "INSERT INTO documentos_push (pais, nombre, url) VALUES ('$paisSession', '$fileName', '$destPath')";
+        $q = "INSERT INTO documentos_push (pais, nombre, url) VALUES ('$paisSession', '$fileName', '$urlDocumentSave')";
 
         $mysqli->query($q);
     } else {
