@@ -34,13 +34,13 @@ if (isset($_POST['enviar'])) {
     if (move_uploaded_file($fileTmp, $destPath)) {
         echo "✅ Archivo guardado correctamente";
 
-         $q = "INSERT INTO documentos_push (pais, nombre, url) VALUES (
-                $paisSession,
-                $fileName,
-                $destPath
-               )";
+        $paisSession = $mysqli->real_escape_string($paisSession);
+        $fileName = $mysqli->real_escape_string($fileName);
+        $destPath = $mysqli->real_escape_string($destPath);
 
-            $mysqli->query($q);
+        $q = "INSERT INTO documentos_push (pais, nombre, url) VALUES ('$paisSession', '$fileName', '$destPath')";
+
+        $mysqli->query($q);
     } else {
         echo "❌ Error al subir el archivo.";
     }
