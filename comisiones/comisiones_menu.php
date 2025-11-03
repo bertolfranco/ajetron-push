@@ -137,6 +137,39 @@
                         </a>
                     </li>
                 <?php endif; ?>
+                <?php if ($paisSession == 'EC'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "imperdonables") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="comisiones_imperdonables.php">
+                            Imperdonables
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if ($paisSession == 'EC'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "coberturanncc") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="plantilla_nncc_cobertura.php">
+                            Cobertura NNCC
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if ($paisSession == 'EC'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "documentoseconored") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="plantilla_documentos_econored.php">
+                            Documentos Econored
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <?php if ($paisSession == 'PE'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "clientesprograma") {
