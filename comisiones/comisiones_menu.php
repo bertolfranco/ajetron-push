@@ -179,7 +179,7 @@
                         } else {
                             echo 'class="nav-link"';
                         } ?> href="plantilla_documentos_econored.php">
-                            Documentos Econored
+                            Generador Docs Url
                         </a>
                     </li>
                 <?php endif; ?>
