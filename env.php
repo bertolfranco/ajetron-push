@@ -6,4 +6,5 @@ $DB_AJETRON="ajetron";
 $DB_USER="admajebotdev";
 $DB_PASSWORD="itKDPDEsEfsqLccV0Gm";
 $TOKEN_BOT="6514974985:AAE_sL1ZJKNGM6dQ2lKL07wGTFRDaPkFS3c";
+$URLBASE="https://ajebotglobal.ajegroup.com";
 ?>
