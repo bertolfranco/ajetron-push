@@ -11,6 +11,7 @@ if (!isset($_SESSION["username"])) {
 require_once 'dbconect.php';
 global $mysqli;
 global $TOKEN_BOT;
+global $TOKEN_BOT_ECONORED;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -22,11 +23,11 @@ if (!isset($_POST['id_camp'])) {
 }
 $id = $_POST['id_camp'];
 
-$token = $TOKEN_BOT;
 
 $username = $_SESSION["username"];
-
+$token = '';
 if ($username == "admin-ECONORED") {
+    $token = $TOKEN_BOT_ECONORED;
     $res = "select DISTINCT pc.*, vpb.idtelegram
 from push_carga pc
 join v_push_base_econored vpb on pc.pais=vpb.pais
@@ -41,6 +42,7 @@ AND ((
 where pc.id  = '$id'
 ";
 } else {
+    $token = $TOKEN_BOT;
     $res = "select DISTINCT pc.*, vpb.idtelegram
 from push_carga pc
 join v_push_base vpb on pc.pais=vpb.pais
