@@ -90,7 +90,13 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Imperdonables</h3>
+            <?php
+              if ($paisSession == "EC"){
+                  echo  '<h3 class="mt-3">Carga Plantilla Imperdonables</h3>';
+              } else {
+                  echo  '<h3 class="mt-3">Carga Marcas Foco</h3>';
+              }
+            ?>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
