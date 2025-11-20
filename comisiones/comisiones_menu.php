@@ -75,7 +75,7 @@
                 <?php
                  $username = $_SESSION["username"];
                  if ($paisSession != 'PE'): ?>
-                 <?php if ($username != 'admin-ECONORED-CR' || $paisSession != 'PE'): ?>
+                 <?php if ($username != 'admin-ECONORED-CR'): ?>
                   <li class="nav-item active">
                     <a <?php if ($active == "gtcobertura") {
                         echo 'class="nav-link active"';
