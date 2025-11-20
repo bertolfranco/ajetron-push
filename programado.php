@@ -4,6 +4,7 @@
 require_once 'dbconect.php';
 global $mysqli;
 global $TOKEN_BOT;
+global $TOKEN_BOT_ECONORED;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -15,13 +16,14 @@ if (!isset($_GET['tipo'])) {
 }
 $tipo = $_GET['tipo'];
 
-$token = $TOKEN_BOT;
+
 
 $username = $_SESSION["username"];
-
+$token = '';
 if ($username == "admin-ECONORED") {
-    $res = "select DISTINCT pc.*, vpb.idtelegram 
-from push_carga pc 
+$token = $TOKEN_BOT_ECONORED;
+    $res = "select DISTINCT pc.*, vpb.idtelegram
+from push_carga pc
 join v_push_base_econored vpb on pc.pais=vpb.pais
 AND ((
       (pc.sucursal IS NULL OR pc.sucursal = '')
@@ -35,9 +37,9 @@ where pc.programacion  = '$tipo' and pc.enviado is null
 ";
 
 } else {
-
-    $res = "select DISTINCT pc.*, vpb.idtelegram 
-from push_carga pc 
+$token = $TOKEN_BOT;
+    $res = "select DISTINCT pc.*, vpb.idtelegram
+from push_carga pc
 join v_push_base vpb on pc.pais=vpb.pais
 AND ((
       (pc.sucursal IS NULL OR pc.sucursal = '')
