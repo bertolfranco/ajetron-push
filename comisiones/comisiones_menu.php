@@ -72,8 +72,7 @@
                         Comisiones Foco
                     </a>
                 </li>
-                <?php if ($paisSession != 'PE'): ?>
-                 <?php if ($username != 'admin-ECONORED-CR'): ?>
+                 <?php if ($username != 'admin-ECONORED-CR' || $paisSession != 'PE'): ?>
                   <li class="nav-item active">
                     <a <?php if ($active == "gtcobertura") {
                         echo 'class="nav-link active"';
@@ -94,8 +93,6 @@
                     </a>
                 </li>
                 <?php endif; ?>
-
-              <?php endif; ?>
                 <?php if ($paisSession == 'GT'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "gtadicional") {
