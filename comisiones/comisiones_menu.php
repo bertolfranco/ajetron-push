@@ -73,6 +73,7 @@
                     </a>
                 </li>
                 <?php if ($paisSession != 'PE'): ?>
+                 <?php if ($username != 'admin-ECONORED-CR'): ?>
                   <li class="nav-item active">
                     <a <?php if ($active == "gtcobertura") {
                         echo 'class="nav-link active"';
@@ -82,6 +83,18 @@
                         GT Cobertura
                     </a>
                 </li>
+                <?php else: ?>
+                    <li class="nav-item active">
+                    <a <?php if ($active == "gtcobertura") {
+                        echo 'class="nav-link active"';
+                    } else {
+                        echo 'class="nav-link"';
+                    } ?> href="comisiones_gt_cobertura_econored.php">
+                        GT Cobertura Eco
+                    </a>
+                </li>
+                <?php endif; ?>
+
               <?php endif; ?>
                 <?php if ($paisSession == 'GT'): ?>
                     <li class="nav-item active">
