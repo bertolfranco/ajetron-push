@@ -92,7 +92,7 @@
                     } else {
                         echo 'class="nav-link"';
                     } ?> href="comisiones_gt_cobertura_econored.php">
-                        GT Cobertura Eco
+                        GT Cobertura
                     </a>
                 </li>
                 <?php endif; ?>
