@@ -16,6 +16,41 @@ clearstatcache();
 $paisSession = $_SESSION["pais"];
 $active = "historico";
 
+switch ($paisSession) {
+    case "CO":
+        $paisnameSession = "Colombia";
+        break;
+    case "PE":
+        $paisnameSession = "Perú";
+        break;
+    case "EC":
+        $paisnameSession = "Ecuador";
+        break;
+    case "PA":
+        $paisnameSession = "Panamá";
+        break;
+    case "GT":
+        $paisnameSession = "Guatemala";
+        break;
+    case "HN":
+        $paisnameSession = "Honduras";
+        break;
+    case "SV":
+        $paisnameSession = "El Salvador";
+        break;
+    case "CR":
+        $paisnameSession = "Costa Rica";
+        break;
+    case "MX":
+        $paisnameSession = "Mexico";
+        break;
+    case "BO":
+        $paisnameSession = "Bolivia";
+        break;
+    default:
+        $paisnameSession = "Desconocido";
+}
+
 // conexión
 
 if (isset($_POST["delete"])) {
@@ -123,7 +158,7 @@ if (isset($_POST["delete"])) {
                                         <option value="BO">Bolivia</option>';
                                     }
                                     else{
-                                        echo '<option value="'.$paisSession.'">Colombia</option>"';
+                                        echo '<option value="'.$paisSession.'">'.$paisnameSession.'</option>"';
                                     } ?>
                                 </select>
                             </div>
