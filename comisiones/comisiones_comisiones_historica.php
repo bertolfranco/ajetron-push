@@ -116,6 +116,8 @@ if (isset($_POST["delete"])) {
                                         <option value="CO">Colombia</option>
                                         <option value="PA">Panamá</option>
                                         <option value="GT">Guatemala</option>
+                                        <option value="HN">Honduras</option>
+                                        <option value="SV">El Salvador</option>
                                         <option value="CR">Costa Rica</option>
                                         <option value="MX">Mexico</option>
                                         <option value="BO">Bolivia</option>';
