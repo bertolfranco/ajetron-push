@@ -15,20 +15,11 @@
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a <?php if ($active == "celula") {
-                        echo 'class="nav-link active"';
-                    } else {
-                        echo 'class="nav-link"';
-                    } ?> href="comisiones_celula.php">
-                        Comisiones Celula
-                    </a>
-                </li>
-                <li class="nav-item active">
                     <a <?php if ($active == "banda") {
                         echo 'class="nav-link active"';
                     } else {
                         echo 'class="nav-link"';
-                    } ?> href="comisiones_banda.php">
+                    } ?> href="comisiones_banda_econored.php">
                         Comisiones Banda
                     </a>
                 </li>
@@ -37,7 +28,7 @@
                         echo 'class="nav-link active"';
                     } else {
                         echo 'class="nav-link"';
-                    } ?> href="comisiones_familias.php">
+                    } ?> href="comisiones_familias_econored.php">
                         Comisiones Familias
                     </a>
                 </li> 
@@ -47,7 +38,7 @@
                     } else {
                         echo 'class="nav-link"';
                     } ?>
-                        href="comisiones_tipo_comision.php">
+                        href="comisiones_tipo_comision_econored.php">
                         Comisiones Tipo Comision
                     </a>
                 </li>
@@ -79,17 +70,6 @@
                         Comisiones Dias Habiles
                     </a>
                 </li>
-                <?php if ($paisSession == 'EC'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "cuotas_ruta") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="cuotas_ruta_ec.php">
-                            Cuotas Ruta
-                        </a>
-                    </li>
-                <?php endif; ?>
                 <?php if ($paisSession == 'EC'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "imperdonables") {
@@ -134,15 +114,6 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <li class="nav-item active">
-                    <a <?php if ($active == "historico") {
-                        echo 'class="nav-link active"';
-                    } else {
-                        echo 'class="nav-link"';
-                    } ?> href="comisiones_comisiones_historica.php">
-                        Históricos
-                    </a>
-                </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
                 <a href="../cerrarsesion.php" class="btn btn-danger">Cerrar sesión</a>

@@ -15,7 +15,7 @@ $active = "banda";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM comisiones_banda WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM comisiones_banda_econored WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -43,7 +43,7 @@ if (isset($_POST['enviar'])) {
             }
 			
 			if($paisSession == 'GT'){
-				$q = "INSERT INTO comisiones_banda (pais,a1,p1,a2,p2,a3,p3,a4,p4,a5,p5,a6,p6,a7,p7,a8,p8,a9,p9,a10,p10,a11,p11) VALUES (
+				$q = "INSERT INTO comisiones_banda_econored (pais,a1,p1,a2,p2,a3,p3,a4,p4,a5,p5,a6,p6,a7,p7,a8,p8,a9,p9,a10,p10,a11,p11) VALUES (
 				'$data[0]',
 				'$data[1]',
 				'$data[2]',
@@ -69,7 +69,7 @@ if (isset($_POST['enviar'])) {
 				'$data[22]'
             )";
 			}else {
-				$q = "INSERT INTO comisiones_banda (pais,a1,p1,a2,p2,a3,p3,a4,p4,a5,p5,a6,p6,a7,p7,a8,p8,a9,p9,a10,p10) VALUES (
+				$q = "INSERT INTO comisiones_banda_econored (pais,a1,p1,a2,p2,a3,p3,a4,p4,a5,p5,a6,p6,a7,p7,a8,p8,a9,p9,a10,p10) VALUES (
 				'$data[0]',
 				'$data[1]',
 				'$data[2]',
@@ -207,7 +207,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_banda where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM comisiones_banda_econored where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
