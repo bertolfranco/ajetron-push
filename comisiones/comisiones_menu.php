@@ -133,7 +133,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-             <?php
+               <?php
                  $username = $_SESSION["username"];
                  if ($paisSession == 'CR'): ?>
                  <?php if ($username == 'admin-ECONORED-CR'): ?>
@@ -147,6 +147,7 @@
                     </a>
                 </li>
                 <?php endif; ?>
+             <?php endif; ?>
                 <li class="nav-item active">
                     <a <?php if ($active == "dias") {
                         echo 'class="nav-link active"';
