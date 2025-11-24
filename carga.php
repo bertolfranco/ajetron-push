@@ -111,7 +111,7 @@ if (isset($_POST['enviar'])) {
                             }
                             else
                             {
-                                if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-EC"){
+                                if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED"){
                                     echo 'href="comisiones/comisiones_tipo_comision_econored.php"';
                                 } else {
                                    echo 'href="comisiones/comisiones_celula.php"';
