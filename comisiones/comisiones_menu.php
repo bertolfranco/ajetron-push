@@ -133,6 +133,20 @@
                         </a>
                     </li>
                 <?php endif; ?>
+             <?php
+                 $username = $_SESSION["username"];
+                 if ($paisSession == 'CR'): ?>
+                 <?php if ($username == 'admin-ECONORED-CR'): ?>
+                  <li class="nav-item active">
+                    <a <?php if ($active == "vendedores_sc") {
+                        echo 'class="nav-link active"';
+                    } else {
+                        echo 'class="nav-link"';
+                    } ?> href="vendedores_exclusion_econored.php">
+                        Vendedores sin Comisiones
+                    </a>
+                </li>
+                <?php endif; ?>
                 <li class="nav-item active">
                     <a <?php if ($active == "dias") {
                         echo 'class="nav-link active"';
