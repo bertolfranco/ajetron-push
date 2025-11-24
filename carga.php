@@ -105,12 +105,17 @@ if (isset($_POST['enviar'])) {
                         <a class="nav-link"
                         <?php
                             $paisSession = $_SESSION["pais"];
+                             $username = $_SESSION["username"];
                             if ($paisSession == "CO"){
                                 echo 'href="comisiones/comisiones_modelo_compensacion.php"';
                             }
                             else
                             {
-                                echo 'href="comisiones/comisiones_celula.php"';
+                                if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-EC"){
+                                    echo 'href="comisiones/comisiones_tipo_comision_econored.php"';
+                                } else {
+                                   echo 'href="comisiones/comisiones_celula.php"';
+                                }
                             }
                         ?>
                         >
