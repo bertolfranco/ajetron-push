@@ -74,11 +74,16 @@ if (isset($_POST['enviar'])) {
 <header>
     <!-- Fixed navbar -->
     <?php
+        $username = $_SESSION["username"];
         if ($paisSession == "CO"){
             include "./comisiones_menu_co.php";
         }
         else{
-            include "./comisiones_menu.php";
+            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-EC") {
+              include "./comisiones_menu_econored.php";
+            } else {
+              include "./comisiones_menu.php";
+            }
         } ?>
 </header>
 

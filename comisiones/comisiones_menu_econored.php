@@ -32,17 +32,6 @@
                         Comisiones Banda
                     </a>
                 </li>
-                <?php if ($paisSession == 'PE'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "hitrate") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="comisiones_hitrate.php">
-                            Comisiones Hit Rate
-                        </a>
-                    </li>
-                <?php endif; ?>
                 <li class="nav-item active">
                     <a <?php if ($active == "familias") {
                         echo 'class="nav-link active"';
@@ -63,30 +52,6 @@
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a <?php if ($active == "foco") {
-                        echo 'class="nav-link active"';
-                    } else {
-                        echo 'class="nav-link"';
-                    } ?>
-                        href="comisiones_foco.php">
-                        Comisiones Foco
-                    </a>
-                </li>
-                <?php
-                 $username = $_SESSION["username"];
-                 if ($paisSession != 'PE'): ?>
-                 <?php if ($username != 'admin-ECONORED-CR'): ?>
-                  <li class="nav-item active">
-                    <a <?php if ($active == "gtcobertura") {
-                        echo 'class="nav-link active"';
-                    } else {
-                        echo 'class="nav-link"';
-                    } ?> href="comisiones_gt_cobertura.php">
-                        GT Cobertura
-                    </a>
-                </li>
-                <?php else: ?>
-                    <li class="nav-item active">
                     <a <?php if ($active == "gtcobertura") {
                         echo 'class="nav-link active"';
                     } else {
@@ -95,49 +60,7 @@
                         GT Cobertura
                     </a>
                 </li>
-                <?php endif; ?>
-
-              <?php endif; ?>
-                <?php if ($paisSession == 'GT'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "gtadicional") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="comisiones_gt_adicionales.php">
-                            GT Adicionales
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if (in_array($paisSession, ['GT', 'HN', 'SV'])): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "kpis") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?>
-                            href="comisiones_kpis.php">
-                            Kpis
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if (in_array($paisSession, ['GT', 'HN', 'SV'])): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "tpc") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?>
-                            href="comisiones_parametros.php">
-                            Param. Conf.
-                        </a>
-                    </li>
-                <?php endif; ?>
-               <?php
-                 $username = $_SESSION["username"];
-                 if ($paisSession == 'CR'): ?>
-                 <?php if ($username == 'admin-ECONORED-CR'): ?>
-                  <li class="nav-item active">
+                <li class="nav-item active">
                     <a <?php if ($active == "vendedores_sc") {
                         echo 'class="nav-link active"';
                     } else {
@@ -146,8 +69,6 @@
                         Vendedores sin Comisiones
                     </a>
                 </li>
-                <?php endif; ?>
-             <?php endif; ?>
                 <li class="nav-item active">
                     <a <?php if ($active == "dias") {
                         echo 'class="nav-link active"';
@@ -158,17 +79,6 @@
                         Comisiones Dias Habiles
                     </a>
                 </li>
-                <?php if ($paisSession == 'PE'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "concurso") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="comisiones_concursos.php">
-                            Comisiones Concursos
-                        </a>
-                    </li>
-                <?php endif; ?>
                 <?php if ($paisSession == 'EC'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "cuotas_ruta") {
@@ -221,39 +131,6 @@
                             echo 'class="nav-link"';
                         } ?> href="plantilla_documentos_econored.php">
                             Generador Docs Url
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if ($paisSession == 'PE'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "clientesprograma") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="clientes_programas.php">
-                            Clientes Programa
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if ($paisSession == 'PE'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "paralela") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="comisiones_paralela.php">
-                            Portafolio Paralela
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if ($paisSession == 'PE'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "clientesparalela") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="clientes_paralela.php">
-                            Clientes Paralela
                         </a>
                     </li>
                 <?php endif; ?>
