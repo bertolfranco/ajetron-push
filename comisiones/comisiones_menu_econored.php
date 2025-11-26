@@ -60,16 +60,6 @@
                         Vendedores sin Comisiones
                     </a>
                 </li>
-                <li class="nav-item active">
-                    <a <?php if ($active == "dias") {
-                        echo 'class="nav-link active"';
-                    } else {
-                        echo 'class="nav-link"';
-                    } ?>
-                        href="comisiones_diashabiles.php">
-                        Comisiones Dias Habiles
-                    </a>
-                </li>
                 <?php if ($paisSession == 'EC'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "imperdonables") {
