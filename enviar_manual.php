@@ -139,5 +139,5 @@ unset($value);
     // Esperar 5 segundos y luego redireccionar
     setTimeout(function () {
         window.location.href = 'carga.php';
-    }, 1000); // 5000 milisegundos = 5 segundos
+    }, 10000); // 5000 milisegundos = 5 segundos
 </script>
