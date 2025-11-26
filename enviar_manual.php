@@ -121,14 +121,20 @@ foreach ($fila as $value) {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     }
 
-    $r_array = json_decode(curl_exec($ch), true);
+    $response = curl_exec($ch);
+
+    if ($response === false) {
+        echo "Error CURL: " . curl_error($ch) . "\n";
+    }
+
+    /*$r_array = json_decode(curl_exec($ch), true);
 
     curl_close($ch);
     if ($r_array['ok'] == 1) {
         echo $value['idtelegram'], " ", "Campaña", " ", $value['id'], " EXITOSO\n";
     } else {
         echo $value['idtelegram'], " ", "Campaña", " ", $value['id'], " FALLO ", $r_array['error_code'], " ", $r_array['description'], "\n";
-    }
+    }*/
 }
 
 unset($value);
