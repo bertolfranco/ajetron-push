@@ -11,11 +11,11 @@ if (!isset($_SESSION["username"])) {
 clearstatcache();
 
 $paisSession = $_SESSION["pais"];
-$active = "tipo";
+$active = "familias";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM comisiones_tipo WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM comisiones_familias_econored WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -36,33 +36,92 @@ if (isset($_POST['enviar'])) {
 
 //  $handle = str_replace(',',';',$handle);
         while (($data = fgetcsv($handle, 100000, $selectedDelimiter)) !== FALSE) {
-
+            $contador++;
             if (!$firstRowSkipped) {
                 $firstRowSkipped = true;
                 continue; // Saltar la primera fila
             }
 
-            if( $paisSession == "HN" ) {
-                $q = "INSERT INTO comisiones_tipo_econored (pais,sistema,familia,tipodecomision,tipo,valor,valormin,valormax) VALUES (
-                            '$data[0]',
-                            '$data[1]',
-                            '$data[2]',
-                            '$data[3]',
-                            '$data[4]',
-                            '$data[5]',
-                            '$data[6]',
-                            '$data[7]'
-                            )";
-            }else {
-                $q = "INSERT INTO comisiones_tipo_econored (pais,sistema,familia,tipodecomision,tipo,valor) VALUES (
-                            '$data[0]',
-                            '$data[1]',
-                            '$data[2]',
-                            '$data[3]',
-                            '$data[4]',
-                            '$data[5]'
-                            )";
+            if ($paisSession == 'GT') {
+                $q = "INSERT INTO comisiones_familias_econored (pais,cod_familia,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
+                    '$data[0]',
+                    '$data[1]',
+                    '$data[2]',
+                    '$data[3]',
+                    '$data[4]',
+                    '$data[5]',
+                    '$data[6]',
+                    '$data[7]',
+                    '$data[8]',
+                    '$data[9]',
+                    '$data[10]',
+                    '$data[11]',
+                    '$data[12]',
+                    '$data[13]',
+                    '$data[14]',
+                    '$data[15]',
+                    '$data[16]',
+                    '$data[17]',
+                    '$data[18]',
+                    '$data[19]',
+                    '$data[20]',
+                    '$data[21]'        
+                    )";
+            } else {
+                if ($paisSession == 'HN' || $paisSession == 'SV'){
+                    $q = "INSERT INTO comisiones_familias_econored (pais,articulo,cod_familia,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
+                                        '$data[0]',
+                                        '$data[1]',
+                                        '$data[2]',
+                                        '$data[3]',
+                                        '$data[4]',
+                                        '$data[5]',
+                                        '$data[6]',
+                                        '$data[7]',
+                                        '$data[8]',
+                                        '$data[9]',
+                                        '$data[10]',
+                                        '$data[11]',
+                                        '$data[12]',
+                                        '$data[13]',
+                                        '$data[14]',
+                                        '$data[15]',
+                                        '$data[16]',
+                                        '$data[17]',
+                                        '$data[18]',
+                                        '$data[19]',
+                                        '$data[20]',
+                                        '$data[21]',
+                                        '$data[22]'
+                                        )";
+                }else{
+                    $q = "INSERT INTO comisiones_familias_econored (pais,articulo,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,se1,se2,se3,se4,se5,se6,se7,se8,se9,se10) VALUES (
+                                        '$data[0]',
+                                        '$data[1]',
+                                        '$data[2]',
+                                        '$data[3]',
+                                        '$data[4]',
+                                        '$data[5]',
+                                        '$data[6]',
+                                        '$data[7]',
+                                        '$data[8]',
+                                        '$data[9]',
+                                        '$data[10]',
+                                        '$data[11]',
+                                        '$data[12]',
+                                        '$data[13]',
+                                        '$data[14]',
+                                        '$data[15]',
+                                        '$data[16]',
+                                        '$data[17]',
+                                        '$data[18]',
+                                        '$data[19]',
+                                        '$data[20]',
+                                        '$data[21]'
+                                        )";
+                }
             }
+
 
 
             $mysqli->query($q);
@@ -110,7 +169,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Tipo Comision</h3>
+            <h3 class="mt-3">Carga Plantilla Familias</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -178,7 +237,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_tipo_econored where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM comisiones_familias_econored where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -189,14 +248,33 @@ if (isset($_POST['enviar'])) {
                     <tr>
                         <th>#</th>
                         <th>pais</th>
-                        <th>sistema</th>
-                        <th>familia</th>
-                        <th>tipodecomision</th>
-                        <th>tipo</th>
-                        <th>valor</th>
+                        <th>articulo</th>
                         <?php
-                        if( $paisSession == "HN" ) { echo "<th>valormin</th><th>valormax</th>"; }
+                        if ($paisSession == 'HN' || $paisSession == 'SV') {
+                           echo "<th>cod_familia</th>";
+                        }
                         ?>
+                        <th>s1</th>
+                        <th>s2</th>
+                        <th>s3</th>
+                        <th>s4</th>
+                        <th>s5</th>
+                        <th>s6</th>
+                        <th>s7</th>
+                        <th>s8</th>
+                        <th>s9</th>
+                        <th>s10</th>
+                        <th>se1</th>
+                        <th>se2</th>
+                        <th>se3</th>
+                        <th>se4</th>
+                        <th>se5</th>
+                        <th>se6</th>
+                        <th>se7</th>
+                        <th>se8</th>
+                        <th>se9</th>
+                        <th>se10</th>
+                    </tr>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
@@ -205,13 +283,38 @@ if (isset($_POST['enviar'])) {
                     <tr>
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['sistema']; ?></td>
-                        <td><?php echo $row['familia']; ?></td>
-                        <td><?php echo $row['tipodecomision']; ?></td>
-                        <td><?php echo $row['tipo']; ?></td>
-                        <td><?php echo $row['valor']; ?></td>
-                        <td><?php if( $paisSession == "HN" ) { echo $row['valormin']; } ?></td>
-                        <td><?php if( $paisSession == "HN" ) { echo $row['valormax']; } ?></td>
+                        <?php
+                        // Solo mostrar las columnas "Formato" y "Tipo Formato" si el país es "GT"
+                        if ($paisSession == 'GT') {
+                            echo "<td>" . $row['cod_familia'] . "</td>";
+                        } else {
+                            if ($paisSession == 'HN' || $paisSession == 'SV') {
+                               echo "<td>" . $row['articulo'] . "</td>"."<td>" . $row['cod_familia'] . "</td>";
+                            }else{
+                               echo "<td>" . $row['articulo'] . "</td>";
+                            }
+                        }
+                        ?>
+                        <td><?php echo $row['s1']; ?></td>
+                        <td><?php echo $row['s2']; ?></td>
+                        <td><?php echo $row['s3']; ?></td>
+                        <td><?php echo $row['s4']; ?></td>
+                        <td><?php echo $row['s5']; ?></td>
+                        <td><?php echo $row['s6']; ?></td>
+                        <td><?php echo $row['s7']; ?></td>
+                        <td><?php echo $row['s8']; ?></td>
+                        <td><?php echo $row['s9']; ?></td>
+                        <td><?php echo $row['s10']; ?></td>
+                        <td><?php echo $row['se1']; ?></td>
+                        <td><?php echo $row['se2']; ?></td>
+                        <td><?php echo $row['se3']; ?></td>
+                        <td><?php echo $row['se4']; ?></td>
+                        <td><?php echo $row['se5']; ?></td>
+                        <td><?php echo $row['se6']; ?></td>
+                        <td><?php echo $row['se7']; ?></td>
+                        <td><?php echo $row['se8']; ?></td>
+                        <td><?php echo $row['se9']; ?></td>
+                        <td><?php echo $row['se10']; ?></td>
                     </tr>
                     <?php
                     }

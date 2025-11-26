@@ -11,11 +11,11 @@ if (!isset($_SESSION["username"])) {
 clearstatcache();
 
 $paisSession = $_SESSION["pais"];
-$active = "tipo";
+$active = "gtcobertura";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM comisiones_tipo WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM cobertura_clientes_objetivo_econored WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -42,28 +42,31 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            if( $paisSession == "HN" ) {
-                $q = "INSERT INTO comisiones_tipo_econored (pais,sistema,familia,tipodecomision,tipo,valor,valormin,valormax) VALUES (
-                            '$data[0]',
-                            '$data[1]',
-                            '$data[2]',
-                            '$data[3]',
-                            '$data[4]',
-                            '$data[5]',
-                            '$data[6]',
-                            '$data[7]'
-                            )";
-            }else {
-                $q = "INSERT INTO comisiones_tipo_econored (pais,sistema,familia,tipodecomision,tipo,valor) VALUES (
-                            '$data[0]',
-                            '$data[1]',
-                            '$data[2]',
-                            '$data[3]',
-                            '$data[4]',
-                            '$data[5]'
-                            )";
+            if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV' ) {
+                // Inserción cuando el país es 'GT', incluyendo 'formato' y 'tipo_formato'
+                $q = "INSERT INTO cobertura_clientes_objetivo_econored (pais, cod_zona, cod_ruta, desc_marca,formato, tipo_formato, objetivo_clientes, valor, sistema) VALUES (
+                        '$data[0]',
+                        '$data[1]',
+                        '$data[2]',
+                        '$data[3]',
+                        '$data[4]',
+                        '$data[5]',
+                        '$data[6]',
+                        '$data[7]',
+                        '$data[8]'
+                       )";
+            } else {
+                // Inserción cuando el país no es 'GT', sin 'formato' y 'tipo_formato'
+                $q = "INSERT INTO cobertura_clientes_objetivo_econored (pais, cod_zona, cod_ruta, desc_marca, objetivo_clientes, valor, sistema) VALUES (
+                        '$data[0]',
+                        '$data[1]',
+                        '$data[2]',
+                        '$data[3]',
+                        '$data[4]',
+                        '$data[5]',
+                        '$data[6]'
+                       )";
             }
-
 
             $mysqli->query($q);
         }
@@ -110,7 +113,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Tipo Comision</h3>
+            <h3 class="mt-3">Carga Plantilla GT Cobertura</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -159,7 +162,7 @@ if (isset($_POST['enviar'])) {
                                     <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <li><a class="dropdown-item" href="static/gt_cobertura_cliente_objetivo.csv">GT - Cobertura</a></li>
+                                    <li><a class="dropdown-item" href="static/6_plantilla_cobertura.csv">GT - Cobertura</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -178,7 +181,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_tipo_econored where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM cobertura_clientes_objetivo_econored where pais = '".$paisSession."' ORDER BY cod_ruta,desc_marca";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -187,31 +190,47 @@ if (isset($_POST['enviar'])) {
                 <table class='table table-bordered'>
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>pais</th>
-                        <th>sistema</th>
-                        <th>familia</th>
-                        <th>tipodecomision</th>
-                        <th>tipo</th>
-                        <th>valor</th>
+                        <th>Pais</th>
+                        <th>Cod_zona</th>
+                        <th>Cod_ruta</th>
                         <?php
-                        if( $paisSession == "HN" ) { echo "<th>valormin</th><th>valormax</th>"; }
+                        if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
+                            echo "<th>Tipo</th>";
+                        } else {
+                            echo "<th>Desc_marca</th>";
+                        }
+                         ?>
+                        <?php
+                        // Solo mostrar "Formato" y "Tipo Formato" si el país es "GT"
+                        if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
+                            echo "<th>Formato</th>";
+                            echo "<th>Tipo Formato</th>";
+                        }
                         ?>
+                        <th>Objetivo_clientes</th>
+						<th>Valor</th>
+						<th>Sistema</th>
+                    </tr>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                     <tbody>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['sistema']; ?></td>
-                        <td><?php echo $row['familia']; ?></td>
-                        <td><?php echo $row['tipodecomision']; ?></td>
-                        <td><?php echo $row['tipo']; ?></td>
-                        <td><?php echo $row['valor']; ?></td>
-                        <td><?php if( $paisSession == "HN" ) { echo $row['valormin']; } ?></td>
-                        <td><?php if( $paisSession == "HN" ) { echo $row['valormax']; } ?></td>
+                        <td><?php echo $row['cod_zona']; ?></td>
+                        <td><?php echo $row['cod_ruta']; ?></td>
+                        <td><?php echo $row['desc_marca']; ?></td>
+                        <?php
+                        // Solo mostrar las columnas "Formato" y "Tipo Formato" si el país es "GT"
+                        if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
+                            echo "<td>" . $row['formato'] . "</td>";
+                            echo "<td>" . $row['tipo_formato'] . "</td>";
+                        }
+                        ?>
+                        <td><?php echo $row['objetivo_clientes']; ?></td>
+						<td><?php echo $row['valor']; ?></td>
+						<td><?php echo $row['sistema']; ?></td>
                     </tr>
                     <?php
                     }

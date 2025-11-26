@@ -77,11 +77,16 @@ if (isset($_POST['enviar'])) {
 <header>
     <!-- Fixed navbar -->
     <?php
+        $username = $_SESSION["username"];
         if ($paisSession == "CO"){
             include "./comisiones_menu_co.php";
         }
         else{
-            include "./comisiones_menu.php";
+            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED") {
+              include "./comisiones_menu_econored.php";
+            } else {
+              include "./comisiones_menu.php";
+            }
         } ?>
 </header>
 
@@ -90,7 +95,14 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Imperdonables</h3>
+            <?php
+
+            if ($paisSession == "EC"){
+                echo '<h3 class="mt-3">Carga Plantilla Imperdonables</h3>';
+            }
+            else{
+                echo '<h3 class="mt-3">Carga Plantilla Marca Foco</h3>';
+            } ?>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -139,7 +151,13 @@ if (isset($_POST['enviar'])) {
                                     <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <li><a class="dropdown-item" href="static/18_plantilla_imperdonables.csv">Imperdonables</a></li>
+                                    <?php
+                                    if ($paisSession == "EC"){
+                                        echo '<li><a class="dropdown-item" href="static/18_plantilla_imperdonables.csv">Imperdonables</a></li>';
+                                    } else{
+                                        echo '<li><a class="dropdown-item" href="static/18_plantilla_imperdonables.csv">Marcas Foco</a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
