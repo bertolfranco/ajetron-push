@@ -103,7 +103,9 @@ foreach ($fila as $value) {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
     } elseif ($value['tipo'] == 'texto') {
-        curl_setopt($ch, CURLOPT_URL, "https://api.telegram.org/bot" . $token . "/sendMessage");
+        $url = "https://api.telegram.org/bot" . $token . "/sendMessage";
+        echo "URL enviada: $url\n";   // 🔍 IMPRIME LA URL
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, TRUE);
@@ -111,9 +113,7 @@ foreach ($fila as $value) {
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     } elseif ($value['tipo'] == 'documento') {
-        $url = "https://api.telegram.org/bot" . $token . "/sendDocument";
-        echo "URL enviada: $url\n";   // 🔍 IMPRIME LA URL
-        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, "https://api.telegram.org/bot" . $token . "/sendDocument");
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, TRUE);
