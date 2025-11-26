@@ -111,7 +111,9 @@ foreach ($fila as $value) {
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     } elseif ($value['tipo'] == 'documento') {
-        curl_setopt($ch, CURLOPT_URL, "https://api.telegram.org/bot" . $token . "/sendDocument");
+        $url = "https://api.telegram.org/bot" . $token . "/sendDocument";
+        echo "URL enviada: $url\n";   // 🔍 IMPRIME LA URL
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, TRUE);
