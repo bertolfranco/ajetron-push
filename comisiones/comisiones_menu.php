@@ -51,7 +51,7 @@
                     } ?> href="comisiones_familias.php">
                         Comisiones Familias
                     </a>
-                </li> 
+                </li>
                 <li class="nav-item active">
                     <a <?php if ($active == "tipo") {
                         echo 'class="nav-link active"';
@@ -72,11 +72,7 @@
                         Comisiones Foco
                     </a>
                 </li>
-                <?php
-                 $username = $_SESSION["username"];
-                 if ($paisSession != 'PE'): ?>
-                 <?php if ($username != 'admin-ECONORED-CR'): ?>
-                  <li class="nav-item active">
+                <li class="nav-item active">
                     <a <?php if ($active == "gtcobertura") {
                         echo 'class="nav-link active"';
                     } else {
@@ -85,19 +81,6 @@
                         GT Cobertura
                     </a>
                 </li>
-                <?php else: ?>
-                    <li class="nav-item active">
-                    <a <?php if ($active == "gtcobertura") {
-                        echo 'class="nav-link active"';
-                    } else {
-                        echo 'class="nav-link"';
-                    } ?> href="comisiones_gt_cobertura_econored.php">
-                        GT Cobertura
-                    </a>
-                </li>
-                <?php endif; ?>
-
-              <?php endif; ?>
                 <?php if ($paisSession == 'GT'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "gtadicional") {
@@ -133,21 +116,6 @@
                         </a>
                     </li>
                 <?php endif; ?>
-               <?php
-                 $username = $_SESSION["username"];
-                 if ($paisSession == 'CR'): ?>
-                 <?php if ($username == 'admin-ECONORED-CR'): ?>
-                  <li class="nav-item active">
-                    <a <?php if ($active == "vendedores_sc") {
-                        echo 'class="nav-link active"';
-                    } else {
-                        echo 'class="nav-link"';
-                    } ?> href="vendedores_exclusion_econored.php">
-                        Vendedores sin Comisiones
-                    </a>
-                </li>
-                <?php endif; ?>
-             <?php endif; ?>
                 <li class="nav-item active">
                     <a <?php if ($active == "dias") {
                         echo 'class="nav-link active"';
@@ -169,61 +137,6 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <?php if ($paisSession == 'EC'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "cuotas_ruta") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="cuotas_ruta_ec.php">
-                            Cuotas Ruta
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if ($paisSession == 'EC'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "imperdonables") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="comisiones_imperdonables.php">
-                            Imperdonables
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if ($paisSession == 'CR'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "imperdonables") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="comisiones_imperdonables.php">
-                            Marcas Foco
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if ($paisSession == 'EC'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "coberturanncc") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="plantilla_nncc_cobertura.php">
-                            Cobertura NNCC
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if ($paisSession == 'EC'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "documentoseconored") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="plantilla_documentos_econored.php">
-                            Generador Docs Url
-                        </a>
-                    </li>
-                <?php endif; ?>
                 <?php if ($paisSession == 'PE'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "clientesprograma") {
@@ -232,28 +145,6 @@
                             echo 'class="nav-link"';
                         } ?> href="clientes_programas.php">
                             Clientes Programa
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if ($paisSession == 'PE'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "paralela") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="comisiones_paralela.php">
-                            Portafolio Paralela
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if ($paisSession == 'PE'): ?>
-                    <li class="nav-item active">
-                        <a <?php if ($active == "clientesparalela") {
-                            echo 'class="nav-link active"';
-                        } else {
-                            echo 'class="nav-link"';
-                        } ?> href="clientes_paralela.php">
-                            Clientes Paralela
                         </a>
                     </li>
                 <?php endif; ?>
