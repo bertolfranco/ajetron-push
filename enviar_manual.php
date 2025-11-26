@@ -39,7 +39,7 @@ AND ((
         ((pc.sucursal IS NOT NULL AND pc.sucursal != '' AND pc.sucursal = vpb.cod_sucursal)
             OR (pc.zona     IS NOT NULL AND pc.zona     != '' AND pc.zona = vpb.zona)
             OR (pc.ruta     IS NOT NULL AND pc.ruta     != '' AND pc.ruta = vpb.ruta)))
-where pc.id  = '$id' and vpb.idtelegram = '5630226271'
+where pc.id  = '$id'
 ";
 } else {
     $token = $TOKEN_BOT;
@@ -103,9 +103,7 @@ foreach ($fila as $value) {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
     } elseif ($value['tipo'] == 'texto') {
-        $url = "https://api.telegram.org/bot" . $token . "/sendMessage";
-        echo "URL enviada: $url\n";   // 🔍 IMPRIME LA URL
-        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, "https://api.telegram.org/bot" . $token . "/sendMessage");
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, TRUE);
@@ -123,20 +121,14 @@ foreach ($fila as $value) {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     }
 
-    $response = curl_exec($ch);
-
-    if ($response === false) {
-        echo "Error CURL: " . curl_error($ch) . "\n";
-    }
-
-    /*$r_array = json_decode(curl_exec($ch), true);
+    $r_array = json_decode(curl_exec($ch), true);
 
     curl_close($ch);
     if ($r_array['ok'] == 1) {
         echo $value['idtelegram'], " ", "Campaña", " ", $value['id'], " EXITOSO\n";
     } else {
         echo $value['idtelegram'], " ", "Campaña", " ", $value['id'], " FALLO ", $r_array['error_code'], " ", $r_array['description'], "\n";
-    }*/
+    }
 }
 
 unset($value);
@@ -147,5 +139,5 @@ unset($value);
     // Esperar 5 segundos y luego redireccionar
     setTimeout(function () {
         window.location.href = 'carga.php';
-    }, 10000); // 5000 milisegundos = 5 segundos
+    }, 1000); // 5000 milisegundos = 5 segundos
 </script>
