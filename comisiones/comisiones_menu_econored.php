@@ -103,8 +103,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <?php if ($paisSession == 'EC'): ?>
-                    <li class="nav-item active">
+                   <li class="nav-item active">
                         <a <?php if ($active == "documentoseconored") {
                             echo 'class="nav-link active"';
                         } else {
@@ -113,7 +112,6 @@
                             Generador Docs Url
                         </a>
                     </li>
-                <?php endif; ?>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
                 <a href="../cerrarsesion.php" class="btn btn-danger">Cerrar sesión</a>
