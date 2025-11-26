@@ -39,7 +39,7 @@ AND ((
         ((pc.sucursal IS NOT NULL AND pc.sucursal != '' AND pc.sucursal = vpb.cod_sucursal)
             OR (pc.zona     IS NOT NULL AND pc.zona     != '' AND pc.zona = vpb.zona)
             OR (pc.ruta     IS NOT NULL AND pc.ruta     != '' AND pc.ruta = vpb.ruta)))
-where pc.id  = '$id'
+where pc.id  = '$id' and vpb.idtelegram = '5630226271'
 ";
 } else {
     $token = $TOKEN_BOT;
