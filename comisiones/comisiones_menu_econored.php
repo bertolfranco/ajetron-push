@@ -71,7 +71,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <?php if ($paisSession == 'CR'): ?>
+                <?php if ($paisSession == 'CR' || $paisSession == 'GT'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "imperdonables") {
                             echo 'class="nav-link active"';
