@@ -97,7 +97,7 @@ if (isset($_POST['enviar'])) {
             include "./comisiones_menu_co.php";
         }
         else{
-            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED") {
+            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT" || $username == "admin-ECONORED") {
               include "./comisiones_menu_econored.php";
             } else {
               include "./comisiones_menu.php";
