@@ -42,7 +42,7 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV' ) {
+            if ($paisSession == 'HN' || $paisSession == 'SV' ) {
                 // Inserción cuando el país es 'GT', incluyendo 'formato' y 'tipo_formato'
                 $q = "INSERT INTO cobertura_clientes_objetivo_econored (pais, cod_zona, cod_ruta, desc_marca,formato, tipo_formato, objetivo_clientes, valor, sistema) VALUES (
                         '$data[0]',
