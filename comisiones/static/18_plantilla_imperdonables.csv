@@ -1,2 +1,2 @@
-﻿cod_pais, cod_compania,desc_marca,desc_formato, desc_sabor
-EC,1000,Big, 1500,
+﻿cod_pais, cod_compania,desc_marca, desc_categoria,desc_formato, desc_sabor
+EC,1000,Big,gaseosas, 1500,
