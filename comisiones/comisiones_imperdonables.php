@@ -42,12 +42,13 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO comisiones_imperdonables (pais, cod_compania, desc_marca, desc_formato, desc_sabor) VALUES (
+            $q = "INSERT INTO comisiones_imperdonables (pais, cod_compania, desc_marca, desc_categoria, desc_formato, desc_sabor) VALUES (
                         '$data[0]',
                         '$data[1]',
                         '$data[2]',
                         '$data[3]',
-                        '$data[4]'
+                        '$data[4]',
+                        '$data[5]'
              )";
 
             $mysqli->query($q);
@@ -82,7 +83,7 @@ if (isset($_POST['enviar'])) {
             include "./comisiones_menu_co.php";
         }
         else{
-            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED") {
+            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT" || $username == "admin-ECONORED") {
               include "./comisiones_menu_econored.php";
             } else {
               include "./comisiones_menu.php";
@@ -188,6 +189,7 @@ if (isset($_POST['enviar'])) {
                         <th>Pais</th>
                         <th>Cod_compania</th>
                         <th>Desc_marca</th>
+                        <th>Desc_categoria</th>
                         <th>Desc_formato</th>
                         <th>Desc_sabor</th>
                     </tr>
@@ -200,6 +202,7 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['pais']; ?></td>
                         <td><?php echo $row['cod_compania']; ?></td>
                         <td><?php echo $row['desc_marca']; ?></td>
+                        <td><?php echo $row['desc_categoria']; ?></td>
                         <td><?php echo $row['desc_formato']; ?></td>
                         <td><?php echo $row['desc_sabor']; ?></td>
                     </tr>

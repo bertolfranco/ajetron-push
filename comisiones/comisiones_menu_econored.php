@@ -51,6 +51,17 @@
                         GT Cobertura
                     </a>
                 </li>
+                  <?php if ($paisSession == 'GT'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "gtadicional") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="comisiones_gt_adicionales_econored.php">
+                            GT Adicionales
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <li class="nav-item active">
                     <a <?php if ($active == "vendedores_sc") {
                         echo 'class="nav-link active"';
@@ -58,6 +69,16 @@
                         echo 'class="nav-link"';
                     } ?> href="vendedores_exclusion_econored.php">
                         Vendedores sin Comisiones
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a <?php if ($active == "dias") {
+                        echo 'class="nav-link active"';
+                    } else {
+                        echo 'class="nav-link"';
+                    } ?>
+                        href="comisiones_diashabiles.php">
+                        Comisiones Dias Habiles
                     </a>
                 </li>
                 <?php if ($paisSession == 'EC'): ?>

@@ -20,7 +20,7 @@ $tipo = $_GET['tipo'];
 
 $username = $_SESSION["username"];
 $token = '';
-if ($username == "admin-ECONORED" || $username == "admin-ECONORED-CR") {
+if ($username == "admin-ECONORED" || $username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT") {
 $token = $TOKEN_BOT_ECONORED;
     $res = "select DISTINCT pc.*, vpb.idtelegram
 from push_carga pc
