@@ -21,6 +21,10 @@ if (isset($_POST['descargar'])) {
         $sql = "SELECT * FROM v_usuarios where pais = '".$paisSession."'";
         $result = mysqli_query($mysqli, $sql);
 
+        if (ob_get_length()) {
+            ob_clean();
+        }
+
         // 3. Cabeceras para forzar descarga CSV
         header('Content-Type: text/csv; charset=utf-8');
         header('Content-Disposition: attachment; filename=usuarios.csv');
@@ -46,6 +50,7 @@ if (isset($_POST['descargar'])) {
         }
 
         fclose($output);
+        exit;
 }
 
 ?>
