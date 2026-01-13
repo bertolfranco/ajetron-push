@@ -14,7 +14,7 @@ $paisSession = $_SESSION["pais"];
 $active = "usuarios";
 // conexión
 
-if (isset($_POST['enviar'])) {
+if (isset($_POST['descargar'])) {
 
     $filename = $_FILES["file"]["name"];
     $info = new SplFileInfo($filename);
@@ -96,44 +96,9 @@ if (isset($_POST['enviar'])) {
             <div class="outer-container">
                 <form action="" method="post" name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data">
                     <div>
-                        <div class="row">
-
-                            <div class="input-group mb-3">
-                                <label class="input-group-text" for="file">Elija archivo csv</label>
-                                <input type="file" class="form-control" name="file" id="file" accept=".csv">
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label" for="delimiter">Seleccione el delimitador: </label>
-                                <select class="form-select form-select-sm" aria-label="Default select example"
-                                        name="delimiter" id="delimiter">
-                                    <option value=",">Coma (,)</option>
-                                    <option value=";">Punto y coma (;)</option>
-                                </select>
-                            </div>
-
-                        </div>
-
                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                            <button type="submit" id="submit" name="enviar" class="btn btn-warning">Importar Registros
+                            <button type="submit" id="submit" name="descargar" class="btn btn-warning">Descargar usuarios
                             </button>
-
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                    Descargar Plantillas
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="static/1_plantilla_celula.csv">Celula</a></li>
-                                    <li><a class="dropdown-item" href="static/2_plantilla_banda.csv">Banda</a></li>
-                                    <li><a class="dropdown-item" href="static/8_plantilla_hitrate.csv">Hit Rate</a></li>
-                                    <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
-                                    <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
-                                    <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <li><a class="dropdown-item" href="static/gt_cobertura_cliente_objetivo.csv">GT - Cobertura</a></li>
-									<li><a class="dropdown-item" href="static/7_plantilla_dias_habiles.csv">Dias Habiles</a></li>
-                                </ul>
-                            </div>
                         </div>
 
                     </div>
