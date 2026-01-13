@@ -44,7 +44,6 @@ if (isset($_POST['descargar'])) {
         while ($row = $result->fetch_assoc()) {
             fputcsv($output, $row, ';');
         }
-    }
 }
 
 ?>
