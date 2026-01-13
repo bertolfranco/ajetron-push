@@ -16,36 +16,34 @@ $active = "usuarios";
 
 if (isset($_POST['descargar'])) {
 
-    $filename = $_FILES["file"]["name"];
-    $info = new SplFileInfo($filename);
-    $extension = pathinfo($info->getFilename(), PATHINFO_EXTENSION);
 
-    if ($extension == 'csv') {
-        $filename = $_FILES['file']['tmp_name'];
-        $handle = fopen($filename, "r");
-        $firstRowSkipped = false; // Añadir esta línea
+        // 2. Consulta
+        $sql = "SELECT * FROM v_usuarios where pais = '".$paisSession."'";
+        $result = mysqli_query($mysqli, $sql);
 
-        // Obtener el delimitador seleccionado por el usuario
-        $selectedDelimiter = $_POST['delimiter'];
+        // 3. Cabeceras para forzar descarga CSV
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename=usuarios.csv');
 
-//  $handle = str_replace(',',';',$handle);
-        while (($data = fgetcsv($handle, 100000, $selectedDelimiter)) !== FALSE) {
+        // 4. Abrir salida
+        $output = fopen('php://output', 'w');
 
-            if (!$firstRowSkipped) {
-                $firstRowSkipped = true;
-                continue; // Saltar la primera fila
+        // 5. Escribir encabezados (nombres de columnas)
+        if (mysqli_num_rows($result) > 0) {
+            $fields = $result->fetch_fields();
+            $headers = [];
+
+            foreach ($fields as $field) {
+                $headers[] = $field->name;
             }
 
-            $q = "INSERT INTO dias_habiles (pais,anio,mes,dias) VALUES (
-            '$data[0]',
-            '$data[1]',
-            '$data[2]',
-            '$data[3]'
-            )";
-
-            $mysqli->query($q);
+            fputcsv($output, $headers, ';');
         }
-        fclose($handle);
+
+        // 6. Escribir filas
+        while ($row = $result->fetch_assoc()) {
+            fputcsv($output, $row, ';');
+        }
     }
 }
 
