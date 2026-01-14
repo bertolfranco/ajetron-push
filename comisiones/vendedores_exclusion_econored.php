@@ -11,11 +11,11 @@ if (!isset($_SESSION["username"])) {
 clearstatcache();
 
 $paisSession = $_SESSION["pais"];
-$active = "imperdonables";
+$active = "vendedores_sc";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM comisiones_imperdonables WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM vendedores_exclusion WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -42,14 +42,10 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO comisiones_imperdonables (pais, cod_compania, desc_marca, desc_categoria, desc_formato, desc_sabor) VALUES (
-                        '$data[0]',
-                        '$data[1]',
-                        '$data[2]',
-                        '$data[3]',
-                        '$data[4]',
-                        '$data[5]'
-             )";
+             $q = "INSERT INTO vendedores_exclusion (pais,codigo_vendedor) VALUES (
+                                        '$data[0]',
+                                        '$data[1]'
+                                        )";
 
             $mysqli->query($q);
         }
@@ -96,14 +92,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <?php
-
-            if ($paisSession == "EC"){
-                echo '<h3 class="mt-3">Carga Plantilla Imperdonables</h3>';
-            }
-            else{
-                echo '<h3 class="mt-3">Carga Plantilla Marca Foco</h3>';
-            } ?>
+            <h3 class="mt-3">Carga Plantilla Vendedores Sin Comision</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -148,17 +137,10 @@ if (isset($_POST['enviar'])) {
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="static/1_plantilla_celula.csv">Celula</a></li>
                                     <li><a class="dropdown-item" href="static/2_plantilla_banda.csv">Banda</a></li>
-                                    <li><a class="dropdown-item" href="static/8_plantilla_hitrate.csv">Hit Rate</a></li>
                                     <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <?php
-                                    if ($paisSession == "EC"){
-                                        echo '<li><a class="dropdown-item" href="static/18_plantilla_imperdonables.csv">Imperdonables</a></li>';
-                                    } else{
-                                        echo '<li><a class="dropdown-item" href="static/18_plantilla_imperdonables.csv">Marcas Foco</a></li>';
-                                    }
-                                    ?>
+                                    <li><a class="dropdown-item" href="static/21_plantilla_vendedores_sincomisiones.csv">Vendedores sin comisiones</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -177,7 +159,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_imperdonables where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM vendedores_exclusion where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -187,12 +169,7 @@ if (isset($_POST['enviar'])) {
                     <thead>
                     <tr>
                         <th>Pais</th>
-                        <th>Cod_compania</th>
-                        <th>Desc_marca</th>
-                        <th>Desc_categoria</th>
-                        <th>Desc_formato</th>
-                        <th>Desc_sabor</th>
-                    </tr>
+                        <th>Codigo de vendedor</th>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
@@ -200,11 +177,7 @@ if (isset($_POST['enviar'])) {
                     <tbody>
                     <tr>
                         <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['cod_compania']; ?></td>
-                        <td><?php echo $row['desc_marca']; ?></td>
-                        <td><?php echo $row['desc_categoria']; ?></td>
-                        <td><?php echo $row['desc_formato']; ?></td>
-                        <td><?php echo $row['desc_sabor']; ?></td>
+                        <td><?php echo $row['codigo_vendedor']; ?></td>
                     </tr>
                     <?php
                     }

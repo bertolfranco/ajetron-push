@@ -11,11 +11,11 @@ if (!isset($_SESSION["username"])) {
 clearstatcache();
 
 $paisSession = $_SESSION["pais"];
-$active = "imperdonables";
+$active = "tipo";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM comisiones_imperdonables WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM comisiones_tipo WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -42,14 +42,28 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO comisiones_imperdonables (pais, cod_compania, desc_marca, desc_categoria, desc_formato, desc_sabor) VALUES (
-                        '$data[0]',
-                        '$data[1]',
-                        '$data[2]',
-                        '$data[3]',
-                        '$data[4]',
-                        '$data[5]'
-             )";
+            if( $paisSession == "HN" ) {
+                $q = "INSERT INTO comisiones_tipo_econored (pais,sistema,familia,tipodecomision,tipo,valor,valormin,valormax) VALUES (
+                            '$data[0]',
+                            '$data[1]',
+                            '$data[2]',
+                            '$data[3]',
+                            '$data[4]',
+                            '$data[5]',
+                            '$data[6]',
+                            '$data[7]'
+                            )";
+            }else {
+                $q = "INSERT INTO comisiones_tipo_econored (pais,sistema,familia,tipodecomision,tipo,valor) VALUES (
+                            '$data[0]',
+                            '$data[1]',
+                            '$data[2]',
+                            '$data[3]',
+                            '$data[4]',
+                            '$data[5]'
+                            )";
+            }
+
 
             $mysqli->query($q);
         }
@@ -77,7 +91,7 @@ if (isset($_POST['enviar'])) {
 <body>
 <header>
     <!-- Fixed navbar -->
-    <?php
+     <?php
         $username = $_SESSION["username"];
         if ($paisSession == "CO"){
             include "./comisiones_menu_co.php";
@@ -96,14 +110,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <?php
-
-            if ($paisSession == "EC"){
-                echo '<h3 class="mt-3">Carga Plantilla Imperdonables</h3>';
-            }
-            else{
-                echo '<h3 class="mt-3">Carga Plantilla Marca Foco</h3>';
-            } ?>
+            <h3 class="mt-3">Carga Plantilla Tipo Comision</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -152,13 +159,7 @@ if (isset($_POST['enviar'])) {
                                     <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <?php
-                                    if ($paisSession == "EC"){
-                                        echo '<li><a class="dropdown-item" href="static/18_plantilla_imperdonables.csv">Imperdonables</a></li>';
-                                    } else{
-                                        echo '<li><a class="dropdown-item" href="static/18_plantilla_imperdonables.csv">Marcas Foco</a></li>';
-                                    }
-                                    ?>
+                                    <li><a class="dropdown-item" href="static/gt_cobertura_cliente_objetivo.csv">GT - Cobertura</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -177,7 +178,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_imperdonables where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM comisiones_tipo_econored where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -186,25 +187,31 @@ if (isset($_POST['enviar'])) {
                 <table class='table table-bordered'>
                     <thead>
                     <tr>
-                        <th>Pais</th>
-                        <th>Cod_compania</th>
-                        <th>Desc_marca</th>
-                        <th>Desc_categoria</th>
-                        <th>Desc_formato</th>
-                        <th>Desc_sabor</th>
-                    </tr>
+                        <th>#</th>
+                        <th>pais</th>
+                        <th>sistema</th>
+                        <th>familia</th>
+                        <th>tipodecomision</th>
+                        <th>tipo</th>
+                        <th>valor</th>
+                        <?php
+                        if( $paisSession == "HN" ) { echo "<th>valormin</th><th>valormax</th>"; }
+                        ?>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                     <tbody>
                     <tr>
+                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['cod_compania']; ?></td>
-                        <td><?php echo $row['desc_marca']; ?></td>
-                        <td><?php echo $row['desc_categoria']; ?></td>
-                        <td><?php echo $row['desc_formato']; ?></td>
-                        <td><?php echo $row['desc_sabor']; ?></td>
+                        <td><?php echo $row['sistema']; ?></td>
+                        <td><?php echo $row['familia']; ?></td>
+                        <td><?php echo $row['tipodecomision']; ?></td>
+                        <td><?php echo $row['tipo']; ?></td>
+                        <td><?php echo $row['valor']; ?></td>
+                        <td><?php if( $paisSession == "HN" ) { echo $row['valormin']; } ?></td>
+                        <td><?php if( $paisSession == "HN" ) { echo $row['valormax']; } ?></td>
                     </tr>
                     <?php
                     }
