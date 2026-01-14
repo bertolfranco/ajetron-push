@@ -49,6 +49,15 @@
                             Históricos
                         </a>
                     </li>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "usuarios") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="ajetron_usuarios.php">
+                            Usuarios
+                        </a>
+                    </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
                     <a href="../cerrarsesion.php" class="btn btn-danger">Cerrar sesión</a>
