@@ -81,7 +81,7 @@
                         GT Cobertura
                     </a>
                 </li>
-                <?php if ($paisSession == 'GT'): ?>
+                <?php if ($paisSession == 'GT' || $paisSession == 'HN'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "gtadicional") {
                             echo 'class="nav-link active"';
