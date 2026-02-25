@@ -77,7 +77,7 @@
                     } else {
                         echo 'class="nav-link"';
                     } ?>
-                        href="comisiones_diashabiles.php">
+                        href="comisiones_diashabiles_econored.php">
                         Comisiones Dias Habiles
                     </a>
                 </li>
