@@ -1,60 +1,194 @@
 pais,sistema,familia,tipodecomision,valor
-PE,1,Gaseosas,Porcentual,0.2
-PE,1,Agua,Porcentual,0.2
-PE,1,Sporade,Porcentual,0.15
-PE,1,Volt,Porcentual,0.15
-PE,1,Pulp,Porcentual,0.1
-PE,1,Cifrut+Tea+Bio,Porcentual,0.1
-PE,1,Bebidas Alcoholicas,Porcentual,0.1
-PE,1,Nuevos Negocios,Monetaria,250
-PE,1,Marca Foco,Monetaria,100
-PE,2,Gaseosas,Porcentual,0.2
-PE,2,Agua,Porcentual,0.2
-PE,2,Sporade,Porcentual,0.25
-PE,2,Volt,Porcentual,0.1
-PE,2,Pulp,Porcentual,0.1
-PE,2,Cifrut+Tea+Bio,Porcentual,0.1
-PE,2,Bebidas Alcoholicas,Porcentual,0.05
-PE,2,Nuevos Negocios,Monetaria,250
-PE,2,Marca Foco,Monetaria,100
-PE,3,Gaseosas,Porcentual,0.38
-PE,3,Agua,Porcentual,0.1
-PE,3,Sporade,Porcentual,0.12
-PE,3,Volt,Porcentual,0.1
-PE,3,Pulp,Porcentual,0.1
-PE,3,Cifrut+Tea+Bio,Porcentual,0.1
-PE,3,Bebidas Alcoholicas,Porcentual,0.1
-PE,3,Nuevos Negocios,Monetaria,250
-PE,3,Marca Foco,Monetaria,100
-PE,4,Gaseosas,Porcentual,0.3
-PE,4,Agua,Porcentual,0.2
-PE,4,Sporade,Porcentual,0.1
-PE,4,Volt,Porcentual,0.1
-PE,4,Pulp,Porcentual,0.1
-PE,4,Cifrut+Tea+Bio,Porcentual,0.15
-PE,4,Bebidas Alcoholicas,Porcentual,0.05
-PE,4,Nuevos Negocios,Monetaria,250
-PE,4,Marca Foco,Monetaria,100
-PE,5,Gaseosas,Porcentual,0.28
-PE,5,Agua,Porcentual,0.15
-PE,5,Sporade,Porcentual,0.17
-PE,5,Volt,Porcentual,0.1
-PE,5,Pulp,Porcentual,0.1
-PE,5,Cifrut+Tea+Bio,Porcentual,0.1
-PE,5,Bebidas Alcoholicas,Porcentual,0.1
-PE,5,Nuevos Negocios,Monetaria,250
-PE,5,Marca Foco,Monetaria,100
-PE,6,Gaseosas,Porcentual,0.28
-PE,6,Agua,Porcentual,0.1
-PE,6,Sporade,Porcentual,0.22
-PE,6,Volt,Porcentual,0.1
-PE,6,Pulp,Porcentual,0.1
-PE,6,Cifrut+Tea+Bio,Porcentual,0.1
-PE,6,Bebidas Alcoholicas,Porcentual,0.1
-PE,6,Nuevos Negocios,Monetaria,250
-PE,6,Marca Foco,Monetaria,100
-PE,7,Gaseosas + Agua,Porcentual,0.29
-PE,7,Sporade + Volt,Porcentual,0.3
-PE,7,Pulp+Cifrut+Free Tea+Bio,Porcentual,0.18
-PE,7,Nuevos Negocios,Porcentual,0.13
-PE,7,Bebidas Alcoholicas,Porcentual,0.1
+PE,1,Gaseosas,Porcentual,0.200000000000
+PE,1,Agua,Porcentual,0.200000000000
+PE,1,Sporade,Porcentual,0.150000000000
+PE,1,Volt,Porcentual,0.150000000000
+PE,1,Pulp,Porcentual,0.100000000000
+PE,1,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,1,"Bebidas Alcoholicas",Porcentual,0.100000000000
+PE,1,"Nuevos Negocios",Monetaria,250.000000000000
+PE,1,"Hit Rate",Monetaria,100.000000000000
+PE,2,Gaseosas,Porcentual,0.150000000000
+PE,2,Agua,Porcentual,0.200000000000
+PE,2,Sporade,Porcentual,0.250000000000
+PE,2,Volt,Porcentual,0.100000000000
+PE,2,Pulp,Porcentual,0.100000000000
+PE,2,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,2,"Bebidas Alcoholicas",Porcentual,0.050000000000
+PE,2,"Nuevos Negocios",Monetaria,250.000000000000
+PE,2,"Hit Rate",Monetaria,100.000000000000
+PE,3,Gaseosas,Porcentual,0.350000000000
+PE,3,Agua,Porcentual,0.150000000000
+PE,3,"Sporade + Dylite",Porcentual,0.150000000000
+PE,3,Volt,Porcentual,0.150000000000
+PE,3,Pulp,Porcentual,0.100000000000
+PE,3,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,3,"Bebidas Alcoholicas",Porcentual,0.000000000000
+PE,3,"Nuevos Negocios",Monetaria,250.000000000000
+PE,3,"Marca Foco - SPORADE",Monetaria,100.000000000000
+PE,4,Gaseosas,Porcentual,0.150000000000
+PE,4,Agua,Porcentual,0.200000000000
+PE,4,Sporade,Porcentual,0.150000000000
+PE,4,Volt,Porcentual,0.150000000000
+PE,4,Pulp,Porcentual,0.150000000000
+PE,4,Cifrut+Tea+Bio,Porcentual,0.150000000000
+PE,4,"Bebidas Alcoholicas",Porcentual,0.000000000000
+PE,4,"Nuevos Negocios",Monetaria,250.000000000000
+PE,4,"Hit Rate",Monetaria,100.000000000000
+PE,5,Gaseosas,Porcentual,0.250000000000
+PE,5,Agua,Porcentual,0.200000000000
+PE,5,Sporade,Porcentual,0.200000000000
+PE,5,Volt,Porcentual,0.150000000000
+PE,5,Pulp,Porcentual,0.100000000000
+PE,5,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,5,"Bebidas Alcoholicas",Porcentual,0.000000000000
+PE,5,"Nuevos Negocios",Monetaria,250.000000000000
+PE,5,"Hit Rate",Monetaria,100.000000000000
+PE,6,Gaseosas,Porcentual,0.150000000000
+PE,6,Agua,Porcentual,0.150000000000
+PE,6,Sporade,Porcentual,0.250000000000
+PE,6,Volt,Porcentual,0.100000000000
+PE,6,Pulp,Porcentual,0.100000000000
+PE,6,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,6,"Bebidas Alcoholicas",Porcentual,0.000000000000
+PE,6,"Nuevos Negocios",Monetaria,250.000000000000
+PE,6,"Hit Rate",Monetaria,100.000000000000
+PE,7,"Gaseosas + Agua",Porcentual,0.290000000000
+PE,7,"Sporade + Volt",Porcentual,0.300000000000
+PE,7,"Pulp+Cifrut+Free Tea+Bio",Porcentual,0.180000000000
+PE,7,"Nuevos Negocios",Porcentual,0.130000000000
+PE,7,"Bebidas Alcoholicas",Porcentual,0.100000000000
+PE,7,"Cobertura NNCC",Monetaria,130.000000000000
+PE,9,Gaseosas,Porcentual,0.150000000000
+PE,9,"Vida+Cielo (sin Alcalina ni Sabores)",Porcentual,0.150000000000
+PE,9,"Cielo Sabores",Porcentual,0.150000000000
+PE,9,"Cielo Alcalina",Porcentual,0.100000000000
+PE,9,Sporade+Dilyte,Porcentual,0.100000000000
+PE,9,Pulp,Porcentual,0.100000000000
+PE,9,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,9,"NNCC + Bebidas Alcoholicas",Porcentual,0.150000000000
+PE,9,"Altas Horecas",Monetaria,400.000000000000
+PE,14,Gaseosas,Porcentual,0.350000000000
+PE,14,Agua,Porcentual,0.150000000000
+PE,14,"Sporade + Dylite",Porcentual,0.150000000000
+PE,14,Volt,Porcentual,0.150000000000
+PE,14,Pulp,Porcentual,0.100000000000
+PE,14,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,14,"Bebidas Alcoholicas",Porcentual,0.000000000000
+PE,14,"Marca Foco - SPORADE",Monetaria,100.000000000000
+PE,15,Gaseosas,Porcentual,0.250000000000
+PE,15,Agua,Porcentual,0.150000000000
+PE,15,Sporade,Porcentual,0.250000000000
+PE,15,Volt,Porcentual,0.150000000000
+PE,15,Pulp,Porcentual,0.100000000000
+PE,15,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,15,"Bebidas Alcoholicas",Porcentual,0.000000000000
+PE,15,Volumen,Monetaria,250.000000000000
+PE,16,Gaseosas,Porcentual,0.250000000000
+PE,16,Agua,Porcentual,0.150000000000
+PE,16,Sporade,Porcentual,0.250000000000
+PE,16,Volt,Porcentual,0.100000000000
+PE,16,Pulp,Porcentual,0.150000000000
+PE,16,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,16,"Bebidas Alcoholicas",Porcentual,0.000000000000
+PE,16,Volumen,Monetaria,250.000000000000
+PE,17,Gaseosas,Porcentual,0.200000000000
+PE,17,Agua,Porcentual,0.250000000000
+PE,17,Sporade,Porcentual,0.250000000000
+PE,17,Volt,Porcentual,0.100000000000
+PE,17,Pulp,Porcentual,0.100000000000
+PE,17,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,17,"Bebidas Alcoholicas",Porcentual,0.000000000000
+PE,17,Volumen,Monetaria,250.000000000000
+PE,18,Gaseosas,Porcentual,0.150000000000
+PE,18,Agua,Porcentual,0.200000000000
+PE,18,Sporade,Porcentual,0.150000000000
+PE,18,Volt,Porcentual,0.150000000000
+PE,18,Pulp,Porcentual,0.150000000000
+PE,18,Cifrut+Tea+Bio,Porcentual,0.150000000000
+PE,18,"Bebidas Alcoholicas",Porcentual,0.000000000000
+PE,18,Volumen,Monetaria,250.000000000000
+PE,19,Gaseosas,Porcentual,0.150000000000
+PE,19,Agua,Porcentual,0.150000000000
+PE,19,Sporade,Porcentual,0.250000000000
+PE,19,Volt,Porcentual,0.100000000000
+PE,19,Pulp,Porcentual,0.100000000000
+PE,19,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,19,"Bebidas Alcoholicas",Porcentual,0.100000000000
+PE,19,"Nuevos Negocios",Monetaria,250.000000000000
+PE,20,Gaseosas,Porcentual,0.150000000000
+PE,20,Agua,Porcentual,0.150000000000
+PE,20,Sporade,Porcentual,0.300000000000
+PE,20,Volt,Porcentual,0.150000000000
+PE,20,Pulp,Porcentual,0.100000000000
+PE,20,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,20,"Bebidas Alcoholicas",Porcentual,0.050000000000
+PE,20,Volumen,Monetaria,250.000000000000
+PE,21,Gaseosas,Porcentual,0.150000000000
+PE,21,Agua,Porcentual,0.150000000000
+PE,21,Sporade,Porcentual,0.200000000000
+PE,21,Volt,Porcentual,0.150000000000
+PE,21,Pulp,Porcentual,0.100000000000
+PE,21,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,21,"Bebidas Alcoholicas",Porcentual,0.100000000000
+PE,21,"Nuevos Negocios",Monetaria,250.000000000000
+PE,21,"Marca Foco - SPORADE",Monetaria,100.000000000000
+PE,22,Gaseosas,Porcentual,0.150000000000
+PE,22,Agua,Porcentual,0.250000000000
+PE,22,Sporade,Porcentual,0.100000000000
+PE,22,Volt,Porcentual,0.150000000000
+PE,22,Pulp,Porcentual,0.150000000000
+PE,22,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,22,"Bebidas Alcoholicas",Porcentual,0.000000000000
+PE,22,"Nuevos Negocios",Monetaria,250.000000000000
+PE,22,"Marca Foco - SPORADE",Monetaria,100.000000000000
+PE,23,Gaseosas,Porcentual,0.200000000000
+PE,23,Agua,Porcentual,0.150000000000
+PE,23,Sporade,Porcentual,0.200000000000
+PE,23,Volt,Porcentual,0.150000000000
+PE,23,Pulp,Porcentual,0.100000000000
+PE,23,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,23,"Bebidas Alcoholicas",Porcentual,0.100000000000
+PE,23,"Nuevos Negocios",Monetaria,250.000000000000
+PE,23,"Marca Foco - SPORADE",Monetaria,100.000000000000
+PE,24,Gaseosas,Porcentual,0.150000000000
+PE,24,Agua,Porcentual,0.100000000000
+PE,24,Sporade,Porcentual,0.300000000000
+PE,24,Volt,Porcentual,0.100000000000
+PE,24,Pulp,Porcentual,0.150000000000
+PE,24,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,24,"Bebidas Alcoholicas",Porcentual,0.000000000000
+PE,24,"Nuevos Negocios",Monetaria,250.000000000000
+PE,24,"Marca Foco - SPORADE",Monetaria,100.000000000000
+PE,25,Gaseosas,Porcentual,0.250000000000
+PE,25,Agua,Porcentual,0.200000000000
+PE,25,Sporade,Porcentual,0.200000000000
+PE,25,Volt,Porcentual,0.150000000000
+PE,25,Pulp,Porcentual,0.100000000000
+PE,25,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,25,"Bebidas Alcoholicas",Porcentual,0.100000000000
+PE,25,"Nuevos Negocios",Monetaria,250.000000000000
+PE,25,"Marca Foco - SPORADE",Monetaria,100.000000000000
+PE,26,Gaseosas,Porcentual,0.350000000000
+PE,26,Agua,Porcentual,0.150000000000
+PE,26,"Sporade + Dylite",Porcentual,0.150000000000
+PE,26,Volt,Porcentual,0.150000000000
+PE,26,Pulp,Porcentual,0.100000000000
+PE,26,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,26,"Bebidas Alcoholicas",Porcentual,0.100000000000
+PE,26,"Nuevos Negocios",Monetaria,250.000000000000
+PE,26,"Marca Foco - SPORADE",Monetaria,100.000000000000
+PE,14,"Nuevos Negocios",Monetaria,250.000000000000
+PE,27,Bebidas,Porcentual,0.200000000000
+PE,27,Alimentos,Porcentual,0.300000000000
+PE,27,Limpieza,Porcentual,0.250000000000
+PE,27,Impulso,Porcentual,0.250000000000
+PE,27,"Marca Foco - DEST",Monetaria,250.000000000000
+PE,28,Gaseosas,Porcentual,0.200000000000
+PE,28,Agua,Porcentual,0.200000000000
+PE,28,"Sporade + Dylite",Porcentual,0.150000000000
+PE,28,Volt,Porcentual,0.150000000000
+PE,28,Pulp,Porcentual,0.100000000000
+PE,28,Cifrut+Tea+Bio,Porcentual,0.100000000000
+PE,28,"Bebidas Alcoholicas",Porcentual,0.100000000000
+PE,28,"Nuevos Negocios",Monetaria,250.000000000000
