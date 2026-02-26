@@ -11,11 +11,11 @@ if (!isset($_SESSION["username"])) {
 clearstatcache();
 
 $paisSession = $_SESSION["pais"];
-$active = "cuotas_ruta";
+$active = "celula";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "DELETE FROM comisiones_cuotas WHERE pais = '".$paisSession."'";
+    $query = "DELETE FROM comisiones_celula_econored WHERE pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
@@ -42,11 +42,13 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-             $q = "INSERT INTO comisiones_cuotas (pais,cod_ruta,plan) VALUES (
-                                        '$data[0]',
-                                        '$data[1]',
-                                        '$data[2]'
-                                        )";
+            $q = "INSERT INTO comisiones_celula_econored (pais,celula,zona,sistema,foco) VALUES (
+            '$data[0]',
+            '$data[1]',
+            '$data[2]',
+            '$data[3]',
+            '$data[4]'
+            )";
 
             $mysqli->query($q);
         }
@@ -73,13 +75,18 @@ if (isset($_POST['enviar'])) {
 
 <body>
 <header>
-    <!-- Fixed navbar -->
-    <?php
+      <!-- Fixed navbar -->
+     <?php
+        $username = $_SESSION["username"];
         if ($paisSession == "CO"){
             include "./comisiones_menu_co.php";
         }
         else{
-            include "./comisiones_menu.php";
+            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT" || $username == "admin-ECONORED") {
+              include "./comisiones_menu_econored.php";
+            } else {
+              include "./comisiones_menu.php";
+            }
         } ?>
 </header>
 
@@ -88,7 +95,7 @@ if (isset($_POST['enviar'])) {
 <div class="container">
     <div class="row align-items-start text-center">
         <div class="col">
-            <h3 class="mt-3">Carga Plantilla Cuotas por Ruta</h3>
+            <h3 class="mt-3">Carga Plantilla Celula</h3>
         </div>
         <div class="col">
             <img src="../ajetron.png" alt="Imagen de encabezado" class="img-fluid mt-3" style="max-width: 150px;">
@@ -133,10 +140,11 @@ if (isset($_POST['enviar'])) {
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="static/1_plantilla_celula.csv">Celula</a></li>
                                     <li><a class="dropdown-item" href="static/2_plantilla_banda.csv">Banda</a></li>
+                                    <li><a class="dropdown-item" href="static/8_plantilla_hitrate.csv">Hit Rate</a></li>
                                     <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <li><a class="dropdown-item" href="static/17_plantilla_cuotas_ruta.csv">Cuota Ruta</a></li>
+                                    <li><a class="dropdown-item" href="static/gt_cobertura_cliente_objetivo.csv">GT - Cobertura</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -155,7 +163,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM comisiones_cuotas where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT * FROM comisiones_celula_econored where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
@@ -164,18 +172,33 @@ if (isset($_POST['enviar'])) {
                 <table class='table table-bordered'>
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>Pais</th>
-                        <th>Ruta</th>
-                        <th>Cuota</th>
+                        <th>Celula</th>
+                        <?php
+                        if ($paisSession == 'PE') {
+                            echo "<th>Zona</th>";
+                        }
+                         ?>
+                        <th>Sistema</th>
+                        <th>Foco</th>
+                    </tr>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                     <tbody>
                     <tr>
+                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['pais']; ?></td>
-                        <td><?php echo $row['cod_ruta']; ?></td>
-                        <td><?php echo $row['plan']; ?></td>
+                        <td><?php echo $row['celula']; ?></td>
+                        <?php
+                        if ($paisSession == 'PE') {
+                            echo "<td>" . $row['zona'] . "</td>";
+                        }
+                         ?>
+                        <td><?php echo $row['sistema']; ?></td>
+                        <td><?php echo $row['foco']; ?></td>
                     </tr>
                     <?php
                     }
