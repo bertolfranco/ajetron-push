@@ -194,6 +194,7 @@ if (isset($_POST['enviar'])) {
                         <th>Pais</th>
                         <th>Cod_zona</th>
                         <th>Cod_ruta</th>
+                        <th>Compañia</th>
                         <?php
                         if ($paisSession == 'HN' || $paisSession == 'SV') {
                             echo "<th>Tipo</th>";
