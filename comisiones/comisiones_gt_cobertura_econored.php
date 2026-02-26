@@ -225,7 +225,7 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['desc_marca']; ?></td>
                         <?php
                         // Solo mostrar las columnas "Formato" y "Tipo Formato" si el país es "GT"
-                        if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
+                        if ($paisSession == 'HN' || $paisSession == 'SV') {
                             echo "<td>" . $row['formato'] . "</td>";
                             echo "<td>" . $row['tipo_formato'] . "</td>";
                         }
