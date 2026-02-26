@@ -81,7 +81,7 @@
                         GT Cobertura
                     </a>
                 </li>
-                <?php if ($paisSession == 'GT'): ?>
+                <?php if ($paisSession == 'GT' || $paisSession == 'HN'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "gtadicional") {
                             echo 'class="nav-link active"';
@@ -155,6 +155,15 @@
                         echo 'class="nav-link"';
                     } ?> href="comisiones_comisiones_historica.php">
                         Históricos
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a <?php if ($active == "usuarios") {
+                        echo 'class="nav-link active"';
+                    } else {
+                        echo 'class="nav-link"';
+                    } ?> href="ajetron_usuarios.php">
+                        Usuarios
                     </a>
                 </li>
             </ul>
