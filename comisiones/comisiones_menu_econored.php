@@ -14,6 +14,15 @@
                         <span class="sr-only">(Volver)</span>
                     </a>
                 </li>
+               <li class="nav-item active">
+                    <a <?php if ($active == "celula") {
+                        echo 'class="nav-link active"';
+                    } else {
+                        echo 'class="nav-link"';
+                    } ?> href="comisiones_celula_econored.php">
+                        Comisiones Celula
+                    </a>
+                </li>
                 <li class="nav-item active">
                     <a <?php if ($active == "banda") {
                         echo 'class="nav-link active"';
@@ -31,7 +40,7 @@
                     } ?> href="comisiones_familias_econored.php">
                         Comisiones Familias
                     </a>
-                </li> 
+                </li>
                 <li class="nav-item active">
                     <a <?php if ($active == "tipo") {
                         echo 'class="nav-link active"';
@@ -62,6 +71,15 @@
                         </a>
                     </li>
                 <?php endif; ?>
+                 <li class="nav-item active">
+                    <a <?php if ($active == "kpis") {
+                        echo 'class="nav-link active"';
+                    } else {
+                        echo 'class="nav-link"';
+                    } ?> href="comisiones_kpis_econored.php">
+                        Kpis
+                    </a>
+                </li>
                 <li class="nav-item active">
                     <a <?php if ($active == "vendedores_sc") {
                         echo 'class="nav-link active"';
@@ -77,7 +95,7 @@
                     } else {
                         echo 'class="nav-link"';
                     } ?>
-                        href="comisiones_diashabiles.php">
+                        href="comisiones_diashabiles_econored.php">
                         Comisiones Dias Habiles
                     </a>
                 </li>
