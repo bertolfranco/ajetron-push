@@ -194,6 +194,7 @@ if (isset($_POST['enviar'])) {
                         <th>Pais</th>
                         <th>Cod_zona</th>
                         <th>Cod_ruta</th>
+                        <th>Compañia</th>
                         <?php
                         if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
                             echo "<th>Tipo</th>";
@@ -221,6 +222,7 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['pais']; ?></td>
                         <td><?php echo $row['cod_zona']; ?></td>
                         <td><?php echo $row['cod_ruta']; ?></td>
+                        <td><?php echo $row['cod_compania']; ?></td>
                         <td><?php echo $row['desc_marca']; ?></td>
                         <?php
                         // Solo mostrar las columnas "Formato" y "Tipo Formato" si el país es "GT"
