@@ -42,12 +42,11 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO comisiones_celula_econored (pais,celula,zona,sistema,foco) VALUES (
+            $q = "INSERT INTO comisiones_celula_econored (pais,celula,sistema,foco) VALUES (
             '$data[0]',
             '$data[1]',
             '$data[2]',
-            '$data[3]',
-            '$data[4]'
+            '$data[3]'
             )";
 
             $mysqli->query($q);

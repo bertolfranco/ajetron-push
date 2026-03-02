@@ -42,7 +42,7 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            if ($paisSession == 'HN' || $paisSession == 'SV' ) {
+            if ($paisSession == 'HN' || $paisSession == 'SV' || $paisSession == 'GT' ) {
                 // Inserción cuando el país es 'GT', incluyendo 'formato' y 'tipo_formato'
                 $q = "INSERT INTO cobertura_clientes_objetivo_econored (pais, cod_zona, cod_ruta, desc_marca,formato, tipo_formato, objetivo_clientes, valor, sistema) VALUES (
                         '$data[0]',
@@ -57,15 +57,14 @@ if (isset($_POST['enviar'])) {
                        )";
             } else {
                 // Inserción cuando el país no es 'GT', sin 'formato' y 'tipo_formato'
-                $q = "INSERT INTO cobertura_clientes_objetivo_econored (pais, cod_zona, cod_ruta, cod_compania, desc_marca, objetivo_clientes, valor, sistema) VALUES (
+                $q = "INSERT INTO cobertura_clientes_objetivo_econored (pais, cod_zona, cod_ruta, desc_marca, objetivo_clientes, valor, sistema) VALUES (
                         '$data[0]',
                         '$data[1]',
                         '$data[2]',
                         '$data[3]',
                         '$data[4]',
                         '$data[5]',
-                        '$data[6]',
-                        '$data[7]'
+                        '$data[6]'
                        )";
             }
 
@@ -163,7 +162,7 @@ if (isset($_POST['enviar'])) {
                                     <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <li><a class="dropdown-item" href="static/6_plantilla_cobertura_econored.csv">GT - Cobertura</a></li>
+                                    <li><a class="dropdown-item" href="static/6_plantilla_cobertura.csv">GT - Cobertura</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -194,9 +193,8 @@ if (isset($_POST['enviar'])) {
                         <th>Pais</th>
                         <th>Cod_zona</th>
                         <th>Cod_ruta</th>
-                        <th>Compañia</th>
                         <?php
-                        if ($paisSession == 'HN' || $paisSession == 'SV') {
+                        if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
                             echo "<th>Tipo</th>";
                         } else {
                             echo "<th>Desc_marca</th>";
@@ -204,7 +202,7 @@ if (isset($_POST['enviar'])) {
                          ?>
                         <?php
                         // Solo mostrar "Formato" y "Tipo Formato" si el país es "GT"
-                        if ($paisSession == 'HN' || $paisSession == 'SV') {
+                        if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
                             echo "<th>Formato</th>";
                             echo "<th>Tipo Formato</th>";
                         }
@@ -222,11 +220,10 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['pais']; ?></td>
                         <td><?php echo $row['cod_zona']; ?></td>
                         <td><?php echo $row['cod_ruta']; ?></td>
-                        <td><?php echo $row['cod_compania']; ?></td>
                         <td><?php echo $row['desc_marca']; ?></td>
                         <?php
                         // Solo mostrar las columnas "Formato" y "Tipo Formato" si el país es "GT"
-                        if ($paisSession == 'HN' || $paisSession == 'SV') {
+                        if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
                             echo "<td>" . $row['formato'] . "</td>";
                             echo "<td>" . $row['tipo_formato'] . "</td>";
                         }
