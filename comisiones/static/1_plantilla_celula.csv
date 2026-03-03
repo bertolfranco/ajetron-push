@@ -1,19 +1,137 @@
 pais,celula,zona,sistema,foco
-PE,Lima Norte,,1,f1
-PE,Lima Callao,,1,f2
-PE,Huacho,,2,f3
-PE,Lima Centro,,7,f4
-PE,Lima Sur,,7,f5
-PE,Chincha,,2,f6
-PE,Tarapoto,,3,f7
-PE,Pucallpa,,3,f8
-PE,Juanjui,,3,f9
-PE,Arequipa,,4,f10
-PE,Cusco,,4,f11
-PE,Juliaca,,4,f12
-PE,Tacna,,4,f13
-PE,Huancayo,,5,f14
-PE,Chiclayo,,6,f15
-PE,Tumbes,,6,f16
-PE,Piura,,6,f17
-PE,Sullana,,6,f18
+PE,Ayacucho,1760,5,;
+PE,Ayacucho,3760,15,;
+PE,Huancayo,1440,5,;
+PE,Huancayo,1441,5,;
+PE,Huancayo,1442,5,;
+PE,Huancayo,1443,5,;
+PE,Huancayo,1444,5,;
+PE,Huancayo,3440,15,;
+PE,Huancayo,8440,25,;
+PE,"La Merced",1480,5,;
+PE,"La Merced",6480,9,;
+PE,Tarma,1490,5,;
+PE,Tarma,1491,5,;
+PE,Barranca,1690,1,;
+PE,Barranca,1691,1,;
+PE,Barranca,3691,17,;
+PE,Barranca,3692,17,;
+PE,Barranca,6050,9,;
+PE,Barranca,1040,1,;
+PE,Barranca,3030,17,;
+PE,Barranca,6040,9,;
+PE,Chimbote,1840,1,;
+PE,Chimbote,1841,1,;
+PE,Chimbote,3040,17,;
+PE,Chimbote,6850,9,;
+PE,Chimbote,8850,23,;
+PE,"Lima Callao",1720,1,;
+PE,"Lima Callao",1721,1,;
+PE,"Lima Callao",1722,1,;
+PE,"Lima Callao",1723,1,;
+PE,"Lima Callao",1724,1,;
+PE,"Lima Callao",1725,1,;
+PE,"Lima Norte",1000,1,;
+PE,"Lima Norte",1001,1,;
+PE,"Lima Norte",1002,1,;
+PE,"Lima Norte",1003,1,;
+PE,"Lima Norte",1004,1,;
+PE,"Lima Norte",1005,1,;
+PE,"Lima Norte",1006,1,;
+PE,"Lima Norte",1009,1,;
+PE,"Lima Norte",3000,1,;
+PE,Chincha,1680,2,;
+PE,Chincha,1681,2,;
+PE,Chincha,1682,2,;
+PE,Chincha,3681,20,;
+PE,Ica,1770,1,;
+PE,Ica,1771,1,;
+PE,Ica,3710,17,;
+PE,Ica,6780,11,;
+PE,"Lima Centro",1120,7,;
+PE,"Lima Centro",1121,7,;
+PE,"Lima Centro",1122,7,;
+PE,"Lima Centro",1123,7,;
+PE,"Lima Centro",1124,7,;
+PE,"Lima Centro",1125,7,;
+PE,"Lima Centro",1126,7,;
+PE,"Lima Centro",1127,7,;
+PE,"Lima Sur",1080,7,;
+PE,"Lima Sur",1081,7,;
+PE,"Lima Sur",1083,7,;
+PE,"Lima Sur",1085,7,;
+PE,"Lima Sur",1086,7,;
+PE,"Lima Sur",1087,7,;
+PE,"Lima Sur",1088,7,;
+PE,"Lima Sur",3080,7,;
+PE,Nazca,1790,29,;
+PE,Nazca,3715,17,;
+PE,Crucerista,3601,0,;
+PE,"Mayoristas Aje Lima",3600,19,;
+PE,"Mayoristas Aje Lima",3602,19,;
+PE,Mercados,8060,21,;
+PE,Mercados,8720,21,;
+PE,Mercados,8820,21,;
+PE,Mercados,8840,21,;
+PE,Horeca,6600,9,;
+PE,Horeca,6605,9,;
+PE,Horeca,6720,9,;
+PE,Horeca,6820,9,;
+PE,Horeca,6840,9,;
+PE,Chiclayo,1160,6,;
+PE,Chiclayo,1161,6,;
+PE,Chiclayo,1162,6,;
+PE,Chiclayo,3160,16,;
+PE,Chiclayo,6160,9,;
+PE,Chiclayo,8160,24,;
+PE,Piura,1200,6,;
+PE,Piura,1201,6,;
+PE,Piura,3200,16,;
+PE,Piura,6200,9,;
+PE,Piura,8200,24,;
+PE,Sullana,1240,6,;
+PE,Sullana,1241,6,;
+PE,Sullana,3240,16,;
+PE,Sullana,6240,9,;
+PE,Sullana,8240,24,;
+PE,Tumbes,1280,6,;
+PE,Tumbes,3280,16,;
+PE,Tumbes,6280,9,;
+PE,Tumbes,8280,24,;
+PE,Iquitos,1320,3,;
+PE,Iquitos,1321,3,;
+PE,Iquitos,1322,3,;
+PE,Iquitos,3320,14,;
+PE,Iquitos,6320,9,;
+PE,Iquitos,8320,26,;
+PE,Juanjui,1590,3,;
+PE,Juanjui,3599,14,;
+PE,Pucallpa,1360,3,;
+PE,Pucallpa,1361,3,;
+PE,Pucallpa,3360,14,;
+PE,Pucallpa,6360,9,;
+PE,Pucallpa,8360,26,;
+PE,Tarapoto,1400,3,;
+PE,Tarapoto,1401,3,;
+PE,Tarapoto,3400,14,;
+PE,Tarapoto,6400,9,;
+PE,Tarapoto,8400,26,;
+PE,Arequipa,1700,4,;
+PE,Arequipa,1701,4,;
+PE,Arequipa,1702,4,;
+PE,Arequipa,3590,18,;
+PE,Arequipa,6690,9,;
+PE,Arequipa,8690,22,;
+PE,Chincha,6686,9,;
+PE,Cusco,1920,4,;
+PE,Cusco,1921,4,;
+PE,Cusco,3830,18,;
+PE,Cusco,6680,9,;
+PE,Cusco,8680,22,;
+PE,Juliaca,1942,4,;
+PE,Juliaca,1940,4,;
+PE,Juliaca,1941,4,;
+PE,Juliaca,3851,18,;
+PE,Tacna,1975,4,;
+PE,Tacna,3886,18,;
+PE,Tacna,6701,9,;
