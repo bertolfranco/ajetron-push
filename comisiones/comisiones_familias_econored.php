@@ -36,7 +36,6 @@ if (isset($_POST['enviar'])) {
 
 //  $handle = str_replace(',',';',$handle);
         while (($data = fgetcsv($handle, 100000, $selectedDelimiter)) !== FALSE) {
-            $contador++;
             if (!$firstRowSkipped) {
                 $firstRowSkipped = true;
                 continue; // Saltar la primera fila
