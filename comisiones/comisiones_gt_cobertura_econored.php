@@ -91,7 +91,7 @@ if (isset($_POST['enviar'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
-
+ 
 <body>
 <header>
     <!-- Fixed navbar -->
@@ -101,7 +101,7 @@ if (isset($_POST['enviar'])) {
             include "./comisiones_menu_co.php";
         }
         else{
-            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT" || $username == "admin-ECONORED") {
+            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT" || $username == "admin-ECONORED"  ||  $username == "admin-ECONORED-HN") {
               include "./comisiones_menu_econored.php";
             } else {
               include "./comisiones_menu.php";

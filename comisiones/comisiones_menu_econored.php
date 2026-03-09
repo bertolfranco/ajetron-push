@@ -60,7 +60,7 @@
                         GT Cobertura
                     </a>
                 </li>
-                  <?php if ($paisSession == 'GT'): ?>
+                  <?php if ($paisSession == 'GT' || $paisSession == 'HN'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "gtadicional") {
                             echo 'class="nav-link active"';
@@ -110,7 +110,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <?php if ($paisSession == 'CR' || $paisSession == 'GT'): ?>
+                <?php if ($paisSession == 'CR' || $paisSession == 'GT' || $paisSession == 'HN'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "imperdonables") {
                             echo 'class="nav-link active"';
