@@ -44,7 +44,7 @@ if (isset($_POST['enviar'])) {
 
             if ($paisSession == 'HN' || $paisSession == 'SV' || $paisSession == 'GT' ) {
                 // Inserción cuando el país es 'GT', incluyendo 'formato' y 'tipo_formato'
-                $q = "INSERT INTO cobertura_clientes_objetivo_econored (pais, cod_zona, cod_ruta, desc_marca,formato, tipo_formato, objetivo_clientes, valor, sistema) VALUES (
+                $q = "INSERT INTO cobertura_clientes_objetivo_econored (pais, cod_zona, cod_ruta, cod_compania, desc_marca,formato, tipo_formato, objetivo_clientes, valor, sistema) VALUES (
                         '$data[0]',
                         '$data[1]',
                         '$data[2]',
@@ -53,7 +53,8 @@ if (isset($_POST['enviar'])) {
                         '$data[5]',
                         '$data[6]',
                         '$data[7]',
-                        '$data[8]'
+                        '$data[8]',
+                        '$data[9]'
                        )";
             } else {
                 // Inserción cuando el país no es 'GT', sin 'formato' y 'tipo_formato'
@@ -100,7 +101,7 @@ if (isset($_POST['enviar'])) {
             include "./comisiones_menu_co.php";
         }
         else{
-            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT" || $username == "admin-ECONORED") {
+            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT" || $username == "admin-ECONORED"  ||  $username == "admin-ECONORED-HN") {
               include "./comisiones_menu_econored.php";
             } else {
               include "./comisiones_menu.php";
@@ -162,7 +163,7 @@ if (isset($_POST['enviar'])) {
                                     <li><a class="dropdown-item" href="static/3_plantilla_familias.csv">Familias</a></li>
                                     <li><a class="dropdown-item" href="static/4_plantilla_tipo_comision.csv">Tipo Comision</a></li>
                                     <li><a class="dropdown-item" href="static/5_plantilla_foco.csv">Foco</a></li>
-                                    <li><a class="dropdown-item" href="static/6_plantilla_cobertura.csv">GT - Cobertura</a></li>
+                                    <li><a class="dropdown-item" href="static/6_plantilla_cobertura_econored.csv">GT - Cobertura</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -193,6 +194,7 @@ if (isset($_POST['enviar'])) {
                         <th>Pais</th>
                         <th>Cod_zona</th>
                         <th>Cod_ruta</th>
+                        <th>Compañia</th>
                         <?php
                         if ($paisSession == 'GT' || $paisSession == 'HN' || $paisSession == 'SV') {
                             echo "<th>Tipo</th>";
@@ -220,6 +222,7 @@ if (isset($_POST['enviar'])) {
                         <td><?php echo $row['pais']; ?></td>
                         <td><?php echo $row['cod_zona']; ?></td>
                         <td><?php echo $row['cod_ruta']; ?></td>
+                        <td><?php echo $row['cod_compania']; ?></td>
                         <td><?php echo $row['desc_marca']; ?></td>
                         <?php
                         // Solo mostrar las columnas "Formato" y "Tipo Formato" si el país es "GT"
