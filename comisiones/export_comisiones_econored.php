@@ -1,7 +1,11 @@
 <?php
 session_start();
+
+// 🔥 INICIAR BUFFER (clave)
+ob_start();
+
 require_once 'dbconect.php';
-require '../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -20,6 +24,9 @@ $paisSafe = $mysqli->real_escape_string($paisSession);
 
 // 📥 Descargar Excel
 if (isset($_GET['download'])) {
+
+    // 🔥 LIMPIAR TODO antes de generar archivo
+    ob_end_clean();
 
     $query = "SELECT * 
               FROM v_comisiones_cob_econored_hn 
@@ -61,14 +68,16 @@ if (isset($_GET['download'])) {
     // 📁 Nombre archivo
     $filename = "cobertura_econored_" . $paisSession . "_" . date("Ymd_His") . ".xlsx";
 
-    // 📤 Headers
+    // 📤 Headers correctos
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header("Content-Disposition: attachment; filename=$filename");
+    header('Content-Disposition: attachment; filename="' . $filename . '"');
     header('Cache-Control: max-age=0');
+    header('Pragma: public');
 
     $writer = new Xlsx($spreadsheet);
     $writer->save('php://output');
-    exit;
+
+    exit; // 🔥 MUY IMPORTANTE
 }
 ?>
 
@@ -88,7 +97,6 @@ if (isset($_GET['download'])) {
 
 <header>
 <?php
-// 🔹 Menú dinámico
 if ($paisSession == "CO") {
     include "./comisiones_menu_co.php";
 } else {
