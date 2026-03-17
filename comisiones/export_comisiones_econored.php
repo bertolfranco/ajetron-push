@@ -1,14 +1,6 @@
 <?php
 session_start();
-
-// 🔥 INICIAR BUFFER (clave)
-ob_start();
-
 require_once 'dbconect.php';
-require __DIR__ . '/../vendor/autoload.php';
-
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 // 🔐 Validar sesión
 if (!isset($_SESSION["username"])) {
@@ -19,66 +11,6 @@ if (!isset($_SESSION["username"])) {
 $paisSession = $_SESSION["pais"];
 $username = $_SESSION["username"];
 $active = "exportcomisiones";
-
-$paisSafe = $mysqli->real_escape_string($paisSession);
-
-// 📥 Descargar Excel
-if (isset($_GET['download'])) {
-
-    // 🔥 LIMPIAR TODO antes de generar archivo
-    ob_end_clean();
-
-    $query = "SELECT * 
-              FROM v_comisiones_cob_econored_hn 
-              WHERE pais = '$paisSafe'";
-
-    $result = mysqli_query($mysqli, $query);
-
-    if (!$result) {
-        die("Error en la consulta: " . mysqli_error($mysqli));
-    }
-
-    // 📊 Crear Excel
-    $spreadsheet = new Spreadsheet();
-    $sheet = $spreadsheet->getActiveSheet();
-
-    // Cabeceras
-    $fields = mysqli_fetch_fields($result);
-    $col = 1;
-
-    foreach ($fields as $field) {
-        $sheet->setCellValueByColumnAndRow($col, 1, $field->name);
-        $col++;
-    }
-
-    // 🔥 Encabezado en negrita
-    $sheet->getStyle('1:1')->getFont()->setBold(true);
-
-    // Datos
-    $rowNum = 2;
-    while ($row = mysqli_fetch_assoc($result)) {
-        $col = 1;
-        foreach ($row as $value) {
-            $sheet->setCellValueByColumnAndRow($col, $rowNum, $value);
-            $col++;
-        }
-        $rowNum++;
-    }
-
-    // 📁 Nombre archivo
-    $filename = "cobertura_econored_" . $paisSession . "_" . date("Ymd_His") . ".xlsx";
-
-    // 📤 Headers correctos
-    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment; filename="' . $filename . '"');
-    header('Cache-Control: max-age=0');
-    header('Pragma: public');
-
-    $writer = new Xlsx($spreadsheet);
-    $writer->save('php://output');
-
-    exit; // 🔥 MUY IMPORTANTE
-}
 ?>
 
 <!doctype html>
@@ -89,7 +21,6 @@ if (isset($_GET['download'])) {
     <title>Descargar Cobertura Econored</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -128,7 +59,8 @@ if ($paisSession == "CO") {
 
     <hr>
 
-    <a href="?download=1" class="btn btn-success btn-lg">
+    <!-- 🔥 CAMBIO AQUÍ -->
+    <a href="descargar_excel.php" class="btn btn-success btn-lg">
         Descargar Excel
     </a>
 
