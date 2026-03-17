@@ -121,6 +121,17 @@
                         </a>
                     </li>
                 <?php endif; ?>
+                <?php if ($paisSession == 'HN'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "exportcomisiones") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="export_comisiones_econored.php">
+                            Exportar Comisiones
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <?php if ($paisSession == 'EC'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "coberturanncc") {
