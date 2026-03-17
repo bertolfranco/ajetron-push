@@ -27,12 +27,10 @@ if (isset($_GET['download'])) {
         die("Error en la consulta: " . mysqli_error($mysqli));
     }
 
-    $filename = "cobertura_econored_" . $paisSession . "_" . date("Ymd_His") . ".csv";
+    $filename = "cobertura_econored_" . $paisSession . "_" . date("Ymd_His") . ".xls";
 
-    header("Content-Type: text/csv; charset=UTF-8");
+    header("Content-Type: application/vnd.ms-excel");
     header("Content-Disposition: attachment; filename=$filename");
-    header("Pragma: no-cache");
-    header("Expires: 0");
 
     echo "\xEF\xBB\xBF"; // BOM UTF-8
 
@@ -70,53 +68,54 @@ if (isset($_GET['download'])) {
 
 <body>
 
-<header>
-<?php
-// 🔹 Menú dinámico igual que tu sistema
-if ($paisSession == "CO"){
-    include "./comisiones_menu_co.php";
-} else {
-    if (
-        $username == "admin-ECONORED-CR" || 
-        $username == "admin-ECONORED-GT" || 
-        $username == "admin-ECONORED"  ||  
-        $username == "admin-ECONORED-HN"
-    ) {
-        include "./comisiones_menu_econored.php";
-    } else {
-        include "./comisiones_menu.php";
-    }
-}
-?>
-</header>
+    <header>
+        <?php
+        // 🔹 Menú dinámico igual que tu sistema
+        if ($paisSession == "CO") {
+            include "./comisiones_menu_co.php";
+        } else {
+            if (
+                $username == "admin-ECONORED-CR" ||
+                $username == "admin-ECONORED-GT" ||
+                $username == "admin-ECONORED" ||
+                $username == "admin-ECONORED-HN"
+            ) {
+                include "./comisiones_menu_econored.php";
+            } else {
+                include "./comisiones_menu.php";
+            }
+        }
+        ?>
+    </header>
 
-<div class="container mt-5 text-center">
+    <div class="container mt-5 text-center">
 
-    <div class="row align-items-center">
-        <div class="col">
-            <h3>Descargar Cobertura Econored</h3>
-            <p>País: <?php echo htmlspecialchars($paisSession); ?></p>
+        <div class="row align-items-center">
+            <div class="col">
+                <h3>Descargar Cobertura Econored</h3>
+                <p>País: <?php echo htmlspecialchars($paisSession); ?></p>
+            </div>
+            <div class="col">
+                <img src="../ajetron.png" class="img-fluid" style="max-width: 120px;">
+            </div>
         </div>
-        <div class="col">
-            <img src="../ajetron.png" class="img-fluid" style="max-width: 120px;">
-        </div>
+
+        <hr>
+
+        <a href="?download=1" class="btn btn-success btn-lg">
+            Descargar Excel
+        </a>
+
     </div>
 
-    <hr>
-
-    <a href="?download=1" class="btn btn-success btn-lg">
-        Descargar Excel
-    </a>
-
-</div>
-
-<footer class="footer mt-5">
-    <div class="container text-center">
-        <span class="text-muted">
-            <p>Todos los derechos reservados <a href="#">AJEPER</a></p>
-        </span>
-    </div>
-</footer>
+    <footer class="footer mt-5">
+        <div class="container text-center">
+            <span class="text-muted">
+                <p>Todos los derechos reservados <a href="#">AJEPER</a></p>
+            </span>
+        </div>
+    </footer>
 
 </body>
+
 </html>
