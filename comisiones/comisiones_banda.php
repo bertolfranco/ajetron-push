@@ -69,7 +69,7 @@ if (isset($_POST['enviar'])) {
 				'$data[22]'
             )";
 			}else {
-				$q = "INSERT INTO comisiones_banda (pais,a1,p1,a2,p2,a3,p3,a4,p4,a5,p5,a6,p6,a7,p7,a8,p8,a9,p9,a10,p10) VALUES (
+				$q = "INSERT INTO comisiones_banda (pais,a1,p1,a2,p2,a3,p3,a4,p4,a5,p5,a6,p6,a7,p7,a8,p8,a9,p9,a10,p10 a11,p11) VALUES (
 				'$data[0]',
 				'$data[1]',
 				'$data[2]',
@@ -90,7 +90,9 @@ if (isset($_POST['enviar'])) {
 				'$data[17]',
 				'$data[18]',
 				'$data[19]',
-				'$data[20]'
+				'$data[20]',
+				'$data[21]',
+				'$data[22]'
 				)";
 			}
 
