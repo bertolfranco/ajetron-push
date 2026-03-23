@@ -132,6 +132,17 @@
                         </a>
                     </li>
                 <?php endif; ?>
+                   <?php if ($paisSession == 'GT'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "compañias_c") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="compañias_comisional_econored.php">
+                            Compañias Comisional GT
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <?php if ($paisSession == 'EC'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "coberturanncc") {
