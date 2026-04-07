@@ -36,7 +36,6 @@ if (isset($_POST['enviar'])) {
 
 //  $handle = str_replace(',',';',$handle);
         while (($data = fgetcsv($handle, 100000, $selectedDelimiter)) !== FALSE) {
-            $contador++;
             if (!$firstRowSkipped) {
                 $firstRowSkipped = true;
                 continue; // Saltar la primera fila
@@ -65,7 +64,7 @@ if (isset($_POST['enviar'])) {
                     '$data[18]',
                     '$data[19]',
                     '$data[20]',
-                    '$data[21]'        
+                    '$data[21]'
                     )";
             } else {
                 if ($paisSession == 'HN' || $paisSession == 'SV'){
@@ -156,7 +155,7 @@ if (isset($_POST['enviar'])) {
             include "./comisiones_menu_co.php";
         }
         else{
-            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT" || $username == "admin-ECONORED") {
+            if ($username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT" || $username == "admin-ECONORED"  ||  $username == "admin-ECONORED-HN") {
               include "./comisiones_menu_econored.php";
             } else {
               include "./comisiones_menu.php";
