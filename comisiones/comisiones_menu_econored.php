@@ -40,7 +40,7 @@
                     } ?> href="comisiones_familias_econored.php">
                         Comisiones Familias
                     </a>
-                </li> 
+                </li>
                 <li class="nav-item active">
                     <a <?php if ($active == "tipo") {
                         echo 'class="nav-link active"';
@@ -60,7 +60,7 @@
                         GT Cobertura
                     </a>
                 </li>
-                  <?php if ($paisSession == 'GT'): ?>
+                  <?php if ($paisSession == 'GT' || $paisSession == 'HN'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "gtadicional") {
                             echo 'class="nav-link active"';
@@ -110,7 +110,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <?php if ($paisSession == 'CR' || $paisSession == 'GT'): ?>
+                <?php if ($paisSession == 'CR' || $paisSession == 'GT' || $paisSession == 'HN'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "imperdonables") {
                             echo 'class="nav-link active"';
@@ -118,6 +118,28 @@
                             echo 'class="nav-link"';
                         } ?> href="comisiones_imperdonables.php">
                             Marcas Foco
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if ($paisSession == 'HN'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "exportcomisiones") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="export_comisiones_econored.php">
+                            Exportar Comisiones
+                        </a>
+                    </li>
+                <?php endif; ?>
+                   <?php if ($paisSession == 'GT'): ?>
+                    <li class="nav-item active">
+                        <a <?php if ($active == "compañias_c") {
+                            echo 'class="nav-link active"';
+                        } else {
+                            echo 'class="nav-link"';
+                        } ?> href="compañias_comisional_econored.php">
+                            Compañias Comisional GT
                         </a>
                     </li>
                 <?php endif; ?>

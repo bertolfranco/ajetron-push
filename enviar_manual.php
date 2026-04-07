@@ -26,7 +26,7 @@ $id = $_POST['id_camp'];
 
 $username = $_SESSION["username"];
 $token = '';
-if ($username == "admin-ECONORED" || $username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT") {
+if ($username == "admin-ECONORED" || $username == "admin-ECONORED-CR" || $username == "admin-ECONORED-GT" || $username == "admin-ECONORED-HN") {
     $token = $TOKEN_BOT_ECONORED;
     $res = "select DISTINCT pc.*, vpb.idtelegram
 from push_carga pc
@@ -139,5 +139,5 @@ unset($value);
     // Esperar 5 segundos y luego redireccionar
     setTimeout(function () {
         window.location.href = 'carga.php';
-    }, 5000); // 5000 milisegundos = 5 segundos
+    }, 1000); // 5000 milisegundos = 5 segundos
 </script>
