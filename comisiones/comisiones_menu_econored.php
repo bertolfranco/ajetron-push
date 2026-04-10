@@ -132,7 +132,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                   <?php if ($paisSession == 'GT'): ?>
+                   <?php if ($paisSession == 'GT' || $paisSession == 'HN'): ?>
                     <li class="nav-item active">
                         <a <?php if ($active == "compañias_c") {
                             echo 'class="nav-link active"';
