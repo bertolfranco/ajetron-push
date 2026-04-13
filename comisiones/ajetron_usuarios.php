@@ -18,7 +18,8 @@ if (isset($_POST['descargar'])) {
 
 
         // 2. Consulta
-        $sql = "SELECT * FROM v_usuarios where pais = '".$paisSession."'";
+        $sql = "SELECT vu.pais, vu.cod_ruta, vu.vendedor, vu.clave , ec.desc_sucursal FROM v_usuarios vu
+        inner join estructura_comercial ec on ec.cod_ruta = vu.cod_ruta and ec.pais = vu.pais where vu.pais = '".$paisSession."'";
         $result = mysqli_query($mysqli, $sql);
 
         if (ob_get_length()) {
@@ -119,7 +120,8 @@ if (isset($_POST['descargar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM v_usuarios where pais = '".$paisSession."'";
+            $sqlSelect = "SELECT vu.pais, vu.cod_ruta, vu.vendedor, vu.clave , ec.desc_sucursal FROM v_usuarios vu
+            inner join estructura_comercial ec on ec.cod_ruta = vu.cod_ruta and ec.pais = vu.pais where vu.pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {
