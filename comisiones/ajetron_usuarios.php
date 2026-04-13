@@ -134,6 +134,7 @@ if (isset($_POST['descargar'])) {
                         <th>Ruta</th>
                         <th>Vendedor</th>
                         <th>Clave</th>
+                        <th>Sucursal</th>
                     </tr>
                     </thead>
                     <?php
@@ -145,6 +146,7 @@ if (isset($_POST['descargar'])) {
                         <td><?php echo $row['cod_ruta']; ?></td>
                         <td><?php echo $row['vendedor']; ?></td>
                         <td><?php echo $row['clave']; ?></td>
+                        <td><?php echo $row['desc_sucursal']; ?></td>
                     </tr>
                     <?php
                     }
