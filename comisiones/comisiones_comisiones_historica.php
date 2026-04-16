@@ -136,6 +136,7 @@ if (isset($_POST["delete"])) {
                                 <select class="form-select form-select-sm" aria-label="Default select example"
                                         name="anio" id="anio">
                                     <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
                                 </select>
                             </div>
 
