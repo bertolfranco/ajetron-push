@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nombreUnico = bin2hex(random_bytes(8)) . "." . $ext;
 
             $rutaFisica = $baseDir . $nombreUnico;
-            $rutaBD = "uploads/$modulo/" . $nombreUnico;
+            $rutaBD = "/archivos/$modulo/" . $nombreUnico;
 
             // ==========================
             // GUARDAR ARCHIVO
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // ==========================
                 // GUARDAR EN BD
                 // ==========================
-                $sql = "INSERT INTO archivos 
+                $sql = "INSERT INTO archivos_capacitacion 
                 (modulo, nombre_original, nombre_guardado, ruta, tipo_mime, extension, peso)
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
 
