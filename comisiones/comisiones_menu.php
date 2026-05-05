@@ -158,6 +158,15 @@
                     </a>
                 </li>
                 <li class="nav-item active">
+                    <a <?php if ($active == "subirarchivos") {
+                        echo 'class="nav-link active"';
+                    } else {
+                        echo 'class="nav-link"';
+                    } ?> href="subir_archivos_capacitacion.php">
+                        Cargar Archivos 
+                    </a>
+                </li>
+                <li class="nav-item active">
                     <a <?php if ($active == "usuarios") {
                         echo 'class="nav-link active"';
                     } else {
