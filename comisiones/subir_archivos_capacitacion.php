@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // ==========================
             // CREAR CARPETA
             // ==========================
-            $baseDir = __DIR__ . "/uploads/$modulo/";
+            $baseDir = "/var/www/html/ajetron/public/archivos/$modulo/";
 
             if (!is_dir($baseDir)) {
                 mkdir($baseDir, 0755, true);
@@ -154,9 +154,8 @@ if ($paisSession == "CO"){
                 <label class="form-label">Módulo</label>
                 <select name="modulo" class="form-select form-select-sm" required>
                     <option value="">Seleccione</option>
-                    <option value="imagenes">Imágenes</option>
-                    <option value="videos">Videos</option>
-                    <option value="documentos">Documentos</option>
+                    <option value="capacitacion">Capacitacion</option>
+                    <option value="pasosventa">Pasos de la venta</option>
                 </select>
             </div>
 
