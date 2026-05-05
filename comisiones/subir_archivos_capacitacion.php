@@ -38,8 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ext  = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
         $permitidos = [
-            'image/jpeg', 'image/png', 'image/webp',
-            'video/mp4', 'video/quicktime'
+            'image/jpeg',
+            'image/png',
+            'image/webp',
+            'video/mp4',
+            'video/quicktime'
         ];
 
         if (!in_array($mime, $permitidos)) {
@@ -55,6 +58,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (!is_dir($baseDir)) {
                 mkdir($baseDir, 0755, true);
+            }
+
+            $archivos = glob($baseDir . '*');
+
+            foreach ($archivos as $archivoExistente) {
+                if (is_file($archivoExistente)) {
+                    unlink($archivoExistente);
+                }
             }
 
             // ==========================
@@ -96,7 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     $mensaje = "Error al guardar en BD";
                 }
-
             } else {
                 $mensaje = "Error al mover archivo";
             }
@@ -107,6 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!doctype html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -116,75 +127,77 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-<header>
-<?php
-// ==========================
-// TU MISMA LÓGICA DE MENÚ
-// ==========================
-if ($paisSession == "CO"){
-    include "./comisiones_menu_co.php";
-} else {
-    include "./comisiones_menu.php";
-}
-?>
-</header>
+    <header>
+        <?php
+        // ==========================
+        // TU MISMA LÓGICA DE MENÚ
+        // ==========================
+        if ($paisSession == "CO") {
+            include "./comisiones_menu_co.php";
+        } else {
+            include "./comisiones_menu.php";
+        }
+        ?>
+    </header>
 
-<div class="container mt-4">
+    <div class="container mt-4">
 
-    <div class="row align-items-center text-center">
-        <div class="col">
-            <h3>Subida de Archivos</h3>
+        <div class="row align-items-center text-center">
+            <div class="col">
+                <h3>Subida de Archivos</h3>
+            </div>
+            <div class="col">
+                <img src="../ajetron.png" class="img-fluid" style="max-width: 120px;">
+            </div>
         </div>
-        <div class="col">
-            <img src="../ajetron.png" class="img-fluid" style="max-width: 120px;">
-        </div>
+
+        <hr>
+
+        <?php if ($mensaje): ?>
+            <div class="alert alert-info"><?php echo $mensaje; ?></div>
+        <?php endif; ?>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <label class="form-label">Módulo</label>
+                    <select name="modulo" class="form-select form-select-sm" required>
+                        <option value="">Seleccione</option>
+                        <option value="seguimiento">Seguimiento</option>
+                        <option value="proyectos">Proyectos</option>
+                        <option value="pasosventa">Pasos de la venta</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Archivo</label>
+                    <input type="file" name="archivo" class="form-control form-control-sm" required>
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-success w-100">
+                        Subir
+                    </button>
+                </div>
+
+            </div>
+
+        </form>
+
     </div>
 
-    <hr>
-
-    <?php if ($mensaje): ?>
-        <div class="alert alert-info"><?php echo $mensaje; ?></div>
-    <?php endif; ?>
-
-    <form method="POST" enctype="multipart/form-data">
-
-        <div class="row">
-
-            <div class="col-md-4">
-                <label class="form-label">Módulo</label>
-                <select name="modulo" class="form-select form-select-sm" required>
-                    <option value="">Seleccione</option>
-                    <option value="capacitacion">Capacitacion</option>
-                    <option value="pasosventa">Pasos de la venta</option>
-                </select>
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Archivo</label>
-                <input type="file" name="archivo" class="form-control form-control-sm" required>
-            </div>
-
-            <div class="col-md-2 d-flex align-items-end">
-                <button type="submit" class="btn btn-success w-100">
-                    Subir
-                </button>
-            </div>
-
+    <footer class="footer mt-5">
+        <div class="container text-center">
+            <span class="text-muted">
+                <p>Todos los derechos reservados <a href="#">AJEPER</a></p>
+            </span>
         </div>
+    </footer>
 
-    </form>
-
-</div>
-
-<footer class="footer mt-5">
-    <div class="container text-center">
-        <span class="text-muted">
-            <p>Todos los derechos reservados <a href="#">AJEPER</a></p>
-        </span>
-    </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
