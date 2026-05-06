@@ -47,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (!in_array($mime, $permitidos)) {
             $mensaje = "Tipo de archivo no permitido";
-        } elseif ($size > 50 * 1024 * 1024) {
-            $mensaje = "Archivo demasiado grande (máx 50MB)";
+        } elseif ($size > 500 * 1024 * 1024) {
+            $mensaje = "Archivo demasiado grande (máx 500MB)";
         } else {
 
             // ==========================
