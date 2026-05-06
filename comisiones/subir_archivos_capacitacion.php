@@ -3,6 +3,10 @@ session_start();
 require_once 'dbconect.php';
 global $mysqli;
 
+ini_set('upload_max_filesize', '600M');
+ini_set('post_max_size', '600M');
+ini_set('max_execution_time', '300');
+
 // ==========================
 // VALIDAR SESIÓN
 // ==========================
