@@ -72,6 +72,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
 
+        // ==========================
+            // ELIMINAR REGISTROS DEL MODULO
+            // ==========================
+            $sqlDelete = "DELETE FROM archivos_capacitacion WHERE modulo = ?";
+            $stmtDelete = mysqli_prepare($mysqli, $sqlDelete);
+
+            mysqli_stmt_bind_param($stmtDelete, "s", $modulo);
+            mysqli_stmt_execute($stmtDelete);
+
             // ==========================
             // GENERAR NOMBRE ÚNICO
             // ==========================
