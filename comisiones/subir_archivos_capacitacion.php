@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label class="form-label">Módulo</label>
                     <select name="modulo" class="form-select form-select-sm" required>
                         <option value="">Seleccione</option>
-                        <option value="seguimiento">Seguimiento</option>
+                        <option value="segmentacion">Segmentacion</option>
                         <option value="proyectos">Proyectos</option>
                         <option value="pasosventa">Pasos de la venta</option>
                     </select>
