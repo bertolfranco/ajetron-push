@@ -85,6 +85,13 @@ foreach ($fila as $value) {
             'document' => $value['valor'],
             'caption' => $value['etiqueta']
         ];
+    } elseif ($value['tipo'] == 'video') {
+        $datos = [
+            'chat_id' => $value['idtelegram'],
+            //'chat_id' => 538709214,
+            'video' => $value['valor'],
+            'caption' => $value['etiqueta']
+        ];
     } else {
         print_r("no cumple con tipo");
         break;
@@ -112,6 +119,15 @@ foreach ($fila as $value) {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     } elseif ($value['tipo'] == 'documento') {
         curl_setopt($ch, CURLOPT_URL, "https://api.telegram.org/bot" . $token . "/sendDocument");
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:multipart/form-data']);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    } elseif ($value['tipo'] == 'video') {
+        curl_setopt($ch, CURLOPT_URL, "https://api.telegram.org/bot" . $token . "/sendVideo");
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, TRUE);
