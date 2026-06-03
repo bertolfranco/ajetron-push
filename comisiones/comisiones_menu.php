@@ -175,6 +175,17 @@
                         Usuarios
                     </a>
                 </li>
+              <?php if ($paisSession == 'MX'): ?>
+                <li class="nav-item active">
+                    <a <?php if ($active == "fechas") {
+                        echo 'class="nav-link active"';
+                    } else {
+                        echo 'class="nav-link"';
+                    } ?> href="comisiones_fechashabiles.php">
+                        Fechas habiles
+                    </a>
+                </li>
+             <?php endif; ?>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
                 <a href="../cerrarsesion.php" class="btn btn-danger">Cerrar sesión</a>
