@@ -42,11 +42,12 @@ if (isset($_POST['enviar'])) {
                 continue; // Saltar la primera fila
             }
 
-            $q = "INSERT INTO ipp_actual (ruta,objetivo,avance,proycierre) VALUES (
+            $q = "INSERT INTO ipp_actual (ruta,objetivo,avance,proycierre,pais) VALUES (
             '$data[0]',
             '$data[1]',
             '$data[2]',
-            '$data[3]'
+            '$data[3]',
+            $paisSession
             )";
 
             $mysqli->query($q);
@@ -151,7 +152,7 @@ if (isset($_POST['enviar'])) {
 
 
             <?php
-            $sqlSelect = "SELECT * FROM ipp_actual";
+            $sqlSelect = "SELECT * FROM ipp_actual where pais = '".$paisSession."'";
             $result = mysqli_query($mysqli, $sqlSelect);
 
             if (mysqli_num_rows($result) > 0) {

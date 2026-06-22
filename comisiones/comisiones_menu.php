@@ -148,6 +148,13 @@
                         </a>
                     </li>
                 <?php endif; ?>
+                <?php if ($paisSession == 'PE'): ?>
+                    <li class="nav-item active">
+                        <a <?php if($active == "ipp" ) {echo 'class="nav-link active"'; } else {echo 'class="nav-link"'; } ?> href="comisiones_ipp_actual.php">
+                            Ipp Actual
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <li class="nav-item active">
                     <a <?php if ($active == "historico") {
                         echo 'class="nav-link active"';
