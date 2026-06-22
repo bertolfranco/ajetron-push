@@ -15,7 +15,7 @@ $active = "ipp";
 // conexión
 
 if (isset($_POST["delete"])) {
-    $query = "TRUNCATE TABLE ipp_actual";
+    $query = "DELETE FROM ipp_actual where pais = '".$paisSession."'";
     $resultados = mysqli_query($mysqli, $query);
 
 }
