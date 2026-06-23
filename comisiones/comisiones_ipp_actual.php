@@ -47,7 +47,7 @@ if (isset($_POST['enviar'])) {
             '$data[1]',
             '$data[2]',
             '$data[3]',
-            $paisSession
+            '$paisSession'
             )";
 
             $mysqli->query($q);
